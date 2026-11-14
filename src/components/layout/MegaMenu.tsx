@@ -62,7 +62,7 @@ export default function MegaMenu() {
     document.addEventListener("pointerdown",closeOnOutside);
     return () => { document.removeEventListener("keydown",closeOnEscape);document.removeEventListener("pointerdown",closeOnOutside); };
   }, []);
-  return <nav ref={rootRef} aria-label="Main navigation" className="relative hidden lg:flex lg:items-center">
+  return <nav ref={rootRef} aria-label={t("navLabel")} className="relative hidden lg:flex lg:items-center">
     {sections.map((section,index)=><button type="button" key={section.title} aria-expanded={active===index}
       aria-controls="bsu-mega-panel" onMouseEnter={()=>setActive(index)} onFocus={()=>setActive(index)}
       onClick={()=>setActive(active===index?null:index)}
