@@ -24,7 +24,7 @@ export default function Header() {
     </div></div>
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
-        <Link href="/" onClick={()=>setMobileOpen(false)} className="flex shrink-0 items-center gap-3" aria-label="BSU home">
+        <Link href="/" onClick={()=>setMobileOpen(false)} className="flex shrink-0 items-center gap-3" aria-label={t("uniName")}>
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#102b4e] text-white"><GraduationCap size={27} aria-hidden="true"/></div>
           <div><div className="text-2xl font-extrabold tracking-tight text-[#102b4e]">
   {{
