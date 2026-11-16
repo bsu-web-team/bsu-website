@@ -1,0 +1,191 @@
+/* BSU Portal: active homepage styles only; retired concepts removed. */
+.bsu-modern-home {--bsu-navy:#102b4e;--bsu-ink:#132a45;--bsu-gold:#dfbd7e;--bsu-soft:#f5f7fa;overflow-x:clip}
+.bsu-modern-home .bsu-container{width:min(100% - 40px,1240px);margin-inline:auto}
+.bsu-modern-home .bsu-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:12px;padding:15px 20px;font-size:14px;font-weight:750;transition:transform .22s,background .22s,border-color .22s;max-width:100%;text-align:center}
+.bsu-modern-home .bsu-button:hover{transform:translateY(-3px)}
+.bsu-modern-home .bsu-button:focus-visible,.bsu-modern-home a:focus-visible{outline:3px solid #e4af4c;outline-offset:4px}
+.bsu-modern-home .bsu-button-gold{background:#e2c28a;color:#0b2849}
+.bsu-modern-home .bsu-button-gold:hover{background:#f5d9a4}
+.bsu-modern-home .bsu-section{padding:100px 0}
+.bsu-modern-home .bsu-section-light{background:#f5f7fa}
+.bsu-modern-home .bsu-section-white{background:#fff}
+.bsu-modern-home .bsu-section-heading{max-width:830px;margin-bottom:40px}
+.bsu-modern-home .bsu-kicker{text-transform:uppercase;font-weight:850;color:#af8950;font-size:12px;letter-spacing:.16em}
+.bsu-modern-home .bsu-section-heading h2,.bsu-modern-home .bsu-study-intro h2,.bsu-modern-home .bsu-closing h2{font-size:clamp(29px,3.5vw,49px);letter-spacing:-.042em;line-height:1.18;font-weight:850;color:#102b4e;margin-top:13px;overflow-wrap:anywhere}
+.bsu-modern-home .bsu-section-heading p:not(.bsu-kicker),.bsu-modern-home .bsu-study-intro>p:not(.bsu-kicker){font-size:16px;line-height:1.75;color:#5b6b7c;margin-top:16px;max-width:690px}
+.bsu-modern-home .bsu-heading-between{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;max-width:none}
+.bsu-modern-home .bsu-text-link{display:inline-flex;flex:none;align-items:center;gap:7px;color:#163d70;font-size:14px;font-weight:800;border-bottom:1px solid #d7b474;padding-bottom:7px;max-width:100%}
+.bsu-modern-home .bsu-text-link:hover{color:#956b2c}
+.bsu-modern-home .bsu-quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.bsu-modern-home .bsu-quick-card{background:white;border:1px solid #e5ebf1;border-radius:17px;padding:25px;min-height:210px;display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s,transform .25s}
+.bsu-modern-home .bsu-quick-card:hover{border-color:#c7d3e0;box-shadow:0 18px 34px #0b274b16;transform:translateY(-5px)}
+.bsu-modern-home .bsu-card-top{display:flex;justify-content:space-between;color:#91a1b0;font-size:12px;font-weight:800}
+.bsu-modern-home .bsu-quick-icon{margin-top:23px;color:#183e6b}
+.bsu-modern-home .bsu-quick-card h3{font-size:19px;font-weight:800;margin-top:15px;line-height:1.4;color:#102b4e}
+.bsu-modern-home .bsu-card-line{height:3px;width:45px;border-radius:6px;background:#d6ac67;margin-top:auto;transform-origin:left;transition:width .3s}
+.bsu-modern-home .bsu-quick-card:hover .bsu-card-line{width:75px}
+.bsu-modern-home .bsu-faculty-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.bsu-modern-home .bsu-faculty-card{background:white;border:1px solid #e7eaf0;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:box-shadow .3s,transform .3s}
+.bsu-modern-home .bsu-faculty-card:hover{transform:translateY(-5px);box-shadow:0 17px 32px #122e4a17}
+.bsu-modern-home .bsu-faculty-art{height:155px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(132deg,#d5e5e9,#99b5c1)}
+.bsu-modern-home .bsu-faculty-art:after{content:"";position:absolute;width:260px;height:200px;border:24px solid #ffffff37;border-radius:50%;right:-85px;top:-115px;transform:rotate(-18deg)}
+.bsu-modern-home .bsu-faculty-art-2{background:linear-gradient(130deg,#e8dfc9,#b9bea8)}
+.bsu-modern-home .bsu-faculty-art-3{background:linear-gradient(130deg,#dae0eb,#96acc8)}
+.bsu-modern-home .bsu-faculty-art-4{background:linear-gradient(130deg,#c5d9ce,#94aea7)}
+.bsu-modern-home .bsu-faculty-number{position:absolute;left:17px;top:14px;font-size:12px;font-weight:850;color:#123454a6}
+.bsu-modern-home .bsu-faculty-symbol{display:grid;place-items:center;background:#ffffff9a;width:85px;height:85px;border-radius:20px;color:#214d73;transform:rotate(-6deg);transition:transform .25s}
+.bsu-modern-home .bsu-faculty-card:hover .bsu-faculty-symbol{transform:rotate(0) scale(1.06)}
+.bsu-modern-home .bsu-faculty-info{padding:22px;display:flex;flex-direction:column;flex:1}
+.bsu-modern-home .bsu-faculty-type{color:#9e7941;font-size:11px;font-weight:800;letter-spacing:.055em;line-height:1.5}
+.bsu-modern-home .bsu-faculty-info h3{margin-top:9px;font-size:17px;font-weight:800;line-height:1.4;color:#123453;overflow-wrap:anywhere}
+.bsu-modern-home .bsu-faculty-more{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:25px;font-size:13px;color:#183e6b;font-weight:800}
+.bsu-modern-home .bsu-study-section{background:#102b4e;color:#fff;position:relative;overflow:hidden}
+.bsu-modern-home .bsu-study-section:before{content:"";width:500px;height:500px;border-radius:50%;border:1px solid #ffffff22;position:absolute;left:-220px;top:-260px;box-shadow:0 0 0 80px #ffffff09,0 0 0 160px #ffffff06}
+.bsu-modern-home .bsu-study-inner{display:grid;grid-template-columns:1fr 1fr;gap:95px;align-items:center;position:relative}
+.bsu-modern-home .bsu-study-intro h2,.bsu-modern-home .bsu-closing h2{color:white}
+.bsu-modern-home .bsu-study-intro>p:not(.bsu-kicker){color:#d6e2ed}
+.bsu-modern-home .bsu-study-intro .bsu-button{margin-top:28px}
+.bsu-modern-home .bsu-study-cards{display:grid;gap:12px}
+.bsu-modern-home .bsu-study-card{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid #ffffff40;background:#ffffff12;padding:24px 25px;border-radius:12px;transition:background .25s,transform .25s}
+.bsu-modern-home .bsu-study-card:hover{transform:translateX(6px);background:#ffffff22}
+.bsu-modern-home .bsu-study-card span{display:flex;align-items:center;gap:13px;font-size:17px;font-weight:750}
+.bsu-modern-home .bsu-news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.bsu-modern-home .bsu-news-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid #e6ebf0;background:white;border-radius:17px;transition:transform .3s,box-shadow .3s}
+.bsu-modern-home .bsu-news-card:hover{transform:translateY(-5px);box-shadow:0 20px 42px #0b254a1b}
+.bsu-modern-home .bsu-news-art{height:158px;display:flex;align-items:center;justify-content:center;color:#ffffffb0;position:relative;background:linear-gradient(130deg,#214d77,#5b8199)}
+.bsu-modern-home .bsu-news-art-2{background:linear-gradient(130deg,#345e68,#85a09c)}
+.bsu-modern-home .bsu-news-art-3{background:linear-gradient(130deg,#735d51,#c2a682)}
+.bsu-modern-home .bsu-news-art span{position:absolute;left:20px;bottom:16px;background:#ffffffed;border-radius:6px;padding:7px 10px;font-size:11px;font-weight:800;color:#1d4263;line-height:1.4}
+.bsu-modern-home .bsu-news-body{padding:24px;display:flex;flex-direction:column;flex:1}
+.bsu-modern-home .bsu-news-date{display:flex;gap:8px;align-items:center;font-size:12px;color:#7a8797}
+.bsu-modern-home .bsu-news-body h3{font-size:19px;line-height:1.43;font-weight:800;color:#102b4e;margin-top:15px;overflow-wrap:anywhere}
+.bsu-modern-home .bsu-news-body>p:not(.bsu-news-date){font-size:13px;line-height:1.7;color:#5b6a7b;margin-top:12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bsu-modern-home .bsu-news-arrow{display:flex;margin-top:auto;padding-top:24px;justify-content:flex-end;color:#a27e42}
+.bsu-modern-home .bsu-services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.bsu-modern-home .bsu-service{display:flex;align-items:center;gap:14px;padding:23px 20px;border:1px solid #dee6ee;border-radius:13px;transition:background .2s,transform .2s;color:#123456}
+.bsu-modern-home .bsu-service:hover{background:#f5f8fb;transform:translateY(-3px)}
+.bsu-modern-home .bsu-service span{font-size:14px;font-weight:800;flex:1;overflow-wrap:anywhere}
+.bsu-modern-home .bsu-closing{padding:70px 0;background:linear-gradient(105deg,#133557,#1c4c72)}
+.bsu-modern-home .bsu-closing-inner{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.bsu-modern-home .bsu-closing p:not(.bsu-kicker){color:#d7e7f3;margin-top:14px}
+.bsu-modern-home .bsu-editorial-note{font-size:11px;color:#7a8997;padding-block:13px 23px}
+.bsu-modern-home [data-bsu-reveal]{transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+@media (prefers-reduced-motion:no-preference){.bsu-modern-home .bsu-reveal-ready:not(.bsu-revealed){opacity:0;transform:translateY(24px)}}
+@media (max-width:1100px){.bsu-modern-home .bsu-faculty-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bsu-modern-home .bsu-quick-grid,.bsu-modern-home .bsu-services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bsu-modern-home .bsu-study-inner{gap:35px}}
+@media (max-width:760px){.bsu-modern-home .bsu-container{width:min(100% - 34px,1240px)}
+.bsu-modern-home .bsu-section{padding:70px 0}
+.bsu-modern-home .bsu-heading-between{display:block}
+.bsu-modern-home .bsu-heading-between .bsu-text-link{margin-top:20px}
+.bsu-modern-home .bsu-news-grid{grid-template-columns:1fr}
+.bsu-modern-home .bsu-study-inner{grid-template-columns:1fr;gap:35px}
+.bsu-modern-home .bsu-closing-inner{display:block}
+.bsu-modern-home .bsu-closing-inner .bsu-button{margin-top:25px}}
+@media (max-width:460px){.bsu-modern-home .bsu-quick-grid,.bsu-modern-home .bsu-faculty-grid,.bsu-modern-home .bsu-services-grid{grid-template-columns:1fr}
+.bsu-modern-home .bsu-quick-card{min-height:150px}
+.bsu-modern-home .bsu-hero-actions .bsu-button{width:100%}
+.bsu-modern-home .bsu-section-heading h2{font-size:30px}}
+@media (prefers-reduced-motion:reduce){.bsu-modern-home *, .bsu-modern-home *:before,.bsu-modern-home *:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+.bsu-modern-home [data-bsu-reveal]{opacity:1!important;transform:none!important}}
+.bsu-modern-home .bsu-motion-intro{position:fixed;z-index:1000;inset:0;background:#091b2b;color:#e2bd7b;display:grid;place-content:center;justify-items:center;gap:23px;pointer-events:none;animation:bsu-intro-exit .28s ease .88s both}
+.bsu-modern-home .bsu-motion-intro-mark{height:112px;width:112px;animation:bsu-logo-rise .75s cubic-bezier(.2,.8,.2,1) both}
+.bsu-modern-home .bsu-motion-intro-mark svg{width:100%;height:100%;animation:bsu-orbit 5s linear 1}
+.bsu-modern-home .bsu-motion-intro-type{text-align:center;display:grid;gap:7px;animation:bsu-logo-rise .75s .1s both}
+.bsu-modern-home .bsu-motion-intro-type span{font-weight:850;letter-spacing:.19em;font-size:18px}
+.bsu-modern-home .bsu-motion-intro-type small{font-size:12px;letter-spacing:.07em;color:#c2d0da;max-width:280px;line-height:1.5}
+.bsu-modern-home .bsu-motion-controls button:focus-visible,.bsu-modern-home .bsu-motion-faculty-tools button:focus-visible{outline:3px solid #e2bd7b;outline-offset:3px}
+.bsu-modern-home .bsu-motion-faculty-tools{display:flex;justify-content:flex-end;gap:10px;margin:-15px 0 18px}
+.bsu-modern-home .bsu-motion-faculty-tools button{width:46px;height:46px;border:1px solid #d5e0e9;border-radius:50%;display:grid;place-items:center;color:#102b4e;background:#fff;transition:background .2s,transform .2s}
+.bsu-modern-home .bsu-motion-faculty-tools button:hover{background:#eef3f8;transform:translateY(-2px)}
+.bsu-modern-home .bsu-motion-faculty-rail{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin;scroll-padding-inline:3px;padding-bottom:15px}
+.bsu-modern-home .bsu-motion-faculty-rail .bsu-faculty-card{flex:0 0 calc((100% - 54px)/4);scroll-snap-align:start}
+@keyframes bsu-orbit{to{transform:rotate(360deg)}}
+@keyframes bsu-intro-exit{to{opacity:0;visibility:hidden}}
+@keyframes bsu-logo-rise{from{opacity:0;transform:translateY(18px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:1100px){.bsu-modern-home .bsu-motion-faculty-rail .bsu-faculty-card{flex-basis:calc((100% - 18px)/2)}}
+@media(max-width:640px){.bsu-modern-home .bsu-motion-faculty-rail .bsu-faculty-card{flex-basis:82%}}
+@media(prefers-reduced-motion:reduce){.bsu-modern-home .bsu-motion-intro{display:none!important}
+.bsu-modern-home .bsu-motion-slide-copy,.bsu-modern-home .bsu-motion-dot-fill,.bsu-modern-home .bsu-motion-intro-mark,.bsu-modern-home .bsu-motion-intro-mark svg,.bsu-modern-home .bsu-motion-intro-type{animation:none!important}
+.bsu-modern-home .bsu-motion-faculty-rail{scroll-behavior:auto}
+.bsu-modern-home [data-bsu-reveal]{opacity:1!important;transform:none!important;transition:none!important}}
+@media(max-width:760px){.bsu-modern-home .bsu-hero-actions .bsu-button{width:auto}}
+@media(max-width:460px){.bsu-modern-home .bsu-hero-actions .bsu-button{width:100%}}
+.bsu-modern-home .bsu-portal{position:relative;isolation:isolate;overflow:hidden;background:#0e2949;color:#fff;min-height:min(850px,96svh)}
+.bsu-modern-home .bsu-portal-noise{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 13% 70%,#153d66 0%,transparent 55%),linear-gradient(120deg,#102b4e,#0b1f38);z-index:-1}
+.bsu-modern-home .bsu-portal-topline{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:19px clamp(24px,5vw,85px);border-bottom:1px solid #ffffff26;font-size:10px;letter-spacing:.28em;font-weight:750}
+.bsu-modern-home .bsu-portal-topline i{font-style:normal;color:#e2c28a;margin:0 8px}
+.bsu-modern-home .bsu-portal-stage{position:relative;display:grid;grid-template-columns:43% 57%;min-height:clamp(570px,72svh,790px)}
+.bsu-modern-home .bsu-portal-typography{position:relative;z-index:4;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:50px 0 70px clamp(24px,5vw,85px)}
+.bsu-modern-home .bsu-portal-overline{font-size:clamp(10px,.9vw,13px);letter-spacing:.14em;color:#dae8f4;display:flex;align-items:center;gap:11px}
+.bsu-modern-home .bsu-portal-pulse{width:7px;height:7px;border-radius:50%;background:#e2c28a;box-shadow:0 0 0 6px #e2c28a1f;animation:bsu-portal-breathe 2.7s infinite}
+.bsu-modern-home .bsu-portal-index{font-size:clamp(18px,2.2vw,32px);font-weight:800;color:#e2c28a;margin:30px 0 12px;letter-spacing:-.04em}
+.bsu-modern-home .bsu-portal-index span{font-size:13px;font-weight:500;color:#a2b8cf}
+.bsu-modern-home .bsu-portal-words{width:clamp(320px,51vw,780px);max-width:calc(100vw - 42px);position:relative;z-index:4;animation:bsu-portal-words .9s cubic-bezier(.15,.8,.25,1) both}
+.bsu-modern-home .bsu-portal-words h1{font-size:clamp(49px,6.7vw,104px);line-height:1.02;letter-spacing:-.07em;font-weight:850;text-wrap:balance;text-shadow:0 8px 30px #091a30a6}
+.bsu-modern-home .bsu-portal-words h1 span,.bsu-modern-home .bsu-portal-words h1 strong{display:block}
+.bsu-modern-home .bsu-portal-words h1 strong{color:#e2c28a;font-weight:850}
+.bsu-modern-home .bsu-portal-words p{margin-top:26px;font-size:clamp(14px,1.15vw,17px);max-width:500px;color:#dbe8f4;line-height:1.8;text-shadow:0 2px 12px #0b1f38b3}
+.bsu-modern-home .bsu-portal-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;position:relative;z-index:5}
+.bsu-modern-home .bsu-portal-primary,.bsu-modern-home .bsu-portal-secondary{display:inline-flex;align-items:center;justify-content:space-between;gap:17px;font-size:14px;padding:16px 21px;text-decoration:none;font-weight:750;transition:transform .25s,background .25s;border-radius:2px}
+.bsu-modern-home .bsu-portal-primary{color:#102b4e;background:#e2c28a}
+.bsu-modern-home .bsu-portal-secondary{color:white;border:1px solid #ffffff85;background:#0c274782}
+.bsu-modern-home .bsu-portal-primary:hover,.bsu-modern-home .bsu-portal-secondary:hover{transform:translateY(-3px)}
+.bsu-modern-home .bsu-portal-minitext{display:flex;gap:25px;flex-wrap:wrap;margin-top:50px;font-size:10px;letter-spacing:.2em;color:#c3d0df}
+.bsu-modern-home .bsu-portal-gallery{position:relative;min-height:570px;perspective:1200px}
+.bsu-modern-home .bsu-portal-massive{position:absolute;right:2%;top:0;font-size:clamp(130px,23vw,420px);font-weight:900;line-height:1;letter-spacing:-.12em;color:#ffffff0b;white-space:nowrap;user-select:none}
+.bsu-modern-home .bsu-portal-frame{position:absolute;overflow:hidden;border:1px solid #ffffff38;background:#213a54;box-shadow:0 35px 90px #050e2194}
+.bsu-modern-home .bsu-portal-frame-one{top:8%;left:8%;width:73%;height:76%;clip-path:polygon(18% 0%,100% 0%,100% 82%,82% 100%,0% 100%,0% 18%);transform:rotate(-4deg);animation:bsu-portal-float 9s ease-in-out infinite alternate}
+.bsu-modern-home .bsu-portal-frame-two{top:29%;right:-6%;width:39%;height:63%;clip-path:polygon(0 0,100% 11%,100% 100%,0 90%);transform:rotate(6deg);animation:bsu-portal-float-reverse 11s ease-in-out infinite alternate}
+.bsu-modern-home .bsu-portal-image{position:absolute;inset:0;background-size:cover;opacity:0;transform:scale(1.13);transition:opacity 1.2s ease,transform 6.5s linear;filter:saturate(.9)}
+.bsu-modern-home .bsu-portal-image.is-on{opacity:1;transform:scale(1.015)}
+.bsu-modern-home .bsu-portal-overlay{position:absolute;inset:0;background:linear-gradient(0deg,#0e294985,transparent 55%);pointer-events:none}
+.bsu-modern-home .bsu-portal-frame-tag{position:absolute;bottom:10%;left:13%;font-size:11px;letter-spacing:.22em;font-weight:800;color:#fff}
+.bsu-modern-home .bsu-portal-ring{position:absolute;left:1%;top:5%;width:clamp(80px,11vw,155px);aspect-ratio:1;border:1px solid #e2c28a92;border-radius:50%;display:flex;align-items:center;justify-content:space-around;color:#e2c28a;font-size:13px;letter-spacing:.15em;animation:bsu-portal-spin 24s linear infinite;z-index:2}
+.bsu-modern-home .bsu-portal-ring span:last-child{font-size:26px}
+.bsu-modern-home .bsu-portal-caption{position:absolute;bottom:6%;left:6%;z-index:3;letter-spacing:.18em;font-size:12px;color:#ebd5ab;text-transform:uppercase}
+.bsu-modern-home .bsu-portal-navigator{position:relative;z-index:5;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;border-top:1px solid #ffffff29;padding:10px clamp(24px,5vw,85px);min-height:70px}
+.bsu-modern-home .bsu-portal-arrowset{display:flex;gap:10px}
+.bsu-modern-home .bsu-portal-arrowset button{border:1px solid #ffffff50;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
+.bsu-modern-home .bsu-portal-arrowset button:hover{background:#ffffff20}
+.bsu-modern-home .bsu-portal-dots{display:flex;justify-content:center;align-items:center;gap:8px}
+.bsu-modern-home .bsu-portal-dot{width:45px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.bsu-modern-home .bsu-portal-dot>span{display:block;width:6px;height:6px;border-radius:20px;background:#8ca0b6;overflow:hidden;transition:width .25s,height .25s}
+.bsu-modern-home .bsu-portal-dot.is-active>span{width:32px;height:4px;background:#ffffff40}
+.bsu-modern-home .bsu-portal-dot i{display:block;height:100%;width:100%;background:#e2c28a;transform-origin:left;animation:bsu-portal-progress var(--bsu-slide-duration,6500ms) linear forwards}
+.bsu-modern-home .bsu-portal-navigator-label{display:flex;justify-content:flex-end;align-items:center;gap:8px;font-size:10px;letter-spacing:.16em;color:#b4c7d9}
+@keyframes bsu-portal-float{to{transform:translateY(-13px) rotate(-2deg)}}
+@keyframes bsu-portal-float-reverse{to{transform:translateY(16px) rotate(4deg)}}
+@keyframes bsu-portal-spin{to{transform:rotate(360deg)}}
+@keyframes bsu-portal-words{from{opacity:0;transform:translateY(40px);filter:blur(9px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes bsu-portal-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes bsu-portal-breathe{50%{box-shadow:0 0 0 12px #e2c28a12}}
+@media(max-width:900px){.bsu-modern-home .bsu-portal-stage{grid-template-columns:1fr;min-height:auto}
+.bsu-modern-home .bsu-portal-typography{padding:65px 25px 30px}
+.bsu-modern-home .bsu-portal-words{width:100%;max-width:650px}
+.bsu-modern-home .bsu-portal-words h1{font-size:clamp(44px,9vw,72px)}
+.bsu-modern-home .bsu-portal-gallery{min-height:480px}
+.bsu-modern-home .bsu-portal-frame-one{left:13%;top:2%;height:84%;width:64%}
+.bsu-modern-home .bsu-portal-frame-two{right:3%;top:25%;height:65%;width:39%}
+.bsu-modern-home .bsu-portal-caption{bottom:3%}
+.bsu-modern-home .bsu-portal-massive{top:0;right:8%}}
+@media(max-width:520px){.bsu-modern-home .bsu-portal-topline span:last-child,.bsu-modern-home .bsu-portal-navigator-label{display:none}
+.bsu-modern-home .bsu-portal-typography{padding:50px 21px 22px}
+.bsu-modern-home .bsu-portal-words h1{font-size:clamp(38px,10vw,53px)}
+.bsu-modern-home .bsu-portal-words p{font-size:14px}
+.bsu-modern-home .bsu-portal-index{margin-top:22px}
+.bsu-modern-home .bsu-portal-links{margin-top:26px}
+.bsu-modern-home .bsu-portal-primary,.bsu-modern-home .bsu-portal-secondary{font-size:12px;padding:13px 13px}
+.bsu-modern-home .bsu-portal-gallery{min-height:350px}
+.bsu-modern-home .bsu-portal-frame-one{width:76%;left:7%;height:85%}
+.bsu-modern-home .bsu-portal-frame-two{width:35%;right:-3%;top:31%;height:58%}
+.bsu-modern-home .bsu-portal-ring{top:1%;left:1%}
+.bsu-modern-home .bsu-portal-navigator{grid-template-columns:1fr 1fr 1fr}
+.bsu-modern-home .bsu-portal-dots{justify-content:center}}
+@media(prefers-reduced-motion:reduce){.bsu-modern-home .bsu-portal *{animation:none!important;transition:none!important}
+.bsu-modern-home .bsu-portal-image.is-on{transform:none}}
+
+.bsu-modern-home .bsu-portal[data-paused="true"] .bsu-portal-dot i{animation-play-state:paused}
+.bsu-modern-home .bsu-portal button:focus-visible{outline:3px solid #e2bd7b;outline-offset:3px}
+
+@media(max-width:520px){.bsu-modern-home .bsu-portal-navigator{grid-template-columns:repeat(3,minmax(0,1fr))}.bsu-modern-home .bsu-portal-arrowset{gap:2px}.bsu-modern-home .bsu-portal-arrowset button{width:25px;height:38px}.bsu-modern-home .bsu-portal-dots{gap:2px}.bsu-modern-home .bsu-portal-dot{width:28px;flex-shrink:0}}
