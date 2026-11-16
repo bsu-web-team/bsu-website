@@ -10,6 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function AdminPage() {
+  if (process.env.NODE_ENV !== "development") {
+    return <main className="mx-auto max-w-3xl px-5 py-20"><h1 className="text-2xl font-bold">БГУ · BSU · БМУ · 比什凯克国立大学</h1><p className="mt-4">Панель управления недоступна. / Башкаруу панели жеткиликсиз. / Administration is unavailable. / 管理面板暂不可用。</p></main>;
+  }
   return (
     <AdminWorkspace
       seedFaculties={faculties.map((f) => ({ id: f.slug, title: f.name, subtitle: f.category, source: f.sourceUrl }))}

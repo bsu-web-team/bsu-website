@@ -5,6 +5,8 @@ import { dictionaries, isLocale, type Locale, type TranslationKey } from "@/lib/
 
 const storageKey = "bsu-ui-locale";
 const changeEvent = "bsu-locale-change";
+let memoryLocale: Locale = "ru";
+let storageUnavailable = false;
 function subscribe(callback: () => void) {
   window.addEventListener("storage", callback);
   window.addEventListener(changeEvent, callback);
@@ -14,11 +16,13 @@ function subscribe(callback: () => void) {
   };
 }
 function getSnapshot(): Locale {
+  if (storageUnavailable) return memoryLocale;
   try {
     const saved = window.localStorage.getItem(storageKey);
-    return isLocale(saved) ? saved : "ru";
+    if (isLocale(saved)) memoryLocale = saved;
+    return memoryLocale;
   } catch {
-    return "ru";
+    return memoryLocale;
   }
 }
 function getServerSnapshot(): Locale { return "ru"; }
@@ -35,7 +39,8 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   useEffect(() => { document.documentElement.lang = locale; }, [locale]);
   const setLocale = (next: Locale) => {
     if (typeof window === "undefined") return;
-    try { window.localStorage.setItem(storageKey, next); } catch { /* private browser mode */ }
+    memoryLocale = next;
+    try { window.localStorage.setItem(storageKey, next); } catch { storageUnavailable = true; }
     document.documentElement.lang = next;
     window.dispatchEvent(new Event(changeEvent));
   };
