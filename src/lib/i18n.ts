@@ -3,6 +3,8 @@ export const locales = ["ru", "ky", "en", "zh-CN"] as const;
 export type Locale = (typeof locales)[number];
 export const dictionaries = {
   "ru": {
+    continuingEducation: "Дополнительное образование",
+    scienceBusiness: "Наука для бизнеса",
     uniName: "Бишкекский государственный университет",
     uniBy: "имени академика Кусеина Карасаева",
     aboutNav: "Университет",
@@ -106,6 +108,8 @@ export const dictionaries = {
     footerDev: "Разработка нового официального сайта",
   },
   "ky": {
+    continuingEducation: "Кошумча билим берүү",
+    scienceBusiness: "Бизнес үчүн илим",
     uniName: "Бишкек мамлекеттик университети",
     uniBy: "академик Кусейин Карасаев атындагы",
     aboutNav: "Университет",
@@ -209,6 +213,8 @@ export const dictionaries = {
     footerDev: "Жаңы расмий сайтты иштеп чыгуу",
   },
   "en": {
+    continuingEducation: "Continuing education",
+    scienceBusiness: "Research for business",
     uniName: "Bishkek State University",
     uniBy: "named after Academician Kusein Karasaev",
     aboutNav: "University",
@@ -312,6 +318,8 @@ export const dictionaries = {
     footerDev: "New official website in development",
   },
   "zh-CN": {
+    continuingEducation: "继续教育",
+    scienceBusiness: "面向企业的科研",
     uniName: "比什凯克国立大学",
     uniBy: "以库赛因·卡拉萨耶夫院士命名",
     aboutNav: "大学概况",

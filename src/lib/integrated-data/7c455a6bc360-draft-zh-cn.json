@@ -1,0 +1,27 @@
+{
+  "title": "计划财务部",
+  "lang": "zh-CN",
+  "blocks": [
+    {
+      "kind": "heading",
+      "text": "计划财务部",
+      "links": []
+    },
+    {
+      "kind": "text",
+      "text": "计划财务部是负责大学经济规划工作的组织部门。",
+      "links": []
+    },
+    {
+      "kind": "heading",
+      "text": "会计部门",
+      "links": []
+    },
+    {
+      "kind": "text",
+      "text": "会计与报告部门的主要职责：依法进行会计核算，提供完整、可靠的财务报表，并分析和监督大学的财务及经营活动。",
+      "links": []
+    }
+  ],
+  "variants": []
+}

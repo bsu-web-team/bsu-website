@@ -1,0 +1,58 @@
+{
+  "planned": 90,
+  "missing": [],
+  "navPatched": [
+    "/about/academic-council",
+    "/about/administration",
+    "/faculties",
+    "/departments",
+    "/programs",
+    "/academic-calendar",
+    "/schedule",
+    "/continuing-education",
+    "/science/business",
+    "/international",
+    "/student-life",
+    "/dormitories",
+    "/library",
+    "/news",
+    "/services",
+    "/search"
+  ],
+  "navAlreadyPresent": [],
+  "skipped": [
+    "/about (no safe main/Header anchor)",
+    "/about/history (no safe main/Header anchor)",
+    "/about/mission (no safe main/Header anchor)",
+    "/about/leadership (no safe main/Header anchor)",
+    "/staff (no safe main/Header anchor)",
+    "/admissions (no safe main/Header anchor)",
+    "/admissions/rules (no safe main/Header anchor)",
+    "/admissions/documents (no safe main/Header anchor)",
+    "/admissions/tuition (no safe main/Header anchor)",
+    "/admissions/international (no safe main/Header anchor)",
+    "/admissions/faq (no safe main/Header anchor)",
+    "/science (no safe main/Header anchor)",
+    "/documents (no safe main/Header anchor)",
+    "/contacts (no safe main/Header anchor)"
+  ],
+  "facultyTabs": [
+    "/faculties/[slug]/details",
+    "/faculties/[slug]/departments",
+    "/faculties/[slug]/programs",
+    "/faculties/[slug]/staff",
+    "/faculties/[slug]/documents",
+    "/faculties/[slug]/news"
+  ],
+  "newMotionLayouts": [
+    "education",
+    "college",
+    "site-map"
+  ],
+  "facultyFullMoved": true,
+  "compactPreview": true,
+  "longIntegratedArticles": true,
+  "longFacultyDetails": true,
+  "changed": 37,
+  "backup": "C:\\Users\\Байэл Рыскельдиев\\Projects\\bsu-frontend-design-backups\\interior-1794909515143"
+}

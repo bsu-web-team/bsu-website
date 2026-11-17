@@ -1,0 +1,14 @@
+{
+  "mode": "--preview",
+  "planned": 90,
+  "missing": [],
+  "changed": [
+    "src/components/layout/Header.tsx",
+    "src/components/layout/MegaMenu.tsx",
+    "src/components/layout/Footer.tsx",
+    "src/components/interior/InteriorNav.tsx",
+    "src/app/bsu-navigation.css",
+    "src/app/layout.tsx"
+  ],
+  "backup": "C:\\Users\\Байэл Рыскельдиев\\Projects\\bsu-frontend-design-backups/navigation-v2-1794910097102"
+}

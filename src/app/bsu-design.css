@@ -1,0 +1,21 @@
+/* BSU Portal interior design. Scoped to public pages explicitly opted in. */
+.bsu-interior{--bsu-navy:#102b4e;--bsu-gold:#dfbd7e;--bsu-ink:#132a45;--bsu-paper:#f5f7fa;background:var(--bsu-paper);color:var(--bsu-ink)}
+.bsu-interior>main{min-width:0;overflow:clip}
+.bsu-interior .bsu-page-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(112deg,#102b4e 0%,#102b4e 58%,#193d63 100%);padding-block:clamp(3rem,7vw,6.5rem);border-bottom:3px solid var(--bsu-gold)}
+.bsu-page-hero::before{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:repeating-radial-gradient(circle at 89% 50%,transparent 0 39px,rgba(223,189,126,.23) 40px 41px,transparent 42px 57px);mask-image:linear-gradient(90deg,transparent 42%,#000 100%)}
+.bsu-page-hero::after{content:"";position:absolute;z-index:-1;right:-6%;top:50%;width:min(43vw,540px);aspect-ratio:1;pointer-events:none;border:1px solid rgba(223,189,126,.55);transform:translateY(-50%) rotate(45deg)}
+.bsu-page-hero>div{position:relative;z-index:1}
+.bsu-page-hero h1{font-size:clamp(2rem,5.3vw,4.25rem);line-height:1.08;letter-spacing:-.035em;max-width:21ch;text-wrap:balance;overflow-wrap:anywhere}
+.bsu-page-hero nav,.bsu-page-hero p{max-width:68ch;overflow-wrap:anywhere}
+.bsu-page-hero nav{margin-bottom:clamp(1.5rem,4vw,3rem)}
+.bsu-interior .bsu-page-body{padding-block:clamp(2rem,5vw,4.5rem)}
+.bsu-page-body :is(section,article,aside>div){scroll-margin-top:7rem}
+.bsu-page-body :is(section,article)[class*="bg-white"]{border-radius:1rem;border:1px solid #e0e6ec;box-shadow:0 2px 12px rgba(16,43,78,.035)}
+.bsu-page-body :is(a,button,input,select):focus-visible,.bsu-page-hero a:focus-visible{outline:3px solid #a87d34;outline-offset:3px}
+.bsu-page-hero a:focus-visible{outline-color:var(--bsu-gold)}
+.bsu-page-body h2{letter-spacing:-.018em;overflow-wrap:anywhere}
+.bsu-page-body :is(a,section,article){min-width:0;overflow-wrap:break-word}
+@media (prefers-reduced-motion:no-preference){.bsu-page-hero>div{animation:bsu-interior-enter .36s ease-out both}.bsu-page-body a[class*="bg-white"]{transition:transform .18s ease,border-color .18s ease}.bsu-page-body a[class*="bg-white"]:hover{transform:translateY(-2px);border-color:#a8bbce}}
+@keyframes bsu-interior-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.bsu-page-hero::before{opacity:.38;mask-image:linear-gradient(90deg,transparent 35%,#000 100%)}.bsu-page-hero::after{opacity:.35}.bsu-page-hero h1{letter-spacing:-.025em}.bsu-page-body{overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){.bsu-interior *, .bsu-interior *::before,.bsu-interior *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

@@ -1,0 +1,27 @@
+{
+  "title": "Planning and Finance Department",
+  "lang": "en",
+  "blocks": [
+    {
+      "kind": "heading",
+      "text": "Planning and Finance Department",
+      "links": []
+    },
+    {
+      "kind": "text",
+      "text": "The Planning and Finance Department is a structural unit responsible for economic planning of university operations.",
+      "links": []
+    },
+    {
+      "kind": "heading",
+      "text": "Accounting",
+      "links": []
+    },
+    {
+      "kind": "text",
+      "text": "The main duties of the accounting and reporting department are to maintain accounts in accordance with legislation, provide complete and reliable financial statements, and analyse and monitor the university’s financial and economic activities.",
+      "links": []
+    }
+  ],
+  "variants": []
+}
