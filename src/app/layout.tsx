@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Noto_Sans, Geist_Mono } from "next/font/google";
 import { LocaleProvider } from "@/components/i18n/LocaleProvider";
 import "./globals.css";
+import "./bsu-public.css";
+import "./bsu-motion.css";
+import "./bsu-design.css";
+
+import "./bsu-interior.css";
+import "./bsu-navigation.css";
 
 // Covers the Kyrgyz letters ң, ө, ү in both regular and bold text.
 const notoSans = Noto_Sans({

@@ -1,0 +1,34 @@
+/* BSU Portal — public inner pages. One stylesheet, no client runtime. */
+.bsu-public{--bsu-navy:#102b4e;--bsu-gold:#dfbd7e;--bsu-paper:#f5f7fa;--bsu-ink:#132a45;min-height:100vh;min-width:0;background:var(--bsu-paper);color:var(--bsu-ink)}
+.bsu-public > :is(div,main){background-color:var(--bsu-paper);min-width:0}
+.bsu-public main{min-width:0;color:var(--bsu-ink)}
+/* The existing localized header and breadcrumb content stays intact. */
+.bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],[class*="bg-[#0f294"],.bsu-page-hero){position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(115deg,#102b4e 0%,#102b4e 56%,#21486e 100%);padding-block:clamp(3.5rem,8vw,7rem);color:white;border-bottom:4px solid var(--bsu-gold)}
+.bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],[class*="bg-[#0f294"],.bsu-page-hero)::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:repeating-radial-gradient(circle at 88% 47%,transparent 0 38px,rgba(223,189,126,.23) 39px 40px,transparent 41px 58px);mask-image:linear-gradient(90deg,transparent 40%,black)}
+.bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],[class*="bg-[#0f294"],.bsu-page-hero)::after{content:"";position:absolute;z-index:-1;right:-3%;top:50%;width:min(40vw,510px);aspect-ratio:1;border:1px solid rgba(223,189,126,.48);transform:translateY(-50%) rotate(45deg);pointer-events:none}
+.bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],[class*="bg-[#0f294"],.bsu-page-hero)>div{position:relative;z-index:1}
+.bsu-public main h1{font-size:clamp(2rem,5.4vw,4.4rem);font-weight:800;line-height:1.08;letter-spacing:-.035em;overflow-wrap:anywhere;text-wrap:balance}
+.bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],[class*="bg-[#0f294"],.bsu-page-hero) h1{max-width:23ch;color:white}
+.bsu-public main h2{letter-spacing:-.025em;line-height:1.22;overflow-wrap:anywhere}
+.bsu-public main h3{letter-spacing:-.012em;overflow-wrap:anywhere}
+.bsu-public main :is(section,article,aside,div,a){min-width:0}
+.bsu-public main :is(article,section,a,aside>div,aside>section)[class*="bg-white"][class*="rounded"]{border:1px solid #dce4ed;border-radius:1rem;box-shadow:0 2px 12px #102b4e08}
+.bsu-public main :is(article,section)[class*="bg-white"][class*="rounded"]>h2{padding-left:.85rem;border-left:3px solid #bc9858}
+.bsu-public main :is(input,select,textarea){max-width:100%;border-radius:.7rem}
+.bsu-public main :is(a,button,input,select,textarea):focus-visible,.bsu-public :is(header,footer) :is(a,button):focus-visible{outline:3px solid #b78d47;outline-offset:3px}
+.bsu-public main img{max-width:100%;height:auto}
+.bsu-public main :is(section,article){scroll-margin-top:7rem}
+/* Shared site chrome, restricted to existing public header and footer. */
+.bsu-public header.sticky{border-bottom-color:#dbe3ec;box-shadow:0 4px 20px #102b4e09}
+.bsu-public footer{border-top:3px solid var(--bsu-gold)}
+/* Search has a form in its first section, not a dark hero. Keep form contrast. */
+.bsu-public-search main>section:first-child{padding-block:clamp(2.5rem,6vw,5rem)}
+.bsu-public-search main h1{border-left:4px solid #bc9858;padding-left:1rem}
+@media(prefers-reduced-motion:no-preference){
+ .bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],.bsu-page-hero)>div{animation:bsu-public-enter .32s ease-out both}
+ .bsu-public main a[class*="bg-white"][class*="rounded"]{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+ @media(hover:hover){.bsu-public main a[class*="bg-white"][class*="rounded"]:hover{transform:translateY(-2px);border-color:#a5b7ca;box-shadow:0 8px 22px #102b4e0c}}
+}
+@keyframes bsu-public-enter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],.bsu-page-hero)::before,.bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],.bsu-page-hero)::after{opacity:.35}.bsu-public main h1{letter-spacing:-.025em}.bsu-public main :is(p,h2,h3,a){overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){.bsu-public main *,.bsu-public main *::before,.bsu-public main *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

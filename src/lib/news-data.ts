@@ -1,6 +1,6 @@
 /** Temporary editorial snapshot from bsu.kg; replace with CMS API. */
 export type NewsCategory = "Новости" | "Наука" | "Международное сотрудничество" | "Мероприятия";
-export type NewsRecord = { slug: string; title: string; date: string; category: NewsCategory; excerpt: string; sourceUrl: string; imageUrl?: string; content?: string[]; };
+export type NewsRecord = { slug: string; title: string; date: string; category: NewsCategory; excerpt: string; sourceUrl: string; imageUrl?: string; content?: string[]; facultySlug?: string; departmentSlug?: string; tags?: string[]; };
 const sourceUrl = "https://bsu.kg/ru/bhu-news/";
 export const newsRecords: NewsRecord[] = [
   { slug: "phd-defense-economics-2026", title: "Защита диссертаций PhD по направлению «Экономика»", date: "2026-10-23", category: "Наука", excerpt: "БГУ опубликовал анонс защит диссертаций докторантов по направлению 580100 «Экономика», назначенных на 25–26 ноября 2026 года.", sourceUrl },

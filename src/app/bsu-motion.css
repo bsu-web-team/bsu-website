@@ -1,0 +1,43 @@
+/* BSU Motion 4 — independent items; no persistent hidden content or compositor layers. */
+@media (prefers-reduced-motion: no-preference) {
+  /* The earlier design system animated the entire hero container at once. */
+  .bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],.bsu-page-hero)>div { animation:none; }
+  .bsu-public main [data-bsu-motion-kind].bsu-motion-in {
+    animation: bsu-v4-cell .68s cubic-bezier(.2,.7,.2,1) var(--bsu-motion-delay,0ms) backwards;
+  }
+  .bsu-public main [data-bsu-motion-kind="heading"].bsu-motion-in {
+    animation-name:bsu-v4-heading; animation-duration:.72s;
+  }
+  .bsu-public main [data-bsu-motion-kind="text"].bsu-motion-in {
+    animation-name:bsu-v4-text; animation-duration:.6s;
+  }
+  .bsu-public main [data-bsu-motion-kind="row"].bsu-motion-in {
+    animation-name:bsu-v4-text; animation-duration:.5s;
+  }
+  .bsu-public main [data-bsu-motion-kind].bsu-motion-in:focus-within { animation:none; }
+  .bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],.bsu-page-hero)::after {
+    animation:bsu-v4-orbit .95s cubic-bezier(.2,.7,.2,1) backwards;
+  }
+  @media (max-width:640px) {
+    .bsu-public main [data-bsu-motion-kind="cell"].bsu-motion-in { animation-name:bsu-v4-heading; }
+  }
+}
+@keyframes bsu-v4-cell {
+  from { opacity:.12; translate:var(--bsu-motion-x,0px) 30px; scale:.975; }
+  to { opacity:1; translate:0 0; scale:1; }
+}
+@keyframes bsu-v4-heading {
+  from { opacity:.12; translate:0 26px; }
+  to { opacity:1; translate:0 0; }
+}
+@keyframes bsu-v4-text {
+  from { opacity:.25; translate:0 16px; }
+  to { opacity:1; translate:0 0; }
+}
+@keyframes bsu-v4-orbit {
+  from { opacity:0; rotate:-28deg; }
+  to { opacity:1; rotate:0deg; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .bsu-public main [data-bsu-motion-kind].bsu-motion-in {animation:none!important;}
+}

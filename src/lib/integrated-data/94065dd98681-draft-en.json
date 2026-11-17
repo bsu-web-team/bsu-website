@@ -1,0 +1,32 @@
+{
+  "title": "University mission",
+  "lang": "en",
+  "blocks": [
+    {
+      "kind": "heading",
+      "text": "University mission",
+      "links": []
+    },
+    {
+      "kind": "text",
+      "text": "To train specialists with humanities and socio-economic education who meet the national interests of the country and are competitive in the modern labour market.",
+      "links": []
+    },
+    {
+      "kind": "text",
+      "text": "BSU principles: • Dynamic development • International recognition • Flexibility • Accessibility • Labour-market relevance",
+      "links": []
+    },
+    {
+      "kind": "text",
+      "text": "BSU priorities: • Improving educational quality • Modernising secondary and higher education programmes • Introducing modern educational technologies • Strengthening research • Developing academic mobility for faculty and students • Integration into the global educational space",
+      "links": []
+    },
+    {
+      "kind": "text",
+      "text": "Reapproved by the Academic Council, minutes No. 3 of 1 December 2023.",
+      "links": []
+    }
+  ],
+  "variants": []
+}

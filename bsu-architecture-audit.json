@@ -1,0 +1,4637 @@
+{
+  "planned": 90,
+  "existing": 31,
+  "scaffold": 0,
+  "missing": 59,
+  "missingRoutes": [
+    "/about/rector",
+    "/about/structure",
+    "/about/administration/hr",
+    "/about/administration/finance",
+    "/about/administration/academic-office",
+    "/about/administration/quality-careers",
+    "/about/administration/culture",
+    "/about/quality-council",
+    "/about/alumni",
+    "/about/vacancies",
+    "/education",
+    "/education/bachelor",
+    "/education/master",
+    "/education/phd",
+    "/education/curricula",
+    "/education/electives",
+    "/education/methodical-council",
+    "/continuing-education/courses",
+    "/continuing-education/apply",
+    "/admissions/apply",
+    "/college",
+    "/college/administration",
+    "/college/programs",
+    "/college/admissions",
+    "/science/research",
+    "/science/conferences",
+    "/science/publications",
+    "/science/dissertation-councils",
+    "/science/research-office",
+    "/science/young-researchers",
+    "/science/student-research",
+    "/science/journals",
+    "/science/journals/vestnik",
+    "/science/journals/izvestia",
+    "/science/journals/problems",
+    "/science/antiplagiarism",
+    "/international/office",
+    "/international/partners",
+    "/international/mobility",
+    "/international/grants",
+    "/international/projects",
+    "/international/centers",
+    "/international/education-center",
+    "/international/language-courses",
+    "/international/visa",
+    "/international/honorary-professors",
+    "/student-life/clubs",
+    "/student-life/careers",
+    "/library/books",
+    "/library/resources",
+    "/news/events",
+    "/news/announcements",
+    "/documents/accreditation",
+    "/documents/licenses",
+    "/documents/regulations",
+    "/documents/national",
+    "/services/avn",
+    "/services/support",
+    "/site-map"
+  ],
+  "localTemplates": [
+    {
+      "route": "/about/academic-council",
+      "file": "src/app/about/academic-council/page.tsx"
+    },
+    {
+      "route": "/about/administration",
+      "file": "src/app/about/administration/page.tsx"
+    },
+    {
+      "route": "/about/content",
+      "file": "src/app/about/content/page.tsx"
+    },
+    {
+      "route": "/about/content/[id]",
+      "file": "src/app/about/content/[id]/page.tsx"
+    },
+    {
+      "route": "/about/history",
+      "file": "src/app/about/history/page.tsx"
+    },
+    {
+      "route": "/about/leadership",
+      "file": "src/app/about/leadership/page.tsx"
+    },
+    {
+      "route": "/about/mission",
+      "file": "src/app/about/mission/page.tsx"
+    },
+    {
+      "route": "/about",
+      "file": "src/app/about/page.tsx"
+    },
+    {
+      "route": "/academic-calendar/content",
+      "file": "src/app/academic-calendar/content/page.tsx"
+    },
+    {
+      "route": "/academic-calendar/content/[id]",
+      "file": "src/app/academic-calendar/content/[id]/page.tsx"
+    },
+    {
+      "route": "/academic-calendar",
+      "file": "src/app/academic-calendar/page.tsx"
+    },
+    {
+      "route": "/admin",
+      "file": "src/app/admin/page.tsx"
+    },
+    {
+      "route": "/admissions/content",
+      "file": "src/app/admissions/content/page.tsx"
+    },
+    {
+      "route": "/admissions/content/[id]",
+      "file": "src/app/admissions/content/[id]/page.tsx"
+    },
+    {
+      "route": "/admissions/documents",
+      "file": "src/app/admissions/documents/page.tsx"
+    },
+    {
+      "route": "/admissions/faq",
+      "file": "src/app/admissions/faq/page.tsx"
+    },
+    {
+      "route": "/admissions/international",
+      "file": "src/app/admissions/international/page.tsx"
+    },
+    {
+      "route": "/admissions",
+      "file": "src/app/admissions/page.tsx"
+    },
+    {
+      "route": "/admissions/rules",
+      "file": "src/app/admissions/rules/page.tsx"
+    },
+    {
+      "route": "/admissions/tuition",
+      "file": "src/app/admissions/tuition/page.tsx"
+    },
+    {
+      "route": "/archive/catalog/[page]",
+      "file": "src/app/archive/catalog/[page]/page.tsx"
+    },
+    {
+      "route": "/archive",
+      "file": "src/app/archive/page.tsx"
+    },
+    {
+      "route": "/archive/[id]",
+      "file": "src/app/archive/[id]/page.tsx"
+    },
+    {
+      "route": "/contacts/content",
+      "file": "src/app/contacts/content/page.tsx"
+    },
+    {
+      "route": "/contacts/content/[id]",
+      "file": "src/app/contacts/content/[id]/page.tsx"
+    },
+    {
+      "route": "/contacts",
+      "file": "src/app/contacts/page.tsx"
+    },
+    {
+      "route": "/continuing-education/content",
+      "file": "src/app/continuing-education/content/page.tsx"
+    },
+    {
+      "route": "/continuing-education/content/[id]",
+      "file": "src/app/continuing-education/content/[id]/page.tsx"
+    },
+    {
+      "route": "/continuing-education",
+      "file": "src/app/continuing-education/page.tsx"
+    },
+    {
+      "route": "/departments",
+      "file": "src/app/departments/page.tsx"
+    },
+    {
+      "route": "/departments/[slug]",
+      "file": "src/app/departments/[slug]/page.tsx"
+    },
+    {
+      "route": "/documents/content",
+      "file": "src/app/documents/content/page.tsx"
+    },
+    {
+      "route": "/documents/content/[id]",
+      "file": "src/app/documents/content/[id]/page.tsx"
+    },
+    {
+      "route": "/documents",
+      "file": "src/app/documents/page.tsx"
+    },
+    {
+      "route": "/documents/[slug]",
+      "file": "src/app/documents/[slug]/page.tsx"
+    },
+    {
+      "route": "/dormitories/content",
+      "file": "src/app/dormitories/content/page.tsx"
+    },
+    {
+      "route": "/dormitories/content/[id]",
+      "file": "src/app/dormitories/content/[id]/page.tsx"
+    },
+    {
+      "route": "/dormitories",
+      "file": "src/app/dormitories/page.tsx"
+    },
+    {
+      "route": "/faculties/content",
+      "file": "src/app/faculties/content/page.tsx"
+    },
+    {
+      "route": "/faculties/content/[id]",
+      "file": "src/app/faculties/content/[id]/page.tsx"
+    },
+    {
+      "route": "/faculties",
+      "file": "src/app/faculties/page.tsx"
+    },
+    {
+      "route": "/faculties/[slug]",
+      "file": "src/app/faculties/[slug]/page.tsx"
+    },
+    {
+      "route": "/international/content",
+      "file": "src/app/international/content/page.tsx"
+    },
+    {
+      "route": "/international/content/[id]",
+      "file": "src/app/international/content/[id]/page.tsx"
+    },
+    {
+      "route": "/international",
+      "file": "src/app/international/page.tsx"
+    },
+    {
+      "route": "/library/content",
+      "file": "src/app/library/content/page.tsx"
+    },
+    {
+      "route": "/library/content/[id]",
+      "file": "src/app/library/content/[id]/page.tsx"
+    },
+    {
+      "route": "/library",
+      "file": "src/app/library/page.tsx"
+    },
+    {
+      "route": "/materials/administracija-universiteta-5dd4bdeb5b",
+      "file": "src/app/materials/administracija-universiteta-5dd4bdeb5b/page.tsx"
+    },
+    {
+      "route": "/materials/fakultet-evropejskih-civilizacij-1d901d1af6",
+      "file": "src/app/materials/fakultet-evropejskih-civilizacij-1d901d1af6/page.tsx"
+    },
+    {
+      "route": "/materials/fakultet-jekologii-i-menedzhmenta-92ef33673b",
+      "file": "src/app/materials/fakultet-jekologii-i-menedzhmenta-92ef33673b/page.tsx"
+    },
+    {
+      "route": "/materials/fakultet-jekonomiki-i-finansov-7d6fe1f140",
+      "file": "src/app/materials/fakultet-jekonomiki-i-finansov-7d6fe1f140/page.tsx"
+    },
+    {
+      "route": "/materials/fakultet-pedagogicheskogo-obrazovanija-a6ec7ed84b",
+      "file": "src/app/materials/fakultet-pedagogicheskogo-obrazovanija-a6ec7ed84b/page.tsx"
+    },
+    {
+      "route": "/materials/fakultet-russkoj-filologii-02223f0aae",
+      "file": "src/app/materials/fakultet-russkoj-filologii-02223f0aae/page.tsx"
+    },
+    {
+      "route": "/materials/fakultet-vostokovedenija-i-mezhdunarodnyh-otnoshenij-8efa55bb1c",
+      "file": "src/app/materials/fakultet-vostokovedenija-i-mezhdunarodnyh-otnoshenij-8efa55bb1c/page.tsx"
+    },
+    {
+      "route": "/materials/fakultet-zhurnalistiki-i-informacionnyh-sistem-372dc71b14",
+      "file": "src/app/materials/fakultet-zhurnalistiki-i-informacionnyh-sistem-372dc71b14/page.tsx"
+    },
+    {
+      "route": "/materials/indo-institut-nepreryvnogo-i-distancionnogo-obrazovanija-0b8720617e",
+      "file": "src/app/materials/indo-institut-nepreryvnogo-i-distancionnogo-obrazovanija-0b8720617e/page.tsx"
+    },
+    {
+      "route": "/materials/kyrgyz-filologijasy-fakulteti-0d8eaf8f71",
+      "file": "src/app/materials/kyrgyz-filologijasy-fakulteti-0d8eaf8f71/page.tsx"
+    },
+    {
+      "route": "/materials/kyrgyzsko-kitajskij-fakultet-14de556b13",
+      "file": "src/app/materials/kyrgyzsko-kitajskij-fakultet-14de556b13/page.tsx"
+    },
+    {
+      "route": "/materials/napravlenija-fpo-5cc2efb10d",
+      "file": "src/app/materials/napravlenija-fpo-5cc2efb10d/page.tsx"
+    },
+    {
+      "route": "/materials/otdel-kachestva-karery-68360e6e5d",
+      "file": "src/app/materials/otdel-kachestva-karery-68360e6e5d/page.tsx"
+    },
+    {
+      "route": "/materials/otdel-kadrov-8086171b75",
+      "file": "src/app/materials/otdel-kadrov-8086171b75/page.tsx"
+    },
+    {
+      "route": "/materials/otdel-kultury-aa0d6dc4ce",
+      "file": "src/app/materials/otdel-kultury-aa0d6dc4ce/page.tsx"
+    },
+    {
+      "route": "/materials/otdel-mezhdunarodnyh-svjazej-90a40dbaef",
+      "file": "src/app/materials/otdel-mezhdunarodnyh-svjazej-90a40dbaef/page.tsx"
+    },
+    {
+      "route": "/materials/otdel-nauki-aspirantury-i-doktorantury-54446042ec",
+      "file": "src/app/materials/otdel-nauki-aspirantury-i-doktorantury-54446042ec/page.tsx"
+    },
+    {
+      "route": "/materials",
+      "file": "src/app/materials/page.tsx"
+    },
+    {
+      "route": "/materials/planovo-finansovyj-otdel-db01c9e4f0",
+      "file": "src/app/materials/planovo-finansovyj-otdel-db01c9e4f0/page.tsx"
+    },
+    {
+      "route": "/materials/polozhenie-ob-uchebnom-otdele-187f74641c",
+      "file": "src/app/materials/polozhenie-ob-uchebnom-otdele-187f74641c/page.tsx"
+    },
+    {
+      "route": "/materials/redakcionno-izdatelskij-otdel-3fce99bcba",
+      "file": "src/app/materials/redakcionno-izdatelskij-otdel-3fce99bcba/page.tsx"
+    },
+    {
+      "route": "/materials/socialno-psihologicheskij-fakultet-2712ecd75b",
+      "file": "src/app/materials/socialno-psihologicheskij-fakultet-2712ecd75b/page.tsx"
+    },
+    {
+      "route": "/materials/sovet-po-kachestvu-bgu-im-k-karasaeva-06f9d9ab55",
+      "file": "src/app/materials/sovet-po-kachestvu-bgu-im-k-karasaeva-06f9d9ab55/page.tsx"
+    },
+    {
+      "route": "/materials/uchebno-metodicheskij-sovet-e53f446783",
+      "file": "src/app/materials/uchebno-metodicheskij-sovet-e53f446783/page.tsx"
+    },
+    {
+      "route": "/materials/uchebnyj-otdel-54654e246a",
+      "file": "src/app/materials/uchebnyj-otdel-54654e246a/page.tsx"
+    },
+    {
+      "route": "/news/content/list/[page]",
+      "file": "src/app/news/content/list/[page]/page.tsx"
+    },
+    {
+      "route": "/news/content",
+      "file": "src/app/news/content/page.tsx"
+    },
+    {
+      "route": "/news/content/[id]",
+      "file": "src/app/news/content/[id]/page.tsx"
+    },
+    {
+      "route": "/news",
+      "file": "src/app/news/page.tsx"
+    },
+    {
+      "route": "/news/[slug]",
+      "file": "src/app/news/[slug]/page.tsx"
+    },
+    {
+      "route": "/",
+      "file": "src/app/page.tsx"
+    },
+    {
+      "route": "/programs/content",
+      "file": "src/app/programs/content/page.tsx"
+    },
+    {
+      "route": "/programs/content/[id]",
+      "file": "src/app/programs/content/[id]/page.tsx"
+    },
+    {
+      "route": "/programs",
+      "file": "src/app/programs/page.tsx"
+    },
+    {
+      "route": "/programs/[slug]",
+      "file": "src/app/programs/[slug]/page.tsx"
+    },
+    {
+      "route": "/schedule",
+      "file": "src/app/schedule/page.tsx"
+    },
+    {
+      "route": "/science/business",
+      "file": "src/app/science/business/page.tsx"
+    },
+    {
+      "route": "/science/content",
+      "file": "src/app/science/content/page.tsx"
+    },
+    {
+      "route": "/science/content/[id]",
+      "file": "src/app/science/content/[id]/page.tsx"
+    },
+    {
+      "route": "/science",
+      "file": "src/app/science/page.tsx"
+    },
+    {
+      "route": "/science/[slug]",
+      "file": "src/app/science/[slug]/page.tsx"
+    },
+    {
+      "route": "/search",
+      "file": "src/app/search/page.tsx"
+    },
+    {
+      "route": "/services/content",
+      "file": "src/app/services/content/page.tsx"
+    },
+    {
+      "route": "/services/content/[id]",
+      "file": "src/app/services/content/[id]/page.tsx"
+    },
+    {
+      "route": "/services",
+      "file": "src/app/services/page.tsx"
+    },
+    {
+      "route": "/staff",
+      "file": "src/app/staff/page.tsx"
+    },
+    {
+      "route": "/staff/[slug]",
+      "file": "src/app/staff/[slug]/page.tsx"
+    },
+    {
+      "route": "/student-life/content",
+      "file": "src/app/student-life/content/page.tsx"
+    },
+    {
+      "route": "/student-life/content/[id]",
+      "file": "src/app/student-life/content/[id]/page.tsx"
+    },
+    {
+      "route": "/student-life",
+      "file": "src/app/student-life/page.tsx"
+    }
+  ],
+  "materials": [
+    {
+      "id": "8a5edab28263",
+      "sourcePath": "/",
+      "section": "about",
+      "route": "/about/content/8a5edab28263",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f4f27b5a17a1",
+      "sourcePath": "/13-maja-2025-goda-bgu-im-k-karasaeva-posetili-predstaviteli-toefl-v-centralnoj-azii",
+      "section": "news",
+      "route": "/news/content/f4f27b5a17a1",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4a7945d1774b",
+      "sourcePath": "/13-maja-2025-goda-bgu-im-k-karasaeva-posetili-predstaviteli-toefl-v-centralnoj-azii-2",
+      "section": "news",
+      "route": "/news/content/4a7945d1774b",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "5d1c2c1dbedf",
+      "sourcePath": "/19-20-maja-t-g-bgu-im-k-karasaeva-uspeshno-proshel-akkreditaciju-vneshnej-jekspertnoj-komissiej-akkreditacionnogo-agentstva-bilim-standart",
+      "section": "news",
+      "route": "/news/content/5d1c2c1dbedf",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ec8c03389a2c",
+      "sourcePath": "/20-avgusta-2025-goda-nachalnik-mezhdunarodnogo-otdela-bashkirskogo-gosudarstvennogo-pedagogicheskogo-universiteta-im-m-akmully-posetila-bgu-im-k-karasaeva",
+      "section": "news",
+      "route": "/news/content/ec8c03389a2c",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4d05a0c607a0",
+      "sourcePath": "/20-maja-2026-goda-proveden-kruglyj-stol",
+      "section": "news",
+      "route": "/news/content/4d05a0c607a0",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "23e8a4a9a611",
+      "sourcePath": "/2026-zhyldyn-16-aprelinde-k-karasaev-atyndagy-bmunun-kyrgyz-filologijasy-fakultetinin-zhalpy-studentteri-arasynda-bilim-tajmash-attuu-intellektualdyk-konkurs-bolup-tt",
+      "section": "news",
+      "route": "/news/content/23e8a4a9a611",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "3be70ca779d5",
+      "sourcePath": "/21-22-oktjabrja-2026-goda-v-bgu-im-k-karasaeva-3-korpus-na-kafedre-jekonomicheskih-programm-i-upravlenija-sostoitsja-predvaritelnaja-zashhita-dissertacij-v-10-00-v-auditorii-408",
+      "section": "news",
+      "route": "/news/content/3be70ca779d5",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "39208a999b98",
+      "sourcePath": "/21-kylymdyn-b-t-r-ch-s-n-kt-sht-k-mamilelerdin-uchuru-zhana-kelechegi",
+      "section": "news",
+      "route": "/news/content/39208a999b98",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ca850af0897e",
+      "sourcePath": "/25-26-nojabrja-2026-goda-v-bgu-im-k-karasaeva-instituta-jekonomiki-finansov-i-biznes-upravlenija-na-kafedre-jekonomicheskih-programm-i-upravlenija-sostoitsja-zashhita-dissertacij-phd-doktorantov-po-n",
+      "section": "news",
+      "route": "/news/content/ca850af0897e",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0b312f4c598d",
+      "sourcePath": "/25-maja-2026-goda-v-bishkekskom-gosudarstvennom-universitete-imeni-akademika-kuseina-karasaeva-nachalo-svoju-rabotu-masshtabnoe-mezhdunarodnoe-sobytie-kyrgyzsko-rossijskij-nauchnyj-forum-nasha-obshhaj",
+      "section": "news",
+      "route": "/news/content/0b312f4c598d",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d31e70b16598",
+      "sourcePath": "/26-27-28-avgusta-2026-goda-v-bgu-im-k-karasaeva-na-kafedre-jekonomicheskih-programm-i-upravlenija-sostoitsja-obshhestvennoe-obsuzhdenie-dissertacij-na-soiskanie-uchenoj-stepeni-doktora-filosofii-phd",
+      "section": "news",
+      "route": "/news/content/d31e70b16598",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "01a74b6b6825",
+      "sourcePath": "/4328-2",
+      "section": "news",
+      "route": "/news/content/01a74b6b6825",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c3346c4c6050",
+      "sourcePath": "/4331-2",
+      "section": "news",
+      "route": "/news/content/c3346c4c6050",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "53008e34162c",
+      "sourcePath": "/4333-2",
+      "section": "news",
+      "route": "/news/content/53008e34162c",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f4ff39684fc4",
+      "sourcePath": "/4336-2",
+      "section": "news",
+      "route": "/news/content/f4ff39684fc4",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d47beea78535",
+      "sourcePath": "/4340-2",
+      "section": "news",
+      "route": "/news/content/d47beea78535",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4a26f4373839",
+      "sourcePath": "/4343-2",
+      "section": "news",
+      "route": "/news/content/4a26f4373839",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b5a5e298ac2e",
+      "sourcePath": "/4351-2",
+      "section": "news",
+      "route": "/news/content/b5a5e298ac2e",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "bf72b6099333",
+      "sourcePath": "/4353-2",
+      "section": "news",
+      "route": "/news/content/bf72b6099333",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "e3afd088bd65",
+      "sourcePath": "/4355-2",
+      "section": "news",
+      "route": "/news/content/e3afd088bd65",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "aa75b20b00ef",
+      "sourcePath": "/4357-2",
+      "section": "news",
+      "route": "/news/content/aa75b20b00ef",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "52dc7f738b60",
+      "sourcePath": "/4359-2",
+      "section": "services",
+      "route": "/services/content/52dc7f738b60",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "2467003fd551",
+      "sourcePath": "/4362-2",
+      "section": "services",
+      "route": "/services/content/2467003fd551",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b4563534ea01",
+      "sourcePath": "/4366-2",
+      "section": "services",
+      "route": "/services/content/b4563534ea01",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "236b9ec88a4a",
+      "sourcePath": "/4369-2",
+      "section": "news",
+      "route": "/news/content/236b9ec88a4a",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "de1450960663",
+      "sourcePath": "/4372-2",
+      "section": "services",
+      "route": "/services/content/de1450960663",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0c75084eb9d1",
+      "sourcePath": "/4376-2",
+      "section": "services",
+      "route": "/services/content/0c75084eb9d1",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "178f24512430",
+      "sourcePath": "/4611-2",
+      "section": "services",
+      "route": "/services/content/178f24512430",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c001138fc7f0",
+      "sourcePath": "/abiturientam",
+      "section": "admissions",
+      "route": "/admissions/content/c001138fc7f0",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "fb25d93e00cb",
+      "sourcePath": "/abiturientam-kolledzha",
+      "section": "admissions",
+      "route": "/admissions/content/fb25d93e00cb",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c6959aca2448",
+      "sourcePath": "/about-bsu",
+      "section": "about",
+      "route": "/about/content/c6959aca2448",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "921a7c1434df",
+      "sourcePath": "/administracija-kolledzha",
+      "section": "admissions",
+      "route": "/admissions/content/921a7c1434df",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "e51bfd001417",
+      "sourcePath": "/administracija-universiteta",
+      "section": "about",
+      "route": "/about/content/e51bfd001417",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "dd21bfc5c622",
+      "sourcePath": "/akademicheskaja-mobilnost",
+      "section": "international",
+      "route": "/international/content/dd21bfc5c622",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b95e9ee609fe",
+      "sourcePath": "/akademik-k-karasaev-atyndagy-bishkek-mamlekettik-universitetinde-ak-kalpak-kyrgyz-murasy-attuu-forum-bolup-tt",
+      "section": "news",
+      "route": "/news/content/b95e9ee609fe",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ebd79f491d1a",
+      "sourcePath": "/akkreditacija/sertifikaty",
+      "section": "documents",
+      "route": "/documents/content/ebd79f491d1a",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "afc75c7bc091",
+      "sourcePath": "/antiplagiat-bgu",
+      "section": "science",
+      "route": "/science/content/afc75c7bc091",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "485245b27ae2",
+      "sourcePath": "/arhiv-izvestija-bgu",
+      "section": "science",
+      "route": "/science/content/485245b27ae2",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "202c986ba0cd",
+      "sourcePath": "/arhiv-vestnika-bgu",
+      "section": "science",
+      "route": "/science/content/202c986ba0cd",
+      "languages": [
+        "ru",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ed850bacbcb0",
+      "sourcePath": "/associacija-vypusknikov",
+      "section": "student-life",
+      "route": "/student-life/content/ed850bacbcb0",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "5ef5b73d357e",
+      "sourcePath": "/b-g-n-bishkek-mamlekettik-universitetinin-negizdelgenine-46-zhyl",
+      "section": "news",
+      "route": "/news/content/5ef5b73d357e",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "84d333af41ad",
+      "sourcePath": "/bgu-i-sinczjanskij-universitet-ukrepljajut-strategicheskoe-partnerstvo",
+      "section": "news",
+      "route": "/news/content/84d333af41ad",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "37e78ba6370f",
+      "sourcePath": "/bgu-im-k-karasaeva-i-moskovskij-gosudarstvennyj-psihologo-pedagogicheskij-universitet-podpisali-memorandum-o-sotrudnichestve",
+      "section": "news",
+      "route": "/news/content/37e78ba6370f",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "5fb15efdaf1b",
+      "sourcePath": "/bgu-im-k-karasaeva-podpisal-soglashenie-o-sozdanii-kitajskogo-knizhnogo-centra-i-centra-po-izucheniju-kitajskoj-modernizacii",
+      "section": "news",
+      "route": "/news/content/5fb15efdaf1b",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f8f8b61ddc1e",
+      "sourcePath": "/bgu-imeni-k-karasaeva-i-universitet-atyrau-imeni-h-dosmuhametova-ukrepljajut-sotrudnichestvo",
+      "section": "news",
+      "route": "/news/content/f8f8b61ddc1e",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c43aa83d8081",
+      "sourcePath": "/bgu-imeni-k-karasaeva-na-mezhdunarodnoj-ploshhadke-programmy-gpe-kix-po-obrazovatelnoj-politike-i-issledovatelskim-dannym",
+      "section": "news",
+      "route": "/news/content/c43aa83d8081",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "609d14f023eb",
+      "sourcePath": "/bgu-izuchaet-opyt-cifrovizacii-obrazovanija-v-kitae",
+      "section": "news",
+      "route": "/news/content/609d14f023eb",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "9ca59bf34487",
+      "sourcePath": "/bhu-news",
+      "section": "news",
+      "route": "/news/content/9ca59bf34487",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "46d340083e70",
+      "sourcePath": "/bhu-news/page/10",
+      "section": "news",
+      "route": "/news/content/46d340083e70",
+      "languages": [
+        "ru"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "bf70a03b5337",
+      "sourcePath": "/bhu-news/page/11",
+      "section": "news",
+      "route": "/news/content/bf70a03b5337",
+      "languages": [
+        "ru"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "3a024492dcc0",
+      "sourcePath": "/bhu-news/page/2",
+      "section": "news",
+      "route": "/news/content/3a024492dcc0",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4a118a169433",
+      "sourcePath": "/bhu-news/page/3",
+      "section": "news",
+      "route": "/news/content/4a118a169433",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c9bfe7c3c506",
+      "sourcePath": "/bhu-news/page/30",
+      "section": "news",
+      "route": "/news/content/c9bfe7c3c506",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "1bcd7a2e7c33",
+      "sourcePath": "/bhu-news/page/31",
+      "section": "news",
+      "route": "/news/content/1bcd7a2e7c33",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "22637924017f",
+      "sourcePath": "/bhu-news/page/32",
+      "section": "news",
+      "route": "/news/content/22637924017f",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "227b1a226540",
+      "sourcePath": "/bhu-news/page/33",
+      "section": "news",
+      "route": "/news/content/227b1a226540",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f3f7763a321d",
+      "sourcePath": "/bhu-news/page/34",
+      "section": "news",
+      "route": "/news/content/f3f7763a321d",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "7b21480f974a",
+      "sourcePath": "/bhu-news/page/35",
+      "section": "news",
+      "route": "/news/content/7b21480f974a",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "6276d2c6035d",
+      "sourcePath": "/bhu-news/page/36",
+      "section": "news",
+      "route": "/news/content/6276d2c6035d",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "13edfd0f01b8",
+      "sourcePath": "/bhu-news/page/4",
+      "section": "news",
+      "route": "/news/content/13edfd0f01b8",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "9a3e7916b6d2",
+      "sourcePath": "/bhu-news/page/5",
+      "section": "news",
+      "route": "/news/content/9a3e7916b6d2",
+      "languages": [
+        "ru"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4678467b7262",
+      "sourcePath": "/bhu-news/page/6",
+      "section": "news",
+      "route": "/news/content/4678467b7262",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0eee34576eff",
+      "sourcePath": "/bhu-news/page/7",
+      "section": "news",
+      "route": "/news/content/0eee34576eff",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "8ec4a862ba66",
+      "sourcePath": "/bhu-news/page/8",
+      "section": "news",
+      "route": "/news/content/8ec4a862ba66",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "254d867a89a5",
+      "sourcePath": "/bhu-news/page/9",
+      "section": "news",
+      "route": "/news/content/254d867a89a5",
+      "languages": [
+        "ru"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "335bb5eb7cf4",
+      "sourcePath": "/bilim-k-n-n-zhana-zha-y-okuu-zhylynyn-bashtalyshyna-arnalgan-ish-chara-tt",
+      "section": "news",
+      "route": "/news/content/335bb5eb7cf4",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "765bb2a1d40d",
+      "sourcePath": "/bishkek-mamlekettik-universitetinde-jel-aralyk-ilimij-praktikalyk-konferencija-zhana-chygarmachylyk-synak-tk-r-ld",
+      "section": "news",
+      "route": "/news/content/765bb2a1d40d",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "9d13ba8af3f5",
+      "sourcePath": "/bishkek-mamlekettik-universitetine-akshnyn-tynchtyk-korpusunun-k-ld-r-ish-sapary-menen-kelishti",
+      "section": "news",
+      "route": "/news/content/9d13ba8af3f5",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d3b5ffce4560",
+      "sourcePath": "/bishkekskij-gosudarstvennyj-universitet-i-resursnyj-centr-jene-j-podpisali-memorandum-o-sotrudnichestve",
+      "section": "news",
+      "route": "/news/content/d3b5ffce4560",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "e6c4cb3a8bce",
+      "sourcePath": "/bishkekskij-gosudarstvennyj-universitet-imeni-k-karasaeva-osushhestvljaet-nabor-na-2026-2027-uchebnyj-god-v-bazovuju-phd-doktoranturu-po-sledujushhim-nauchno-obrazovatelnym-programmam-specialnostjam",
+      "section": "news",
+      "route": "/news/content/e6c4cb3a8bce",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "af193adc8243",
+      "sourcePath": "/bishkekskij-gosudarstvennyj-universitet-podpisal-memorandum-o-sotrudnichestve-s-assumption-university-bangkok-tailand",
+      "section": "news",
+      "route": "/news/content/af193adc8243",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d33cb70a72c1",
+      "sourcePath": "/bishkekskij-gosudarstvennyj-universitet-podpisal-memorandum-o-sotrudnichestve-s-assumption-university-bangkok-tailand-2",
+      "section": "news",
+      "route": "/news/content/d33cb70a72c1",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "30aec0239830",
+      "sourcePath": "/bishkekskij-gosudarstvennyj-universitet-prinjal-delegaciju-gansujskogo-universiteta-politologii-i-prava",
+      "section": "news",
+      "route": "/news/content/30aec0239830",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f9010b3a0104",
+      "sourcePath": "/bishkekskij-gosudarstvennyj-universitet-voshjol-v-mirovoj-rejting-universitetov-ui-greenmetric-2025",
+      "section": "news",
+      "route": "/news/content/f9010b3a0104",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "599bfc141259",
+      "sourcePath": "/bishkekskij-gosudarstvennyj-universitet-voshjol-v-mirovoj-rejting-universitetov-ui-greenmetric-2025-2",
+      "section": "news",
+      "route": "/news/content/599bfc141259",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "14b1ac650ffb",
+      "sourcePath": "/bmu-menen-sinczjan-universitetinin-ortosunda-kyzmattashtykty-ke-ejt-bojuncha-zholugushuu-tt",
+      "section": "news",
+      "route": "/news/content/14b1ac650ffb",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4551e3b0109b",
+      "sourcePath": "/bmuda-batma-topoeva-stavinskaja-menen-zholugushuu-bolup-tt",
+      "section": "news",
+      "route": "/news/content/4551e3b0109b",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "5168348fb7a6",
+      "sourcePath": "/bmuda-tikanyn-kyrgyzstandagy-koordinatoru-menen-zholugushuu-bolup-tt",
+      "section": "news",
+      "route": "/news/content/5168348fb7a6",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "50dfa2732b08",
+      "sourcePath": "/bmunun-okutuuchuluk-kuramy-spartakiadada-bajgel-orundardy-jejeledi",
+      "section": "news",
+      "route": "/news/content/50dfa2732b08",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b0338b039303",
+      "sourcePath": "/bmunun-rektoru-indijanyn-krdagy-jelchisi-menen-rasmij-zholugushuu-tk-rd",
+      "section": "news",
+      "route": "/news/content/b0338b039303",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d8ba666b1a17",
+      "sourcePath": "/bmunun-rektoru-japonijanyn-kyrgyzstandagy-jelchisi-menen-zholuktu",
+      "section": "news",
+      "route": "/news/content/d8ba666b1a17",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4be114e8a79b",
+      "sourcePath": "/bmunun-studentteri-k-chm-nd-r-murasy-akyl-tajmashynda-bajgel-orundu-jejeleshti",
+      "section": "news",
+      "route": "/news/content/4be114e8a79b",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "db87448f6c2e",
+      "sourcePath": "/category/bez-rubriki",
+      "section": "news",
+      "route": "/news/content/db87448f6c2e",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "23a4d8c4ce61",
+      "sourcePath": "/category/bez-rubriki/page/2",
+      "section": "news",
+      "route": "/news/content/23a4d8c4ce61",
+      "languages": [
+        "ru"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ad80298c1e9e",
+      "sourcePath": "/category/cpf-news",
+      "section": "news",
+      "route": "/news/content/ad80298c1e9e",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b5cb6b0ba824",
+      "sourcePath": "/category/fef-news",
+      "section": "news",
+      "route": "/news/content/b5cb6b0ba824",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "411426c16827",
+      "sourcePath": "/category/fem-news",
+      "section": "news",
+      "route": "/news/content/411426c16827",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "6d13aabbacb3",
+      "sourcePath": "/category/fjis-news",
+      "section": "news",
+      "route": "/news/content/6d13aabbacb3",
+      "languages": [
+        "ru"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f51858d76307",
+      "sourcePath": "/category/fk-news",
+      "section": "news",
+      "route": "/news/content/f51858d76307",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b2cd8d88d262",
+      "sourcePath": "/category/fvmo-news",
+      "section": "news",
+      "route": "/news/content/b2cd8d88d262",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f193cd741b37",
+      "sourcePath": "/category/gostevaja-lekcija",
+      "section": "news",
+      "route": "/news/content/f193cd741b37",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "73b207d96a66",
+      "sourcePath": "/category/kkf-news",
+      "section": "news",
+      "route": "/news/content/73b207d96a66",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "8380ffceb49a",
+      "sourcePath": "/category/konferencii",
+      "section": "news",
+      "route": "/news/content/8380ffceb49a",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "34f937501b31",
+      "sourcePath": "/category/nauka",
+      "section": "news",
+      "route": "/news/content/34f937501b31",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b12da4cf112d",
+      "sourcePath": "/category/nauka/scopus",
+      "section": "news",
+      "route": "/news/content/b12da4cf112d",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0aa6349b5d63",
+      "sourcePath": "/category/novosti",
+      "section": "news",
+      "route": "/news/content/0aa6349b5d63",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "a146f89d20ac",
+      "sourcePath": "/category/novosti-i-sobytija-gdc",
+      "section": "news",
+      "route": "/news/content/a146f89d20ac",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "edbbde1c15b8",
+      "sourcePath": "/category/novosti/page/2",
+      "section": "news",
+      "route": "/news/content/edbbde1c15b8",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "818a2aaf5034",
+      "sourcePath": "/category/novosti/page/26",
+      "section": "news",
+      "route": "/news/content/818a2aaf5034",
+      "languages": [
+        "ru"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b1173b200550",
+      "sourcePath": "/category/novosti/page/27",
+      "section": "news",
+      "route": "/news/content/b1173b200550",
+      "languages": [
+        "ru"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "2229c3313cc1",
+      "sourcePath": "/category/novosti/page/28",
+      "section": "news",
+      "route": "/news/content/2229c3313cc1",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "5c127bd08a54",
+      "sourcePath": "/category/novosti/page/29",
+      "section": "news",
+      "route": "/news/content/5c127bd08a54",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "91fbcea1ad00",
+      "sourcePath": "/category/novosti/page/3",
+      "section": "news",
+      "route": "/news/content/91fbcea1ad00",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "7935538c87dc",
+      "sourcePath": "/category/novosti/page/30",
+      "section": "news",
+      "route": "/news/content/7935538c87dc",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "12b6661ac9bf",
+      "sourcePath": "/category/novosti/page/31",
+      "section": "news",
+      "route": "/news/content/12b6661ac9bf",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b841c0626d78",
+      "sourcePath": "/category/novosti/page/32",
+      "section": "news",
+      "route": "/news/content/b841c0626d78",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b53ff884022a",
+      "sourcePath": "/category/novosti/page/4",
+      "section": "news",
+      "route": "/news/content/b53ff884022a",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "523516eee318",
+      "sourcePath": "/category/novosti/page/5",
+      "section": "news",
+      "route": "/news/content/523516eee318",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "759aced7cd15",
+      "sourcePath": "/category/novosti/page/6",
+      "section": "news",
+      "route": "/news/content/759aced7cd15",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "faec673a0efe",
+      "sourcePath": "/category/novosti/page/7",
+      "section": "news",
+      "route": "/news/content/faec673a0efe",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0bc839ff24ab",
+      "sourcePath": "/category/novosti/page/8",
+      "section": "news",
+      "route": "/news/content/0bc839ff24ab",
+      "languages": [
+        "ru"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ae69672bf349",
+      "sourcePath": "/category/novosti/page/9",
+      "section": "news",
+      "route": "/news/content/ae69672bf349",
+      "languages": [
+        "ru"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "2f3639fe8132",
+      "sourcePath": "/category/novosty-mo",
+      "section": "news",
+      "route": "/news/content/2f3639fe8132",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "81b4f0156bc7",
+      "sourcePath": "/category/novosty-mo/greenkg-erasmus",
+      "section": "news",
+      "route": "/news/content/81b4f0156bc7",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "dccb48d58e1f",
+      "sourcePath": "/category/novosty-mo/greenkg-erasmus/page/2",
+      "section": "news",
+      "route": "/news/content/dccb48d58e1f",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d524794c601b",
+      "sourcePath": "/category/novosty-mo/page/2",
+      "section": "news",
+      "route": "/news/content/d524794c601b",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "26cd85172a21",
+      "sourcePath": "/category/novosty-mo/page/3",
+      "section": "news",
+      "route": "/news/content/26cd85172a21",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "038dc8f29eb9",
+      "sourcePath": "/category/treningi",
+      "section": "news",
+      "route": "/news/content/038dc8f29eb9",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": true,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4eb950636535",
+      "sourcePath": "/contact",
+      "section": "contacts",
+      "route": "/contacts/content/4eb950636535",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c7644aaeeadb",
+      "sourcePath": "/dekan-fakulteta-russkoj-filologii-bgu-prinjala-uchastie-v-forume-zhenshhin-ojes-2025",
+      "section": "news",
+      "route": "/news/content/c7644aaeeadb",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "5135b4a47e4e",
+      "sourcePath": "/dlja-uchitelej-shkol-nachalis-seminary-treningi",
+      "section": "news",
+      "route": "/news/content/5135b4a47e4e",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "29ab29fe2249",
+      "sourcePath": "/dlja-uchitelej-shkol-nachalis-seminary-treningi-2",
+      "section": "news",
+      "route": "/news/content/29ab29fe2249",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d1b6f05725cc",
+      "sourcePath": "/doklad-rektora-bgu",
+      "section": "news",
+      "route": "/news/content/d1b6f05725cc",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "a6ba8a15ea85",
+      "sourcePath": "/doklad-rektora-na-singapure",
+      "section": "news",
+      "route": "/news/content/a6ba8a15ea85",
+      "languages": [
+        "ru",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "44bc81c1e2f8",
+      "sourcePath": "/doktoranty-bgu-prohodjat-nauchnuju-stazhirovku-v-kazahstane",
+      "section": "news",
+      "route": "/news/content/44bc81c1e2f8",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c5959c2c688c",
+      "sourcePath": "/dovuzovskaja-i-jazykovaja-podgotovka-moc",
+      "section": "continuing-education",
+      "route": "/continuing-education/content/c5959c2c688c",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c8ae4cf28f8d",
+      "sourcePath": "/faculty",
+      "section": "faculties",
+      "route": "/faculties/content/c8ae4cf28f8d",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "a5d7ae98de44",
+      "sourcePath": "/fakultet-evropejskih-civilizacij",
+      "section": "faculties",
+      "route": "/faculties/content/a5d7ae98de44",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "35df9b86c70f",
+      "sourcePath": "/fakultet-jekologii-i-menedzhmenta",
+      "section": "faculties",
+      "route": "/faculties/content/35df9b86c70f",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "dde6cb8e9b8e",
+      "sourcePath": "/fakultet-jekonomiki-i-finansov",
+      "section": "faculties",
+      "route": "/faculties/content/dde6cb8e9b8e",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "3fdbb545683b",
+      "sourcePath": "/fakultet-pedagogicheskogo-obrazovanija",
+      "section": "faculties",
+      "route": "/faculties/content/3fdbb545683b",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "dd4dcf7fe137",
+      "sourcePath": "/fakultet-russkoj-filologii",
+      "section": "faculties",
+      "route": "/faculties/content/dd4dcf7fe137",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "efecf1f213cf",
+      "sourcePath": "/fakultet-vostokovedenija-i-mezhdunarodnyh-otnoshenij",
+      "section": "faculties",
+      "route": "/faculties/content/efecf1f213cf",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "fde9cfcf4926",
+      "sourcePath": "/fakultet-zhurnalistiki-i-informacionnyh-sistem",
+      "section": "faculties",
+      "route": "/faculties/content/fde9cfcf4926",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "9e709012cb0b",
+      "sourcePath": "/globalnyj-gornyj-dialog-vo-imja-ustojchivogo-razvitija-put-k-sammitu-bishkek-25",
+      "section": "news",
+      "route": "/news/content/9e709012cb0b",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b68ce1a83b42",
+      "sourcePath": "/grafik-uchebnogo-processa-na-2026-2027-gg",
+      "section": "academic-calendar",
+      "route": "/academic-calendar/content/b68ce1a83b42",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "e2cf89528911",
+      "sourcePath": "/green-deal-centers-gdc",
+      "section": "international",
+      "route": "/international/content/e2cf89528911",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "7b57a39a9f93",
+      "sourcePath": "/greenkg",
+      "section": "international",
+      "route": "/international/content/7b57a39a9f93",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f5dbdf7ec072",
+      "sourcePath": "/greenkgnewpage",
+      "section": "news",
+      "route": "/news/content/f5dbdf7ec072",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "3e203f411a9a",
+      "sourcePath": "/i-mezhdunarodnyj-forum-bibliotechnoe-obrazovanie-v-kontekste-cifrovizacii-proshjol-25-aprelja-2025-goda-v-koncertnom-zale-bgu",
+      "section": "news",
+      "route": "/news/content/3e203f411a9a",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "175d2bdf98d5",
+      "sourcePath": "/indo-institut-nepreryvnogo-i-distancionnogo-obrazovanija",
+      "section": "faculties",
+      "route": "/faculties/content/175d2bdf98d5",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "1ff00064daf4",
+      "sourcePath": "/informacija-dlja-inosrannyh-studentov",
+      "section": "international",
+      "route": "/international/content/1ff00064daf4",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "47820d945f81",
+      "sourcePath": "/jazykovye-kursy",
+      "section": "continuing-education",
+      "route": "/continuing-education/content/47820d945f81",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "be114a51615a",
+      "sourcePath": "/jekologija",
+      "section": "programs",
+      "route": "/programs/content/be114a51615a",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "08c1b820e599",
+      "sourcePath": "/jelektivnaja",
+      "section": "programs",
+      "route": "/programs/content/08c1b820e599",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "82ab635b52fa",
+      "sourcePath": "/jelektivnyj-kurs",
+      "section": "programs",
+      "route": "/programs/content/82ab635b52fa",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "6377107f8230",
+      "sourcePath": "/k-karasaev-atyndagy-bmu-zhana-renessans-universiteti-kyzmattashtyk-tuuraluu-memorandumga-kol-kojushtu",
+      "section": "news",
+      "route": "/news/content/6377107f8230",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "fa39246d6bac",
+      "sourcePath": "/k-karasaev-atyndagy-bmuda-sergej-aleksandrovich-novopashindin-sogushtardyn-tipologijasy-sogushtan-tartyp-diskursivdikke-chejin",
+      "section": "news",
+      "route": "/news/content/fa39246d6bac",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "3784f917e732",
+      "sourcePath": "/kafedra-sociologii-i-politiko-pravovyh-disciplin-prinjala-uchastie-v-nauchnoj-konferencii",
+      "section": "news",
+      "route": "/news/content/3784f917e732",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b167b31470f9",
+      "sourcePath": "/katalog-jelektivnyh-disciplin",
+      "section": "programs",
+      "route": "/programs/content/b167b31470f9",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "47517bdf0699",
+      "sourcePath": "/kitajskij-jazyk-most-druzhby-v-bgu-proshel-24-j-mezhdunarodnyj-konkurs-oratorskogo-iskusstvav",
+      "section": "news",
+      "route": "/news/content/47517bdf0699",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "9e5b228725ec",
+      "sourcePath": "/kolichestvo-inostrannyh-studentov-v-bgu-i-ih-geografija",
+      "section": "news",
+      "route": "/news/content/9e5b228725ec",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "99f81b1ba387",
+      "sourcePath": "/kolledzh-bgu",
+      "section": "admissions",
+      "route": "/admissions/content/99f81b1ba387",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0ff56863c5d0",
+      "sourcePath": "/kontakty-moc",
+      "section": "continuing-education",
+      "route": "/continuing-education/content/0ff56863c5d0",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "717562eb76b4",
+      "sourcePath": "/kyrgyz-filologijasy-fakulteti",
+      "section": "faculties",
+      "route": "/faculties/content/717562eb76b4",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "a10adc1253d0",
+      "sourcePath": "/kyrgyz-filologijasy-fakultetinin-studentteri-kylym-karytkan-uluttuk-dem-tu-guch-agartuuchular-attuu-jel-aralyk-simpoziumga-katyshyshty",
+      "section": "news",
+      "route": "/news/content/a10adc1253d0",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "eab1241af412",
+      "sourcePath": "/kyrgyz-yrlary-chet-lk-l-k-studentterdin-atkaruusunda-attuu-respublikalyk-festival-bolup-tt",
+      "section": "news",
+      "route": "/news/content/eab1241af412",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "64d02cf9b730",
+      "sourcePath": "/kyrgyzsko-kitajskij-fakultet",
+      "section": "faculties",
+      "route": "/faculties/content/64d02cf9b730",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "006fc3858f81",
+      "sourcePath": "/magistranty-i-doktorant-universiteta-segeda-prohodjat-nauchnuju-stazhirovku-v-bgu",
+      "section": "news",
+      "route": "/news/content/006fc3858f81",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f9952ddc3044",
+      "sourcePath": "/meroprijatija-okpk",
+      "section": "student-life",
+      "route": "/student-life/content/f9952ddc3044",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "8dc0183cd6f0",
+      "sourcePath": "/mezhdu-bishkekskim-gosudarstvennym-universitetom-imeni-k-karasaeva-i-nacionalnoj-bibliotekoj-kyrgyzskoj-respubliki-imeni-a-osmonova-podpisan-memorandum-o-sotrudnichestve",
+      "section": "news",
+      "route": "/news/content/8dc0183cd6f0",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "dc1fd727f191",
+      "sourcePath": "/mezhdunarodnye-centry-i-ofisy",
+      "section": "international",
+      "route": "/international/content/dc1fd727f191",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b2cea6ffb6e4",
+      "sourcePath": "/mezhdunarodnye-konferencii",
+      "section": "international",
+      "route": "/international/content/b2cea6ffb6e4",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "95c7400c0ab2",
+      "sourcePath": "/mezhdunarodnye-obrazovatelnye-programmy-i-granty",
+      "section": "international",
+      "route": "/international/content/95c7400c0ab2",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4c8e834c4e64",
+      "sourcePath": "/mezhdunarodnye-partnery",
+      "section": "international",
+      "route": "/international/content/4c8e834c4e64",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0aa8c190be42",
+      "sourcePath": "/mezhdunarodnye-proekty",
+      "section": "international",
+      "route": "/international/content/0aa8c190be42",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "94065dd98681",
+      "sourcePath": "/missija-universiteta",
+      "section": "about",
+      "route": "/about/content/94065dd98681",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "bc4402056d1a",
+      "sourcePath": "/muras-jetnografijalyk-forumu-uluttuk-murastyn-zha-y-demi",
+      "section": "news",
+      "route": "/news/content/bc4402056d1a",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "566f0e5a60cc",
+      "sourcePath": "/napravlenija-fpo",
+      "section": "programs",
+      "route": "/programs/content/566f0e5a60cc",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "af2569600ccd",
+      "sourcePath": "/nasyshhennyj-trening-proshel-v-mediashkole-evrazija-dlja-studentov-po-napravleniju-zhurnalistika",
+      "section": "news",
+      "route": "/news/content/af2569600ccd",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "09a2c11806da",
+      "sourcePath": "/nauchnaja-biblioteka",
+      "section": "library",
+      "route": "/library/content/09a2c11806da",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "79bdc48d0ab1",
+      "sourcePath": "/nauchnaja-dejatelnost",
+      "section": "science",
+      "route": "/science/content/79bdc48d0ab1",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4db09ba19db3",
+      "sourcePath": "/nauchno-issledovatelskie-raboty",
+      "section": "science",
+      "route": "/science/content/4db09ba19db3",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "1fe7e42ec3db",
+      "sourcePath": "/nauchno-issledovatelskie-raboty-studenta",
+      "section": "science",
+      "route": "/science/content/1fe7e42ec3db",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "1c7c4b1a8776",
+      "sourcePath": "/nauchnyj-zhurnal-izvestija-bgu",
+      "section": "science",
+      "route": "/science/content/1c7c4b1a8776",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0f63d4dabbe7",
+      "sourcePath": "/neobhodimye-dokumenty",
+      "section": "admissions",
+      "route": "/admissions/content/0f63d4dabbe7",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "94e95feeca38",
+      "sourcePath": "/normativnye-dokumenty-akkreditacii",
+      "section": "documents",
+      "route": "/documents/content/94e95feeca38",
+      "languages": [
+        "ru",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "fd8dfec7498d",
+      "sourcePath": "/normativnye-dokumenty-kr",
+      "section": "documents",
+      "route": "/documents/content/fd8dfec7498d",
+      "languages": [
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ad64d1fc12d1",
+      "sourcePath": "/normativnye-dokumenty-mo",
+      "section": "documents",
+      "route": "/documents/content/ad64d1fc12d1",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0d4caef536c4",
+      "sourcePath": "/normativnye-dokumenty-okpk",
+      "section": "documents",
+      "route": "/documents/content/0d4caef536c4",
+      "languages": [
+        "ru",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f0f0ecc6ffa3",
+      "sourcePath": "/novosti_iec",
+      "section": "continuing-education",
+      "route": "/continuing-education/content/f0f0ecc6ffa3",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "aef237716008",
+      "sourcePath": "/nurmuhamed-kyzy-datkagul-bishkek-mamlekettik-universitetinin-syjmygy",
+      "section": "news",
+      "route": "/news/content/aef237716008",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d7262159bfdc",
+      "sourcePath": "/objavlenie-o-prieme-zajavok-na-uchastie-v-phd-programme-dlja-mezhdunarodnogo-proekta-solid-2025-2029",
+      "section": "news",
+      "route": "/news/content/d7262159bfdc",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f25a404c4caf",
+      "sourcePath": "/obrashhenie-rektora",
+      "section": "news",
+      "route": "/news/content/f25a404c4caf",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "fa72e54b6cf6",
+      "sourcePath": "/obrazovanie-i-jekonomika-vstrecha-bgu-s-delegaciej-iz-sinczjanskogo-universiteta",
+      "section": "news",
+      "route": "/news/content/fa72e54b6cf6",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "74cfffdb7d55",
+      "sourcePath": "/obshhezhitie-universiteta",
+      "section": "dormitories",
+      "route": "/dormitories/content/74cfffdb7d55",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "21690a3cbe03",
+      "sourcePath": "/obshhie-pravila",
+      "section": "admissions",
+      "route": "/admissions/content/21690a3cbe03",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "52e236609548",
+      "sourcePath": "/obsuzhden-plan-raboty-proekta-u-guzhol-tarbija-kerbeni-na-2026-2027-uchebnyj-god",
+      "section": "news",
+      "route": "/news/content/52e236609548",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "442f3a264b0d",
+      "sourcePath": "/obuchajushhie-kursy-dlja-inostrannyh-grazhdan",
+      "section": "continuing-education",
+      "route": "/continuing-education/content/442f3a264b0d",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d0f8fdb3ebde",
+      "sourcePath": "/oms",
+      "section": "international",
+      "route": "/international/content/d0f8fdb3ebde",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d310be334bf6",
+      "sourcePath": "/onlajn-sessija-s-mezhdunarodnoj-vysshej-shkoloj-mediciny",
+      "section": "news",
+      "route": "/news/content/d310be334bf6",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "cedab2bb4acb",
+      "sourcePath": "/otdel-kadrov",
+      "section": "about",
+      "route": "/about/content/cedab2bb4acb",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ed17a0863eb7",
+      "sourcePath": "/otdel-kultury",
+      "section": "about",
+      "route": "/about/content/ed17a0863eb7",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "85e9aa3b646c",
+      "sourcePath": "/otdel-mezhdunarodnyh-svjazej",
+      "section": "international",
+      "route": "/international/content/85e9aa3b646c",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "06dc38468f64",
+      "sourcePath": "/otdel-nauki-aspirantury-i-doktorantury",
+      "section": "science",
+      "route": "/science/content/06dc38468f64",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "147592753af1",
+      "sourcePath": "/pedagogikalyk-bilim-ber-fakultetinin-okutuuchulary-gorizont-evropa-konferencijasynda",
+      "section": "news",
+      "route": "/news/content/147592753af1",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "9d68626e8bbc",
+      "sourcePath": "/perspektivy-trudoustrojstva-vypusknikov-kafedry-mirovoj-jekonomiki-i-regionovedenija",
+      "section": "news",
+      "route": "/news/content/9d68626e8bbc",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "7c455a6bc360",
+      "sourcePath": "/planovo-finansovyj-otdel",
+      "section": "about",
+      "route": "/about/content/7c455a6bc360",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "2eeed0067ae9",
+      "sourcePath": "/pochjotnye-professora",
+      "section": "international",
+      "route": "/international/content/2eeed0067ae9",
+      "languages": [
+        "ru",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b352f532e4de",
+      "sourcePath": "/pochtenie-pamjati-veteranov-velikoj-otechestvennoj-vojny",
+      "section": "news",
+      "route": "/news/content/b352f532e4de",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c781e8ff8988",
+      "sourcePath": "/podpisan-memorandum-o-sotrudnichestve-mezhdu-bishkekskim-gosudarstvennym-universitetom-im-k-karasaeva-i-associaciej-zhenskogo-futbola-kyrgyzskoj-respubliki",
+      "section": "news",
+      "route": "/news/content/c781e8ff8988",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f9c15de71477",
+      "sourcePath": "/polozhenie-o-centre",
+      "section": "continuing-education",
+      "route": "/continuing-education/content/f9c15de71477",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4c907a045e36",
+      "sourcePath": "/polozhenie-ob-uchebnom-otdele",
+      "section": "about",
+      "route": "/about/content/4c907a045e36",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "325f4851c67f",
+      "sourcePath": "/polozhenija-nauki",
+      "section": "documents",
+      "route": "/documents/content/325f4851c67f",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "81c76ffdec12",
+      "sourcePath": "/praktika",
+      "section": "student-life",
+      "route": "/student-life/content/81c76ffdec12",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "dfa920b68c7c",
+      "sourcePath": "/predstavitel-bgu-jedil-kanatbekov-proshjol-nauchno-obrazovatelnuju-stazhirovku-v-rossijskom-gosudarstvennom-gumanitarnom-universitete",
+      "section": "news",
+      "route": "/news/content/dfa920b68c7c",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d3d9179a534c",
+      "sourcePath": "/predstavitel-bishkekskogo-gosudarstvennogo-universiteta-im-k-karasaeva-kanatbekov-jedil-kanatbekovich-primet-uchastie-v-mezhdunarodnom-proekte-letnij-institut-rggu",
+      "section": "news",
+      "route": "/news/content/d3d9179a534c",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "526796224543",
+      "sourcePath": "/predstaviteli-bgu-im-k-karasaeva-prinjal-uchastie-v-mezhdunarodnoj-konferencii-v-knr",
+      "section": "news",
+      "route": "/news/content/526796224543",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "e21f178719b5",
+      "sourcePath": "/predstaviteli-bgu-im-k-karasaeva-prinjali-uchastie-v-mezhdunarodnoj-konferencii-gdu-v-oshgu",
+      "section": "news",
+      "route": "/news/content/e21f178719b5",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "444a2df6fcdd",
+      "sourcePath": "/predstaviteli-bgu-im-k-karasaeva-prinjali-uchastie-v-mezhdunarodnom-seminare-erasmus-v-germanii",
+      "section": "news",
+      "route": "/news/content/444a2df6fcdd",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "103517d9efe0",
+      "sourcePath": "/predstaviteli-bgu-im-k-karasaeva-prinjali-uchastie-v-mezhdunarodnom-seminare-erasmus-v-germanii-2",
+      "section": "services",
+      "route": "/services/content/103517d9efe0",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "37b14a49b935",
+      "sourcePath": "/predstaviteli-bgu-im-k-karasaeva-prinjali-uchastie-v-mezhdunarodnom-seminare-erasmus-v-germanii-3",
+      "section": "news",
+      "route": "/news/content/37b14a49b935",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "04fe5408542c",
+      "sourcePath": "/predstaviteli-bgu-im-k-karasaeva-prinjali-uchastie-v-prezentacii-izdanija-izvestnye-kitaevedy-kyrgyzstana",
+      "section": "news",
+      "route": "/news/content/04fe5408542c",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "7d808b90ae70",
+      "sourcePath": "/predstaviteli-bgu-obsudili-perspektivy-sotrudnichestva-s-kazahsko-amerikanskim-universitetom",
+      "section": "news",
+      "route": "/news/content/7d808b90ae70",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b3cd32f83ed2",
+      "sourcePath": "/predstaviteli-bgu-prinjali-uchastie-v-iii-centralnoaziatskom-forume-uchitelej-nemeckogo-jazyka",
+      "section": "news",
+      "route": "/news/content/b3cd32f83ed2",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0939d89bf33e",
+      "sourcePath": "/predstaviteli-bgu-prinjali-uchastie-v-itogovoj-mezhdunarodnoj-konferencii-greenkg",
+      "section": "news",
+      "route": "/news/content/0939d89bf33e",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c795030d33bf",
+      "sourcePath": "/predstaviteli-bgu-prinjali-uchastie-v-m",
+      "section": "news",
+      "route": "/news/content/c795030d33bf",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "5d937e8420fa",
+      "sourcePath": "/prepodavatel-bgu-mirgul-koshoeva-prinjala-uchastie-v-iv-mezhdunarodnoj-aziatsko-kitajskoj-konferencii-po-kommunikacijam-v-kitae",
+      "section": "news",
+      "route": "/news/content/5d937e8420fa",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "2427fb3f6a91",
+      "sourcePath": "/prepodavatel-bgu-prinjala-uchastie-v-seminare-goethe-institut-v-germanii",
+      "section": "news",
+      "route": "/news/content/2427fb3f6a91",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d43113b8bb60",
+      "sourcePath": "/prepodavatel-fakulteta-russkoj-filologii-uchastvuet-v-stazhirovke-v-moskve",
+      "section": "news",
+      "route": "/news/content/d43113b8bb60",
+      "languages": [
+        "ru",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "9193f467bb8a",
+      "sourcePath": "/prepodavateli-bgu-im-k-karasaeva-prinjali-uchastie-v-mezhdunarodnoj-letnej-shkole-zhurnalistiki-i-kommunikacij",
+      "section": "news",
+      "route": "/news/content/9193f467bb8a",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "7959e6784ddb",
+      "sourcePath": "/prepodavateli-bgu-imeni-akademika-k-karasaeva-prohodjat-mezhdunarodnuju-professionalnuju-podgotovku",
+      "section": "news",
+      "route": "/news/content/7959e6784ddb",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "96f14c5b23c9",
+      "sourcePath": "/prepodavateli-bgu-prinjali-uchastie-v-letnej-shkole-sankt-peterburgskogo-gosudarstvennogo-universiteta",
+      "section": "news",
+      "route": "/news/content/96f14c5b23c9",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d3bd66047576",
+      "sourcePath": "/prepodavateli-bgu-prinjali-uchastie-v-mezhdunarodnoj-konferencii-posvjashhjonnoj-25-letiju-shos",
+      "section": "news",
+      "route": "/news/content/d3bd66047576",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "28bf0e33fba8",
+      "sourcePath": "/prepodavateli-bgu-prinjali-uchastie-v-treninge-po-demograficheskoj-ustojchivosti",
+      "section": "news",
+      "route": "/news/content/28bf0e33fba8",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "e6071e3c0f88",
+      "sourcePath": "/priglashaem-na-seminar-modeli-zeljonoj-jekonomiki-v-obrazovatelnom-processe-kyrgyzskoj-respubliki-opyt-i-perspektivy",
+      "section": "news",
+      "route": "/news/content/e6071e3c0f88",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "eee39d1850b6",
+      "sourcePath": "/privetstvie-rektora",
+      "section": "about",
+      "route": "/about/content/eee39d1850b6",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c69d15d08c1b",
+      "sourcePath": "/problemy",
+      "section": "science",
+      "route": "/science/content/c69d15d08c1b",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b030fba8dd30",
+      "sourcePath": "/professor-t-i-ishemkulovdun-mamlekettik-koomduk-sajasij-diplomatijalyk-pedagogikalyk-zhana-chygarmachylyk-ishmerd-l-g",
+      "section": "news",
+      "route": "/news/content/b030fba8dd30",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "63d1a32cf171",
+      "sourcePath": "/programmy-akademicheskoj-mobilnosti",
+      "section": "international",
+      "route": "/international/content/63d1a32cf171",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "df87655732bf",
+      "sourcePath": "/proshel-final-vi-vsemirnogo-konkursa-po-oratorskomu-iskusstvu-kitajskij-jazyk-kak-most-druzhby-sredi-shkolnikov",
+      "section": "news",
+      "route": "/news/content/df87655732bf",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "29c53c6f11db",
+      "sourcePath": "/publikacionnaja-aktivnost",
+      "section": "science",
+      "route": "/science/content/29c53c6f11db",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4947f76776d6",
+      "sourcePath": "/razvitie-sotrudnichestva",
+      "section": "international",
+      "route": "/international/content/4947f76776d6",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "bb918df1396b",
+      "sourcePath": "/redakcionno-izdatelskij-otdel",
+      "section": "science",
+      "route": "/science/content/bb918df1396b",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "8e06f99fbdf1",
+      "sourcePath": "/registracija-abiturientov",
+      "section": "admissions",
+      "route": "/admissions/content/8e06f99fbdf1",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "70222bb01800",
+      "sourcePath": "/rektor-bgu-im-akademika-k-karasaeva-mirlan-dyldaev-prinjal-uchastie-v-iii-forume-rektorov-vysshih-uchebnyh-zavedenij-kyrgyzstana-i-uzbekistana",
+      "section": "news",
+      "route": "/news/content/70222bb01800",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "e949b414b643",
+      "sourcePath": "/rektor-bgu-im-k-karasaeva-posetil-kruglyj-stol-pamjati-vydajushhegosja-vengerskogo-issledovatelja-djuly-princa",
+      "section": "news",
+      "route": "/news/content/e949b414b643",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "be5fc7b501e2",
+      "sourcePath": "/rektor-bgu-im-k-karasaeva-provel-vstrechu-s-predstavitelem-dankook-university-juzhnaja-koreja",
+      "section": "news",
+      "route": "/news/content/be5fc7b501e2",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "129e94a91936",
+      "sourcePath": "/rektor-bgu-imeni-k-karasaeva-prinjal-uchastie-v-konferencii-po-sotrudnichestvu-kitaj-centralnaja-azija-i-provjol-vstrechi-v-sinczjanskom-universitete",
+      "section": "news",
+      "route": "/news/content/129e94a91936",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "22ff63a0809c",
+      "sourcePath": "/rektor-bgu-mirlan-dyldaev-obsudil-s-professorom-universiteta-kent-stejt-martoj-merril-napravlenija-razvitija-vysshego-obrazovanija",
+      "section": "news",
+      "route": "/news/content/22ff63a0809c",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f2e20131511c",
+      "sourcePath": "/rektor-bgu-mirlan-dyldaev-prinimaet-uchastie-v-mezhdunarodnoj-nauchnoj-konferencii-civilizacija-kochevnikov-nasledie-paradigmy-i-budushhee",
+      "section": "news",
+      "route": "/news/content/f2e20131511c",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "5d1395138611",
+      "sourcePath": "/rektor-bgu-mirlan-dyldaev-prinjal-pervogo-prorektora-kubgu-temyra-hagurova",
+      "section": "news",
+      "route": "/news/content/5d1395138611",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d511abb43f99",
+      "sourcePath": "/rektor-bgu-prinjal-uchastie-v-mezhdunarodnom-festivale-pedagogicheskih-idej-v-almaty",
+      "section": "news",
+      "route": "/news/content/d511abb43f99",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4e3ded4b090c",
+      "sourcePath": "/rektor-bgu-provjol-vstrechu-so-studentami-napravljajushhimisja-na-obuchenie-v-respubliku-koreja",
+      "section": "news",
+      "route": "/news/content/4e3ded4b090c",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d9327dc89440",
+      "sourcePath": "/rektor-bgu-vstretilsja-s-chlenami-studencheskogo-soveta",
+      "section": "news",
+      "route": "/news/content/d9327dc89440",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "24dec89b3c92",
+      "sourcePath": "/rektor-bgu-vstretilsja-s-doktorom-pedagogicheskih-nauk-kubanskogo-gosudarstvennogo-universiteta-andreem-aleksandrovichem-ostapenko",
+      "section": "news",
+      "route": "/news/content/24dec89b3c92",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b0a84371e701",
+      "sourcePath": "/rektor-bgu-vstretilsja-s-predstaviteljami-assumption-university",
+      "section": "news",
+      "route": "/news/content/b0a84371e701",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "a6f16c911e03",
+      "sourcePath": "/rektor-bishkekskogo-gosudarstvennogo-universiteta-mirlan-dyldaev-prinjal-uchastie-v-iv-mezhdunarodnom-kongresse-geografov-tjurkskogo-mira",
+      "section": "news",
+      "route": "/news/content/a6f16c911e03",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c0e9d0f092f2",
+      "sourcePath": "/rukovodstvo-bishkekskogo-gosudarstvennogo-universiteta-prinjalo-uchastie-v-zasedanii-po-transformacii-pedagogicheskogo-obrazovanija",
+      "section": "news",
+      "route": "/news/content/c0e9d0f092f2",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "161d50c8d8e4",
+      "sourcePath": "/s-1-nojabrja-2025-goda-po-8-aprelja-2026-goda-prohodila-i-respublikanskaja-mezhvuzovskaja-olimpiada-po-statistike-organizovannaja-nacionalnym-statisticheskim-komitetom-kr-v-olimpiade-prinjali-uchasti",
+      "section": "news",
+      "route": "/news/content/161d50c8d8e4",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "725a721bb4cc",
+      "sourcePath": "/segodnja-bishkekskom-gosudarstvennom-universitete-sostojalas-vstrecha-s-vypusknikom-fakulteta-vostokovedenija-i-mezhdunarodnyh-otnoshenij-danijarom-nazaralievym-rektorom-mirlanom-dyldaevym-i-studentam",
+      "section": "news",
+      "route": "/news/content/725a721bb4cc",
+      "languages": [
+        "ru",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "9e7cacf9246b",
+      "sourcePath": "/segodnja-sostojalos-ocherednoe-zasedanie-uchjonogo-soveta-bgu",
+      "section": "news",
+      "route": "/news/content/9e7cacf9246b",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "39cae78b416f",
+      "sourcePath": "/setevye-proekty",
+      "section": "international",
+      "route": "/international/content/39cae78b416f",
+      "languages": [
+        "ru",
+        "ky",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0ecc8a1416c3",
+      "sourcePath": "/shkola-irbis",
+      "section": "student-life",
+      "route": "/student-life/content/0ecc8a1416c3",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "2d6df7db660c",
+      "sourcePath": "/simfonija-golosov-bishkekskij-gosudarstvennyj-universitet-prinimaet-mezhvuzovskij-foneticheskij-konkurs",
+      "section": "news",
+      "route": "/news/content/2d6df7db660c",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "6abff90a1cf9",
+      "sourcePath": "/socialno-psihologicheskij-fakultet",
+      "section": "faculties",
+      "route": "/faculties/content/6abff90a1cf9",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "01dc72d3f641",
+      "sourcePath": "/sovet-molodyh-uchenyh",
+      "section": "science",
+      "route": "/science/content/01dc72d3f641",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c2e869419168",
+      "sourcePath": "/sovet-po-kachestvu-bgu-im-k-karasaeva",
+      "section": "about",
+      "route": "/about/content/c2e869419168",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "add339a9c753",
+      "sourcePath": "/specialnosti",
+      "section": "programs",
+      "route": "/programs/content/add339a9c753",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ad69111c8d38",
+      "sourcePath": "/struktura-bgu/otdel-kachestva-karery",
+      "section": "about",
+      "route": "/about/content/ad69111c8d38",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "834ea9bd28a7",
+      "sourcePath": "/student-bgu-kadyrbekov-bekbol-stal-pobeditelem-mezhdunarodnogo-konkursa-luchshij-student-sng",
+      "section": "news",
+      "route": "/news/content/834ea9bd28a7",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "3ac7afa62e0f",
+      "sourcePath": "/studentka-bgu-proshla-obuchenie-v-universitete-kipra-v-ramkah-akademicheskoj-mobilnosti",
+      "section": "news",
+      "route": "/news/content/3ac7afa62e0f",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "5a5b568e2d51",
+      "sourcePath": "/studenty-bashkirskogo-gosudarstvennogo-pedagogicheskogo-universiteta-prohodjat-obrazovatelnuju-stazhirovku-v-bgu",
+      "section": "news",
+      "route": "/news/content/5a5b568e2d51",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "3f11d70f2add",
+      "sourcePath": "/studenty-bgu-dostojno-predstavili-kyrgyzstan-na-28-m-centralnoaziatskom-konkurse-oratorskogo-iskusstva-na-japonskom-jazyke",
+      "section": "news",
+      "route": "/news/content/3f11d70f2add",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "2b28e9125ed2",
+      "sourcePath": "/studenty-bgu-im-k-karasaeva-prinjali-uchastie-v-proekte-terralab-suuluu-terek",
+      "section": "news",
+      "route": "/news/content/2b28e9125ed2",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f5113b826782",
+      "sourcePath": "/studenty-bgu-im-k-karasaeva-zanjali-ii-mesto-na-mezhvuzovskoj-olimpiade-po-psihologii",
+      "section": "news",
+      "route": "/news/content/f5113b826782",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "7d274c53d2c5",
+      "sourcePath": "/studenty-bgu-napravljajutsja-na-obuchenie-v-kazahskij-nacionalnyj-zhenskij-pedagogicheskij-universitet",
+      "section": "news",
+      "route": "/news/content/7d274c53d2c5",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4d14f89f423e",
+      "sourcePath": "/studenty-bgu-napravljajutsja-v-vysshie-uchebnye-zavedenija-turcii-dlja-obuchenija-v-ramkah-akademicheskoj-mobilnosti",
+      "section": "news",
+      "route": "/news/content/4d14f89f423e",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "a072baa0b29f",
+      "sourcePath": "/studenty-bgu-otpravjatsja-na-akademicheskoe-obuchenie-v-universitety-kazahstana-i-rossii",
+      "section": "news",
+      "route": "/news/content/a072baa0b29f",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f134600332b1",
+      "sourcePath": "/studenty-bgu-pobediteli-jekologicheskogo-festivalja-snezhnyj-bars-jekofest-2026",
+      "section": "news",
+      "route": "/news/content/f134600332b1",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "281739493f49",
+      "sourcePath": "/studenty-bgu-poluchili-mezhdunarodnye-sertifikaty-po-itogam-uchastija-v-jekstrabiliti-igrah-2026",
+      "section": "news",
+      "route": "/news/content/281739493f49",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "cd2e801104ac",
+      "sourcePath": "/studenty-bgu-prinimajut-uchastie-v-mezhdunarodnoj-programme-letnij-universitet",
+      "section": "news",
+      "route": "/news/content/cd2e801104ac",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4a78435d3f0c",
+      "sourcePath": "/studenty-bgu-zanjali-prizovoe-mesto-na-mezhvuzovskoj-olimpiade-po-psihologii",
+      "section": "news",
+      "route": "/news/content/4a78435d3f0c",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "38cd4e2bdd08",
+      "sourcePath": "/studenty-sinczjanskogo-universiteta-prohodjat-letnjuju-shkolu-v-bgu-im-k-karasaeva",
+      "section": "news",
+      "route": "/news/content/38cd4e2bdd08",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "6b3f38440d01",
+      "sourcePath": "/studenty-vedushhih-universitetov-kitaja-obuchajutsja-v-bgu",
+      "section": "news",
+      "route": "/news/content/6b3f38440d01",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f36f3952a19e",
+      "sourcePath": "/tematicheskaja-vstrecha-parlamentskaja-assambleja-odkb-pravovoe-reagirovanie-na-vyzovy-i-ugrozy-dlja-kollektivnoj-bezopasnosti",
+      "section": "news",
+      "route": "/news/content/f36f3952a19e",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "57246e3f7e1c",
+      "sourcePath": "/u-guzhol-zaman-talaby-bmuda-uluttuk-idejany-chagyldyrgan-kitep-zharyk-k-rd",
+      "section": "news",
+      "route": "/news/content/57246e3f7e1c",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "1b3882f148be",
+      "sourcePath": "/uchebno-metodicheskij-sovet",
+      "section": "about",
+      "route": "/about/content/1b3882f148be",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "eb07d398bba2",
+      "sourcePath": "/uchebnye-plany",
+      "section": "programs",
+      "route": "/programs/content/eb07d398bba2",
+      "languages": [
+        "ru",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4b5c1d4d1174",
+      "sourcePath": "/uchebnyj-otdel",
+      "section": "about",
+      "route": "/about/content/4b5c1d4d1174",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "e45b5608b20c",
+      "sourcePath": "/urmattuu-dostor",
+      "section": "news",
+      "route": "/news/content/e45b5608b20c",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d9b622ff647d",
+      "sourcePath": "/urmattuu-kattaluuchular",
+      "section": "news",
+      "route": "/news/content/d9b622ff647d",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "3ece1935f209",
+      "sourcePath": "/v-bgu-im-akademika-k-karasaeva-sostojalas-vstrecha-s-inostrannymi-studentami",
+      "section": "news",
+      "route": "/news/content/3ece1935f209",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "3550a5aecc46",
+      "sourcePath": "/v-bgu-im-k-karasaeva-proshla-mezhdunarodnaja-onlajn-konferencija-po-voprosam-nacionalnoj-identichnosti",
+      "section": "news",
+      "route": "/news/content/3550a5aecc46",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0566f1670a5b",
+      "sourcePath": "/v-bgu-im-k-karasaeva-proshla-otkrytaja-lekcija-po-zelenoj-jekonomike-v-ramkah-mezhdunarodnogo-proekta-gdcau",
+      "section": "news",
+      "route": "/news/content/0566f1670a5b",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c0bccebcc810",
+      "sourcePath": "/v-bgu-im-k-karasaeva-proshli-studencheskie-konkursy-posvjashhennye-sohraneniju-snezhnogo-barsa",
+      "section": "news",
+      "route": "/news/content/c0bccebcc810",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "56c801ff6432",
+      "sourcePath": "/v-bgu-im-k-karasaeva-sostojalas-vstrecha-rektora-s-sovetnikom-posolstva-iri-po-kulture",
+      "section": "news",
+      "route": "/news/content/56c801ff6432",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ad7623375391",
+      "sourcePath": "/v-bgu-im-k-karasaeva-sostojalas-vstrecha-s-delegaciej-sinczjanskogo-zheleznodorozhnogo-professionalno-tehnicheskogo-instituta",
+      "section": "news",
+      "route": "/news/content/ad7623375391",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "cadd5aed97ca",
+      "sourcePath": "/v-bgu-im-k-karasaeva-sostojalas-vstrecha-s-predstavitelem-mid-rossijskoj-federacii-elenoj-galaktionovoj",
+      "section": "news",
+      "route": "/news/content/cadd5aed97ca",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "2b21f0ca221e",
+      "sourcePath": "/v-bgu-im-k-karasaeva-sostojalas-vstrecha-s-professorami-francuzskogo-universiteta-unicaen",
+      "section": "news",
+      "route": "/news/content/2b21f0ca221e",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d356314acbd3",
+      "sourcePath": "/v-bgu-im-k-karasaeva-sostojalsja-jekspertnyj-seminar-po-perehodu-na-12-letnjuju-sistemu-shkolnogo-obrazovanija",
+      "section": "news",
+      "route": "/news/content/d356314acbd3",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "5bbc9ce2883c",
+      "sourcePath": "/v-bgu-imeni-akademika-k-karasaeva-provedjon-subbotnik",
+      "section": "news",
+      "route": "/news/content/5bbc9ce2883c",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "244a578123da",
+      "sourcePath": "/v-bgu-imeni-akademika-k-karasaeva-sostojalas-vstrecha-s-predstavitelem-posolstva-francii",
+      "section": "news",
+      "route": "/news/content/244a578123da",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "09f03a8284d6",
+      "sourcePath": "/v-bgu-imeni-k-karasaeva-sostojalos-otkrytie-centra-zeljonogo-soglashenija-green-deal-center",
+      "section": "news",
+      "route": "/news/content/09f03a8284d6",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "8c298566b043",
+      "sourcePath": "/v-bgu-otmetili-mezhdunarodnyj-den-institutov-konfucija-i-prazdnik-serediny-oseni",
+      "section": "news",
+      "route": "/news/content/8c298566b043",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "57058c1fac15",
+      "sourcePath": "/v-bgu-proshjol-seminar-po-inkljuzivnoj-i-genderno-orientirovannoj-pedagogike",
+      "section": "news",
+      "route": "/news/content/57058c1fac15",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "151a72e0415b",
+      "sourcePath": "/v-bgu-proshjol-seminar-po-napisaniju-statej-i-publikacii-v-baze-scopus",
+      "section": "news",
+      "route": "/news/content/151a72e0415b",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c3e5e212afc7",
+      "sourcePath": "/v-bgu-proshla-vstrecha-s-predstavitelem-fonda-russkij-mir",
+      "section": "news",
+      "route": "/news/content/c3e5e212afc7",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "52b1d6179cc3",
+      "sourcePath": "/v-bgu-sostojalas-gostevaja-lekcija-posla-kyrgyzskoj-respubliki-v-shvejcarii-muratbeka-azymbakieva",
+      "section": "news",
+      "route": "/news/content/52b1d6179cc3",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "d651db90521e",
+      "sourcePath": "/v-bgu-sostojalas-vstrecha-s-predstaviteljami-resursnogo-centra-dlja-migrantov",
+      "section": "news",
+      "route": "/news/content/d651db90521e",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "51dd839d1e4c",
+      "sourcePath": "/v-bgu-sostojalas-vstrecha-s-professorom-university-of-guelph-humber-kanada",
+      "section": "news",
+      "route": "/news/content/51dd839d1e4c",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "a0dac8d76820",
+      "sourcePath": "/v-bgu-sostojalos-zasedanie-uchenogo-soveta",
+      "section": "news",
+      "route": "/news/content/a0dac8d76820",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ed1b32cd6088",
+      "sourcePath": "/v-bgu-startoval-seminar-trening-po-povysheniju-kvalifikacii-oficerov-psihologov-gps-kr",
+      "section": "news",
+      "route": "/news/content/ed1b32cd6088",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "564ba1f29c8b",
+      "sourcePath": "/v-bishkeke-sostoitsja-mezhdunarodnyj-kyrgyzsko-rossijskij-nauchnyj-forum-nasha-obshhaja-pobeda-sila-sotrudnichestva-rossii-i-kyrgyzstana",
+      "section": "news",
+      "route": "/news/content/564ba1f29c8b",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f7e5515a890f",
+      "sourcePath": "/v-bishkeke-sostojalas-prezentacija-pjatogo-toma-knigi-si-czinpin-o-gosudarstvennom-upravlenii",
+      "section": "news",
+      "route": "/news/content/f7e5515a890f",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c3a51ac23343",
+      "sourcePath": "/v-bishkekskom-gosudarstvennom-universitete-im-k-karasaeva-sostojalas-vstrecha-s-delegaciej-lanchzhouskogo-universiteta-knr",
+      "section": "news",
+      "route": "/news/content/c3a51ac23343",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "a6a774499afb",
+      "sourcePath": "/v-bishkekskom-gosudarstvennom-universitete-im-k-karasaeva-sostojalos-zasedanie-uchjonogo-soveta-2",
+      "section": "news",
+      "route": "/news/content/a6a774499afb",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "4aebf0acb800",
+      "sourcePath": "/v-bishkekskom-gosudarstvennom-universitete-im-k-karasaeva-sostojalsja-kruglyj-stol-perspektivy-trudoustrojstva-vypusknikov",
+      "section": "news",
+      "route": "/news/content/4aebf0acb800",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "e4adb698610a",
+      "sourcePath": "/v-bishkekskom-gosudarstvennom-universitete-imeni-akademika-k-karasaeva-sostojalsja-kruglyj-stol-po-razvitiju-antikorrupcionnoj-kultury-sredi-molodezhi",
+      "section": "news",
+      "route": "/news/content/e4adb698610a",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "b3266cc16ca6",
+      "sourcePath": "/v-bishkekskom-gosudarstvennom-universitete-proshjol-bazhovskij-kinomarafon",
+      "section": "news",
+      "route": "/news/content/b3266cc16ca6",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0cb5f83fb524",
+      "sourcePath": "/v-bishkekskom-gosudarstvennom-universitete-proshjol-turnir-po-volejbolu-posvjashhjonnyj-pamjati-tobokela-mamyrova",
+      "section": "news",
+      "route": "/news/content/0cb5f83fb524",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "92158228e8fc",
+      "sourcePath": "/v-bishkekskom-gosudarstvennom-universitete-proshla-gostevaja-lekcija-po-zeljonoj-jekonomike-i-uglerodnomu-sledu",
+      "section": "news",
+      "route": "/news/content/92158228e8fc",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c52babe34f8f",
+      "sourcePath": "/v-bishkekskom-gosudarstvennom-universitete-sostojalos-ocherednoe-sobranie",
+      "section": "news",
+      "route": "/news/content/c52babe34f8f",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "f426bd5f4161",
+      "sourcePath": "/v-bishkekskom-gosudarstvennom-universitete-sostojalos-soveshhanie",
+      "section": "news",
+      "route": "/news/content/f426bd5f4161",
+      "languages": [
+        "ru",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "cd4cb768a3dc",
+      "sourcePath": "/v-bishkekskom-gosudarstvennom-universitete-sostojalsja-29-j-centralnoaziatskij-konkurs-oratorskogo-iskusstva-na-japonskom-jazyke",
+      "section": "news",
+      "route": "/news/content/cd4cb768a3dc",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "47ec940dfb0b",
+      "sourcePath": "/v-chest-mezhdunarodnogo-dnja-gor-v-bgu-obsudili-voprosy-ohrany-gornyh-jekosistem-2",
+      "section": "news",
+      "route": "/news/content/47ec940dfb0b",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "46ddfa6e0d55",
+      "sourcePath": "/v-kazahstane-proshjol-vii-chempionat-azii-i-sbornaja-kyrgyzstana-zanjala-1-e-mesto-po-igre-toguz-korgool",
+      "section": "news",
+      "route": "/news/content/46ddfa6e0d55",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c54449f875f8",
+      "sourcePath": "/vakansii-2",
+      "section": "about",
+      "route": "/about/content/c54449f875f8",
+      "languages": [
+        "ru",
+        "ky"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "586989e8f846",
+      "sourcePath": "/vbgu28aprelja-2025-godasostojalossoveshhanie",
+      "section": "news",
+      "route": "/news/content/586989e8f846",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "c144edbeee64",
+      "sourcePath": "/vecher-pamjati-nikto-ne-zabyt-nichto-ne-zabyto",
+      "section": "news",
+      "route": "/news/content/c144edbeee64",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "35fbb7b1a4d8",
+      "sourcePath": "/vestnik",
+      "section": "science",
+      "route": "/science/content/35fbb7b1a4d8",
+      "languages": [
+        "ru",
+        "ky",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "ab228a4c4d60",
+      "sourcePath": "/viii-mezhdunarodnaja-nauchno-prakticheskaja-konferencija-menedzhment-i-predprinimatelstvo-v-paradigme-ustojchivogo-razvitija",
+      "section": "news",
+      "route": "/news/content/ab228a4c4d60",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "210d45f4008f",
+      "sourcePath": "/vizit-delegacii-hanbatskogo-nacionalnogo-universiteta-v-bishkekskij-gosudarstvennyj-universitet",
+      "section": "news",
+      "route": "/news/content/210d45f4008f",
+      "languages": [
+        "ru",
+        "en",
+        "zh-CN"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "68e64e6ebe8a",
+      "sourcePath": "/vizovaja-podderzhka",
+      "section": "international",
+      "route": "/international/content/68e64e6ebe8a",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "083ab9293aa5",
+      "sourcePath": "/vizovaja-podderzhka-2",
+      "section": "international",
+      "route": "/international/content/083ab9293aa5",
+      "languages": [
+        "ru"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "40ce24d14e11",
+      "sourcePath": "/vstrecha-bgu-im-k-karasaeva-s-predstavitelem-constructor-university-bremen",
+      "section": "news",
+      "route": "/news/content/40ce24d14e11",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "7b74ad93a7f6",
+      "sourcePath": "/vstrecha-s-delegaciej-iz-azerbajdzhana-v-bgu-im-k-karasaeva",
+      "section": "news",
+      "route": "/news/content/7b74ad93a7f6",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "0cfb659d2499",
+      "sourcePath": "/vstrecha-s-predstaviteljami-kongressa-zhenshhin-kr-v-bgu",
+      "section": "news",
+      "route": "/news/content/0cfb659d2499",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "3d6b3af58d6f",
+      "sourcePath": "/zasedanie-uchenogo-soveta-bgu",
+      "section": "news",
+      "route": "/news/content/3d6b3af58d6f",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    },
+    {
+      "id": "cfebb869b791",
+      "sourcePath": "/zhabb-institutunun-okutuuchulary-kesipke-bagyt-ber-ish-charasyn-tk-r-sht",
+      "section": "news",
+      "route": "/news/content/cfebb869b791",
+      "languages": [
+        "ru",
+        "ky",
+        "en"
+      ],
+      "listing": false,
+      "routeTemplatePresent": true
+    }
+  ],
+  "extraRoutes": [
+    "/about/content",
+    "/about/content/[id]",
+    "/academic-calendar/content",
+    "/academic-calendar/content/[id]",
+    "/admin",
+    "/admissions/content",
+    "/admissions/content/[id]",
+    "/archive/catalog/[page]",
+    "/archive",
+    "/archive/[id]",
+    "/contacts/content",
+    "/contacts/content/[id]",
+    "/continuing-education/content",
+    "/continuing-education/content/[id]",
+    "/departments/[slug]",
+    "/documents/content",
+    "/documents/content/[id]",
+    "/documents/[slug]",
+    "/dormitories/content",
+    "/dormitories/content/[id]",
+    "/faculties/content",
+    "/faculties/content/[id]",
+    "/faculties/[slug]",
+    "/international/content",
+    "/international/content/[id]",
+    "/library/content",
+    "/library/content/[id]",
+    "/materials/administracija-universiteta-5dd4bdeb5b",
+    "/materials/fakultet-evropejskih-civilizacij-1d901d1af6",
+    "/materials/fakultet-jekologii-i-menedzhmenta-92ef33673b",
+    "/materials/fakultet-jekonomiki-i-finansov-7d6fe1f140",
+    "/materials/fakultet-pedagogicheskogo-obrazovanija-a6ec7ed84b",
+    "/materials/fakultet-russkoj-filologii-02223f0aae",
+    "/materials/fakultet-vostokovedenija-i-mezhdunarodnyh-otnoshenij-8efa55bb1c",
+    "/materials/fakultet-zhurnalistiki-i-informacionnyh-sistem-372dc71b14",
+    "/materials/indo-institut-nepreryvnogo-i-distancionnogo-obrazovanija-0b8720617e",
+    "/materials/kyrgyz-filologijasy-fakulteti-0d8eaf8f71",
+    "/materials/kyrgyzsko-kitajskij-fakultet-14de556b13",
+    "/materials/napravlenija-fpo-5cc2efb10d",
+    "/materials/otdel-kachestva-karery-68360e6e5d",
+    "/materials/otdel-kadrov-8086171b75",
+    "/materials/otdel-kultury-aa0d6dc4ce",
+    "/materials/otdel-mezhdunarodnyh-svjazej-90a40dbaef",
+    "/materials/otdel-nauki-aspirantury-i-doktorantury-54446042ec",
+    "/materials",
+    "/materials/planovo-finansovyj-otdel-db01c9e4f0",
+    "/materials/polozhenie-ob-uchebnom-otdele-187f74641c",
+    "/materials/redakcionno-izdatelskij-otdel-3fce99bcba",
+    "/materials/socialno-psihologicheskij-fakultet-2712ecd75b",
+    "/materials/sovet-po-kachestvu-bgu-im-k-karasaeva-06f9d9ab55",
+    "/materials/uchebno-metodicheskij-sovet-e53f446783",
+    "/materials/uchebnyj-otdel-54654e246a",
+    "/news/content/list/[page]",
+    "/news/content",
+    "/news/content/[id]",
+    "/news/[slug]",
+    "/programs/content",
+    "/programs/content/[id]",
+    "/programs/[slug]",
+    "/science/content",
+    "/science/content/[id]",
+    "/science/[slug]",
+    "/services/content",
+    "/services/content/[id]",
+    "/staff/[slug]",
+    "/student-life/content",
+    "/student-life/content/[id]"
+  ],
+  "created": [
+    "/about/rector",
+    "/about/structure",
+    "/about/administration/hr",
+    "/about/administration/finance",
+    "/about/administration/academic-office",
+    "/about/administration/quality-careers",
+    "/about/administration/culture",
+    "/about/quality-council",
+    "/about/alumni",
+    "/about/vacancies",
+    "/education",
+    "/education/bachelor",
+    "/education/master",
+    "/education/phd",
+    "/education/curricula",
+    "/education/electives",
+    "/education/methodical-council",
+    "/continuing-education/courses",
+    "/continuing-education/apply",
+    "/admissions/apply",
+    "/college",
+    "/college/administration",
+    "/college/programs",
+    "/college/admissions",
+    "/science/research",
+    "/science/conferences",
+    "/science/publications",
+    "/science/dissertation-councils",
+    "/science/research-office",
+    "/science/young-researchers",
+    "/science/student-research",
+    "/science/journals",
+    "/science/journals/vestnik",
+    "/science/journals/izvestia",
+    "/science/journals/problems",
+    "/science/antiplagiarism",
+    "/international/office",
+    "/international/partners",
+    "/international/mobility",
+    "/international/grants",
+    "/international/projects",
+    "/international/centers",
+    "/international/education-center",
+    "/international/language-courses",
+    "/international/visa",
+    "/international/honorary-professors",
+    "/student-life/clubs",
+    "/student-life/careers",
+    "/library/books",
+    "/library/resources",
+    "/news/events",
+    "/news/announcements",
+    "/documents/accreditation",
+    "/documents/licenses",
+    "/documents/regulations",
+    "/documents/national",
+    "/services/avn",
+    "/services/support",
+    "/site-map"
+  ]
+}

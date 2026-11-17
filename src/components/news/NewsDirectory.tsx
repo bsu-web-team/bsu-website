@@ -1,27 +1,65 @@
 "use client";
-import { useMemo, useState } from "react";
-import Link from "next/link";
-import { ArrowUpRight, CalendarDays, Search } from "lucide-react";
+import { Suspense, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Search, SlidersHorizontal, X } from "lucide-react";
 import type { NewsRecord, NewsCategory } from "@/lib/news-data";
+import type { Locale } from "@/lib/i18n";
+import { faculties } from "@/lib/faculty-data";
+import { departments } from "@/lib/department-data";
 import { useLocale } from "@/components/i18n/LocaleProvider";
-import { formatLocalizedNewsDate, localizeNews, newsUi } from "@/lib/news-i18n";
-const categories: ("all" | NewsCategory)[] = ["all", "Новости", "Наука", "Международное сотрудничество", "Мероприятия"];
-export default function NewsDirectory({items}:{items:NewsRecord[]}){
- const {locale}=useLocale(); const ui=newsUi[locale];
- const [query,setQuery]=useState("");const [category,setCategory]=useState<(typeof categories)[number]>("all");
- const filtered=useMemo(()=>items.map(x=>localizeNews(x,locale)).filter(x=>{
-  const raw=items.find(raw=>raw.slug===x.slug);
-  const matchCategory=category==="all"||raw?.category===category;
-  const haystack=`${x.title} ${x.excerpt} ${raw?.title??""} ${raw?.excerpt??""}`.toLocaleLowerCase();
-  return matchCategory&&haystack.includes(query.trim().toLocaleLowerCase());
- }),[items,locale,query,category]);
+import { localizeNews, newsUi } from "@/lib/news-i18n";
+import { newsV2 } from "@/lib/news-ui-v2";
+import { translateContent } from "@/lib/content-translations";
+import { matchesNewsQuery, matchesNewsScope } from "@/lib/news-filter";
+import NewsCardV2 from "./NewsCardV2";
+const categories: NewsCategory[] = ["Новости","Наука","Международное сотрудничество","Мероприятия"];
+const languages: Locale[] = ["ru","ky","en","zh-CN"];
+const PAGE_SIZE=12;
+const field="w-full min-w-0 rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm text-slate-800 outline-none focus:border-[#102b4e] focus:ring-2 focus:ring-blue-100";
+function Catalog({items, initialFaculty, initialDepartment}: {items:NewsRecord[];initialFaculty:string;initialDepartment:string}) {
+ const {locale}=useLocale();const ui=newsUi[locale];const t=newsV2[locale];
+ const [query,setQuery]=useState("");const [category,setCategory]=useState<NewsCategory|"">("");
+ const [faculty,setFaculty]=useState(initialFaculty);const [department,setDepartment]=useState(initialDepartment);
+ const [year,setYear]=useState("");const [month,setMonth]=useState("");const [limit,setLimit]=useState(PAGE_SIZE);
+ const resetLimit=()=>setLimit(PAGE_SIZE);
+ const facultyOptions=useMemo(()=>[...faculties].sort((a,b)=>translateContent(a.name,locale).localeCompare(translateContent(b.name,locale),locale)),[locale]);
+ const departmentOptions=useMemo(()=>departments.filter(d=>!faculty||d.facultySlug===faculty).sort((a,b)=>translateContent(a.name,locale).localeCompare(translateContent(b.name,locale),locale)),[faculty,locale]);
+ const years=useMemo(()=>[...new Set(items.map(x=>x.date.slice(0,4)))].sort().reverse(),[items]);
+ const months=useMemo(()=>[...new Set(items.filter(x=>!year||x.date.startsWith(year)).map(x=>x.date.slice(5,7)))].sort(),[items,year]);
+ const index=useMemo(()=>items.map(item=>{
+  const f=faculties.find(f=>f.slug===item.facultySlug); const d=departments.find(d=>d.slug===item.departmentSlug);
+  const translated=languages.flatMap(l=>{const x=localizeNews(item,l);return [x.title,x.excerpt,newsUi[l].categories[item.category],translateContent(f?.name,l),translateContent(d?.name,l)];});
+  return {item,search:[...translated,f?.shortName,...(item.content??[]),...(item.tags??[])]};
+ }),[items]);
+ const filtered=useMemo(()=>index.filter(({item,search})=>(!category||item.category===category)&&matchesNewsScope(item,{facultySlug:faculty||undefined,departmentSlug:department||undefined})&&(!year||item.date.startsWith(year))&&(!month||item.date.slice(5,7)===month)&&matchesNewsQuery(query,search)).map(x=>x.item).sort((a,b)=>b.date.localeCompare(a.date)||a.slug.localeCompare(b.slug)),[index,category,faculty,department,year,month,query]);
+ const unitName=(x:NewsRecord)=>{const name=departments.find(d=>d.slug===x.departmentSlug)?.name??faculties.find(f=>f.slug===x.facultySlug)?.name;return name?translateContent(name,locale):t.general;};
+ const active=Boolean(query.trim()||category||faculty||department||year||month);
+ const visible=filtered.slice(0,limit);const featured=!active&&visible.length>0;
+ const clear=()=>{setQuery("");setCategory("");setFaculty("");setDepartment("");setYear("");setMonth("");resetLimit();};
  return <>
- <div className="mb-8 grid gap-4 md:grid-cols-[minmax(0,1fr)_250px]">
- <label className="relative"><span className="sr-only">{ui.search}</span><Search size={19} className="absolute left-4 top-3.5 text-slate-400"/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder={ui.search} className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-11 pr-4 outline-none focus:border-blue-600"/></label>
- <label><span className="sr-only">{ui.category}</span><select aria-label={ui.category} value={category} onChange={e=>setCategory(e.target.value as (typeof categories)[number])} className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3">{categories.map(c=><option value={c} key={c}>{c==="all"?ui.all:ui.categories[c]}</option>)}</select></label>
- </div>
- <p className="mb-5 text-sm text-slate-500" aria-live="polite">{ui.found}: {filtered.length}</p>
- <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{filtered.map(x=><Link key={x.slug} href={`/news/${x.slug}`} className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md"><span className="text-xs font-bold uppercase tracking-wider text-[#a7864c]">{ui.categories[x.category]}</span><h2 className="mt-4 text-xl font-bold leading-snug text-[#102b4e] group-hover:underline">{x.title}</h2><p className="mt-3 flex-1 text-sm leading-6 text-slate-600">{x.excerpt}</p><div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"><span className="inline-flex items-center gap-2"><CalendarDays size={15}/>{formatLocalizedNewsDate(x.date,locale)}</span><ArrowUpRight size={19} className="text-[#102b4e]"/></div></Link>)}</div>
- {!filtered.length&&<p className="rounded-xl border border-slate-200 bg-white px-6 py-12 text-center text-slate-500">{ui.none}</p>}
+  <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+   <div className="flex items-center gap-3"><SlidersHorizontal size={20} className="text-[#102b4e]"/><label htmlFor="bsu-news-v2-search" className="font-semibold text-[#102b4e]">{ui.search}</label></div>
+   <div className="relative mt-3"><Search size={19} className="pointer-events-none absolute left-3 top-3.5 text-slate-400"/><input id="bsu-news-v2-search" value={query} onChange={e=>{setQuery(e.target.value);resetLimit();}} placeholder={ui.search} className={`${field} pl-10`}/></div>
+   <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <label className="min-w-0"><span className="mb-1.5 block text-xs font-semibold text-slate-600">{ui.category}</span><select className={field} value={category} onChange={e=>{setCategory(e.target.value as NewsCategory|"");resetLimit();}}><option value="">{ui.all}</option>{categories.map(c=><option key={c} value={c}>{ui.categories[c]}</option>)}</select></label>
+    <label className="min-w-0"><span className="mb-1.5 block text-xs font-semibold text-slate-600">{t.faculty}</span><select className={field} value={faculty} onChange={e=>{setFaculty(e.target.value);setDepartment("");resetLimit();}}><option value="">{t.allFaculties}</option>{facultyOptions.map(f=><option key={f.slug} value={f.slug}>{translateContent(f.name,locale)}</option>)}</select></label>
+    <label className="min-w-0"><span className="mb-1.5 block text-xs font-semibold text-slate-600">{t.department}</span><select className={field} value={department} onChange={e=>{setDepartment(e.target.value);resetLimit();}}><option value="">{t.allDepartments}</option>{departmentOptions.map(d=><option key={d.slug} value={d.slug}>{translateContent(d.name,locale)}</option>)}</select></label>
+    <label><span className="mb-1.5 block text-xs font-semibold text-slate-600">{t.year}</span><select className={field} value={year} onChange={e=>{setYear(e.target.value);setMonth("");resetLimit();}}><option value="">{t.allYears}</option>{years.map(y=><option key={y} value={y}>{y}</option>)}</select></label>
+    <label><span className="mb-1.5 block text-xs font-semibold text-slate-600">{t.month}</span><select className={field} value={month} onChange={e=>{setMonth(e.target.value);resetLimit();}}><option value="">{t.allMonths}</option>{months.map(m=><option key={m} value={m}>{new Intl.DateTimeFormat(locale,{month:"long",timeZone:"UTC"}).format(new Date(`2024-${m}-01T12:00:00Z`))}</option>)}</select></label>
+    <button type="button" disabled={!active} onClick={clear} className="self-end inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-300 px-3 py-3 text-sm font-semibold text-[#102b4e] hover:bg-slate-50 disabled:opacity-50"><X size={16}/>{t.reset}</button>
+   </div>
+  </div>
+  <p className="mb-5 text-sm text-slate-600" aria-live="polite">{ui.found}: <strong>{filtered.length}</strong></p>
+  {featured&&<div className="mb-6"><NewsCardV2 item={visible[0]} featured unit={unitName(visible[0])}/></div>}
+  <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{visible.slice(featured?1:0).map(x=><NewsCardV2 key={x.slug} item={x} unit={unitName(x)}/>)}</div>
+  {!visible.length&&<div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center"><Search className="mx-auto mb-3 text-slate-400" size={30}/><p className="text-slate-600">{ui.none}</p>{active&&<button onClick={clear} type="button" className="mt-4 rounded-xl bg-[#102b4e] px-4 py-3 text-sm font-semibold text-white">{t.reset}</button>}</div>}
+  {visible.length<filtered.length&&<div className="mt-8 flex flex-col items-center gap-3"><p className="text-sm text-slate-500">{t.results}: {visible.length} / {filtered.length}</p><button type="button" onClick={()=>setLimit(v=>v+PAGE_SIZE)} className="rounded-xl border border-slate-300 bg-white px-6 py-3 font-semibold text-[#102b4e] hover:bg-slate-50">{t.showMore}</button></div>}
  </>;
+}
+function CatalogWithParams({items}:{items:NewsRecord[]}) {
+ const params=useSearchParams();const d=departments.find(d=>d.slug===params.get("department"));const f=d?.facultySlug??faculties.find(f=>f.slug===params.get("faculty"))?.slug??"";
+ return <Catalog key={`${f}:${d?.slug??""}`} items={items} initialFaculty={f} initialDepartment={d?.slug??""}/>;
+}
+export default function NewsDirectory({items}:{items:NewsRecord[]}) {
+ return <Suspense fallback={<div aria-busy="true" className="h-44 rounded-2xl bg-white"/>}><CatalogWithParams items={items}/></Suspense>;
 }

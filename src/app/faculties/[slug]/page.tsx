@@ -1,3 +1,5 @@
+import PanelLabel from "@/components/interior/PanelLabel";
+import InteriorNav from "@/components/interior/InteriorNav";
 import type { Metadata } from "next";
 import PublicTextV13, { PublicPersonV13 } from "@/components/i18n/PublicTextV13";
 import Link from "next/link";
@@ -6,6 +8,9 @@ import { ArrowLeft, BookOpen, Building2, ChevronRight, ExternalLink, Mail, MapPi
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { getFacultyBySlug } from "@/lib/faculty-data";
+import UnitNewsV2 from "@/components/news/UnitNewsV2";
+import { getNews } from "@/lib/news-data";
+import { matchesNewsScope } from "@/lib/news-filter";
 
 // Next.js 16 Cache Components: dynamically resolve route params for this page.
 export const instant = false;
@@ -22,12 +27,13 @@ export default async function FacultyPage({ params }: Props) {
   const { slug } = await params;
   const faculty = await getFacultyBySlug(slug);
   if (!faculty) notFound();
+  const unitNews = (await getNews()).filter(item => matchesNewsScope(item, { facultySlug: faculty.slug })).slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-[#f5f7fb] text-slate-900">
+    <div className="min-h-screen bg-[#f5f7fb] text-slate-900 bsu-interior">
       <Header />
       <main>
-        <section className="bg-[#102b4e] px-5 py-14 text-white sm:px-8 sm:py-20">
+        <section className="bg-[#102b4e] px-5 py-14 text-white bsu-page-hero sm:px-8 sm:py-20">
           <div className="mx-auto max-w-7xl">
             <nav aria-label="Навигационная цепочка" className="mb-7 flex flex-wrap items-center gap-2 text-sm text-blue-100">
               <Link href="/" className="hover:underline"><PublicTextV13 value="Главная" /></Link><ChevronRight size={15}/>
@@ -39,7 +45,9 @@ export default async function FacultyPage({ params }: Props) {
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-blue-100"><PublicTextV13 value={faculty.summary} /></p>
           </div>
         </section>
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[minmax(0,1fr)_340px]">
+<InteriorNav facultyBase={`/faculties/${slug}`}/>
+
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[minmax(0,1fr)_340px] bsu-page-body">
           <div className="space-y-8">
             <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
               <div className="flex items-center gap-3"><span className="rounded-lg bg-blue-50 p-3 text-[#102b4e]"><Building2 size={23}/></span><h2 className="text-2xl font-bold text-[#102b4e]"><PublicTextV13 value="О подразделении" /></h2></div>
@@ -66,6 +74,7 @@ export default async function FacultyPage({ params }: Props) {
                 ))}</div>
               </section>
             )}
+            <UnitNewsV2 items={unitNews} facultySlug={faculty.slug} />
             <Link href="/faculties" className="inline-flex items-center gap-2 text-sm font-semibold text-[#102b4e] hover:underline"><ArrowLeft size={17}/><PublicTextV13 value="Вернуться к списку факультетов" /></Link>
           </div>
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
@@ -80,11 +89,12 @@ export default async function FacultyPage({ params }: Props) {
                 {faculty.phone && <div className="flex gap-3"><Phone size={19} className="shrink-0 text-[#a48652]"/><a className="hover:underline" href={`tel:${faculty.phone.replace(/[^+\d]/g, "")}`}>{faculty.phone}</a></div>}
                 {faculty.email && <div className="flex gap-3"><Mail size={19} className="shrink-0 text-[#a48652]"/><a className="hover:underline" href={`mailto:${faculty.email}`}>{faculty.email}</a></div>}
               </div>
-              <a href={faculty.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#102b4e] px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-900"><PublicTextV13 value="Официальная страница" /> <ExternalLink size={16}/></a>
+              <a href={`/faculties/${slug}/details`} className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#102b4e] px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-900"><PublicTextV13 value="Официальная страница" /> <ExternalLink size={16}/></a>
               <p className="mt-3 text-xs leading-relaxed text-slate-500"><PublicTextV13 value="Проверьте актуальные сведения на официальном сайте БГУ." /></p>
             </section>
           </aside>
         </div>
+      <div className="bsu-interior-overview-link"><Link href={`/faculties/${slug}/details`} prefetch={false} className="bsu-interior-action"><PanelLabel name="details"/> ↗</Link></div>
       </main>
       <Footer />
     </div>

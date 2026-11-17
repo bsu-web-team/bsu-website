@@ -1,4 +1,5 @@
 "use client";
+import PartnersCarousel from "@/components/partners/PartnersCarousel";
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
@@ -31,28 +32,28 @@ const copy: Record<Locale, Texts> = {
     explore:"Узнать об университете",apply:"Поступление",scroll:"Листайте вниз",photoLabel:"Место, где встречаются идеи",photoCaption:"Визуальная концепция. Здесь будет официальная фотография БГУ.",
     kicker:"Ваш маршрут",exploreTitle:"Начните с главного",exploreIntro:"Всё необходимое для поступления, учёбы и работы в университете — без лишних переходов.",facultyKicker:"Университет сегодня",facultyTitle:"Ваше направление — ваш путь",facultyIntro:"Факультеты и институты объединяют разные области знаний и возможности развития.",allFaculties:"Все факультеты и институты",seeDetails:"Подробнее",
     studyKicker:"Образовательные возможности",studyTitle:"От первого курса до исследований",studyIntro:"Изучайте программы и найдите подходящий уровень образования.",bachelors:"Бакалавриат",masters:"Магистратура",research:"Наука и исследования",
-    newsKicker:"Жизнь университета",newsTitle:"События и новости",newsIntro:"Актуальные материалы из предварительного каталога университета.",allNews:"Читать все новости",servicesKicker:"Для студентов",servicesTitle:"Всё нужное — в одном месте",servicesIntro:"Быстрый доступ к разделам сайта и университетской информации.",documents:"Документы",programs:"Программы",library:"Об университете",science:"Научная деятельность",closingTag:"Следующий шаг",closingTitle:"Твоя история начинается здесь",closingIntro:"Познакомьтесь с образовательными программами и условиями поступления.",closingCta:"Выбрать программу",sourceNotice:"Материалы и переводы предварительные. Перед официальной публикацией необходима проверка БГУ."
+    newsKicker:"Жизнь университета",newsTitle:"События и новости",newsIntro:"Актуальные материалы из предварительного каталога университета.",allNews:"Читать все новости",servicesKicker:"Для студентов",servicesTitle:"Всё нужное — в одном месте",servicesIntro:"Быстрый доступ к разделам сайта и университетской информации.",documents:"Документы",programs:"Программы",library:"Библиотека",science:"Научная деятельность",closingTag:"Следующий шаг",closingTitle:"Твоя история начинается здесь",closingIntro:"Познакомьтесь с образовательными программами и условиями поступления.",closingCta:"Выбрать программу",sourceNotice:"Материалы и переводы предварительные. Перед официальной публикацией необходима проверка БГУ."
   },
   ky: {
     eyebrow:"Мүмкүнчүлүктөр университети · Бишкек",headingOne:"Келечек билимден",headingTwo:"башталат",intro:"К. Карасаев атындагы Бишкек мамлекеттик университетинде билимге, жаңы багыттарга жана эл аралык мүмкүнчүлүктөргө жол ачыңыз.",
     explore:"Университет жөнүндө",apply:"Окууга кабыл алуу",scroll:"Төмөн карай жылдырыңыз",photoLabel:"Идеялар жолуккан мейкиндик",photoCaption:"Дизайн концепциясы. Бул жерге БМУнун расмий сүрөтү жайгаштырылат.",
     kicker:"Сиздин багытыңыз",exploreTitle:"Эң негизгисинен баштаңыз",exploreIntro:"Окууга тапшыруу, билим алуу жана университетте иштөө үчүн керектүү маалымат бир жерде.",facultyKicker:"Университет бүгүн",facultyTitle:"Сиздин багыт — сиздин жол",facultyIntro:"Факультеттер менен институттар билимдин ар кандай багыттарын жана өнүгүү мүмкүнчүлүктөрүн бириктирет.",allFaculties:"Бардык факультеттер жана институттар",seeDetails:"Кененирээк",
     studyKicker:"Билим алуу мүмкүнчүлүктөрү",studyTitle:"Биринчи курстан илимге чейин",studyIntro:"Программаларды карап чыгып, билим берүүнүн ылайыктуу баскычын тандаңыз.",bachelors:"Бакалавриат",masters:"Магистратура",research:"Илим жана изилдөөлөр",
-    newsKicker:"Университеттин жашоосу",newsTitle:"Окуялар жана жаңылыктар",newsIntro:"Университеттин алдын ала даярдалган жаңылыктар жыйнагынан материалдар.",allNews:"Бардык жаңылыктар",servicesKicker:"Студенттер үчүн",servicesTitle:"Керектүүнүн баары бир жерде",servicesIntro:"Сайттын бөлүмдөрүнө жана университет тууралуу маалыматка тез жетүү.",documents:"Документтер",programs:"Программалар",library:"Университет жөнүндө",science:"Илимий ишмердүүлүк",closingTag:"Кийинки кадам",closingTitle:"Сиздин тарыхыңыз ушул жерден башталат",closingIntro:"Билим берүү программалары жана кабыл алуу шарттары менен таанышыңыз.",closingCta:"Программаны тандоо",sourceNotice:"Материалдар жана котормолор алдын ала даярдалган. Расмий жарыялоодон мурда БМУ текшериши керек."
+    newsKicker:"Университеттин жашоосу",newsTitle:"Окуялар жана жаңылыктар",newsIntro:"Университеттин алдын ала даярдалган жаңылыктар жыйнагынан материалдар.",allNews:"Бардык жаңылыктар",servicesKicker:"Студенттер үчүн",servicesTitle:"Керектүүнүн баары бир жерде",servicesIntro:"Сайттын бөлүмдөрүнө жана университет тууралуу маалыматка тез жетүү.",documents:"Документтер",programs:"Программалар",library:"Китепкана",science:"Илимий ишмердүүлүк",closingTag:"Кийинки кадам",closingTitle:"Сиздин тарыхыңыз ушул жерден башталат",closingIntro:"Билим берүү программалары жана кабыл алуу шарттары менен таанышыңыз.",closingCta:"Программаны тандоо",sourceNotice:"Материалдар жана котормолор алдын ала даярдалган. Расмий жарыялоодон мурда БМУ текшериши керек."
   },
   en: {
     eyebrow:"A university of opportunity · Bishkek",headingOne:"Your future starts",headingTwo:"with discovery",intro:"Explore knowledge, new disciplines and international opportunities at Bishkek State University named after K. Karasaev.",
     explore:"Discover BSU",apply:"Admissions",scroll:"Scroll to explore",photoLabel:"Where ideas come together",photoCaption:"Design concept. An approved BSU campus photo will appear here.",
     kicker:"Find your way",exploreTitle:"Start with what matters",exploreIntro:"Everything you need for admissions, study and campus life, in one place.",facultyKicker:"The university today",facultyTitle:"A place for every ambition",facultyIntro:"Explore faculties and institutes spanning disciplines and opportunities for growth.",allFaculties:"All faculties and institutes",seeDetails:"Explore",
     studyKicker:"Learning opportunities",studyTitle:"From your first year to research",studyIntro:"Explore academic programs and find your next step.",bachelors:"Bachelor's programs",masters:"Master's programs",research:"Research and science",
-    newsKicker:"Campus life",newsTitle:"News and events",newsIntro:"Highlights from the university's preliminary news catalogue.",allNews:"View all news",servicesKicker:"Student resources",servicesTitle:"Everything in one place",servicesIntro:"Find essential university information and services quickly.",documents:"Documents",programs:"Programs",library:"About the university",science:"Research",closingTag:"Take the next step",closingTitle:"Your story starts here",closingIntro:"Explore academic programs and admissions information.",closingCta:"Find a program",sourceNotice:"Content and translations are preliminary and require BSU review before official publication."
+    newsKicker:"Campus life",newsTitle:"News and events",newsIntro:"Highlights from the university's preliminary news catalogue.",allNews:"View all news",servicesKicker:"Student resources",servicesTitle:"Everything in one place",servicesIntro:"Find essential university information and services quickly.",documents:"Documents",programs:"Programs",library:"Library",science:"Research",closingTag:"Take the next step",closingTitle:"Your story starts here",closingIntro:"Explore academic programs and admissions information.",closingCta:"Find a program",sourceNotice:"Content and translations are preliminary and require BSU review before official publication."
   },
   "zh-CN": {
     eyebrow:"机遇之校 · 比什凯克",headingOne:"未来始于",headingTwo:"探索与学习",intro:"在以卡拉萨耶夫院士命名的比什凯克国立大学，探索知识、专业方向和国际发展机遇。",
     explore:"了解大学",apply:"招生信息",scroll:"向下探索",photoLabel:"思想交汇的地方",photoCaption:"设计概念展示。此处将使用大学提供的官方校园照片。",
     kicker:"开启旅程",exploreTitle:"从重要的事开始",exploreIntro:"招生、学习和校园生活所需信息，轻松获取。",facultyKicker:"今日大学",facultyTitle:"找到属于你的方向",facultyIntro:"探索涵盖不同学科与发展机会的学院和研究所。",allFaculties:"查看所有学院",seeDetails:"了解更多",
     studyKicker:"学习机会",studyTitle:"从本科到科学研究",studyIntro:"浏览专业项目，寻找适合自己的学习阶段。",bachelors:"本科项目",masters:"硕士项目",research:"科研与科学",
-    newsKicker:"校园生活",newsTitle:"新闻与活动",newsIntro:"大学新闻目录中的精选内容。",allNews:"查看全部新闻",servicesKicker:"学生服务",servicesTitle:"所需信息，一站获取",servicesIntro:"快速访问大学的重要信息与服务。",documents:"文件资料",programs:"专业目录",library:"大学简介",science:"科研活动",closingTag:"下一步",closingTitle:"你的故事从这里开始",closingIntro:"了解专业项目与招生信息。",closingCta:"选择专业",sourceNotice:"内容与译文均为初稿，正式发布前须经大学审核。"
+    newsKicker:"校园生活",newsTitle:"新闻与活动",newsIntro:"大学新闻目录中的精选内容。",allNews:"查看全部新闻",servicesKicker:"学生服务",servicesTitle:"所需信息，一站获取",servicesIntro:"快速访问大学的重要信息与服务。",documents:"文件资料",programs:"专业目录",library:"图书馆",science:"科研活动",closingTag:"下一步",closingTitle:"你的故事从这里开始",closingIntro:"了解专业项目与招生信息。",closingCta:"选择专业",sourceNotice:"内容与译文均为初稿，正式发布前须经大学审核。"
   }
 };
 
@@ -70,7 +71,7 @@ const educationPaths = [
 const services = [
   { href: "/documents", icon: FileText, key: "documents" },
   { href: "/programs", icon: GraduationCap, key: "programs" },
-  { href: "/about", icon: LibraryBig, key: "library" },
+  { href: "/library", icon: LibraryBig, key: "library" },
   { href: "/science", icon: Microscope, key: "science" },
 ] as const;
 
@@ -258,6 +259,6 @@ export default function ModernHome() {
     </section>
 
     <section className="bsu-closing"><div className="bsu-container bsu-closing-inner" data-bsu-reveal><div><p className="bsu-kicker">{c.closingTag}</p><h2>{c.closingTitle}</h2><p>{c.closingIntro}</p></div><Link href="/programs" className="bsu-button bsu-button-gold">{c.closingCta}<ArrowUpRight size={19}/></Link></div></section>
-    <p className="bsu-container bsu-editorial-note">{c.sourceNotice}</p>
+    <PartnersCarousel showLink/><p className="bsu-container bsu-editorial-note">{c.sourceNotice}</p>
   </main>;
 }
