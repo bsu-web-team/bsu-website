@@ -311,3 +311,43 @@
 /* 2026-11-16: compact faculty rail and smooth keyboard / touch navigation. */
 .bsu-modern-home .bsu-motion-faculty-rail{overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch}
 .bsu-modern-home .bsu-motion-faculty-rail:focus-visible{outline:2px solid #c7a25d;outline-offset:4px}
+
+/* BSU compact rector */
+.bsu-modern-home .bsu-section{padding-block:48px}
+.bsu-modern-home .bsu-section-heading{margin-bottom:24px}
+.bsu-modern-home .bsu-quick-grid{grid-template-rows:repeat(2,minmax(130px,auto))}
+.bsu-modern-home .bsu-quick-card{min-height:140px;padding:22px}
+.bsu-modern-home .bsu-quick-card:first-child{min-height:282px}
+.bsu-modern-home .bsu-rector-block{display:grid;grid-template-columns:minmax(150px,225px) minmax(0,1fr);gap:clamp(22px,4vw,54px);align-items:center;margin-block:24px 12px;padding:clamp(20px,3vw,36px);border:1px solid #d6e4f1;background:linear-gradient(115deg,#f5faff,#e9f3fc);border-radius:20px;color:#204774}
+.bsu-modern-home .bsu-rector-photo{border-radius:13px;overflow:hidden;aspect-ratio:4/5;background:#dce9f4}
+.bsu-modern-home .bsu-rector-photo img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.bsu-modern-home .bsu-rector-copy h2{font-size:clamp(24px,3vw,38px);font-weight:850;line-height:1.2;margin:8px 0 14px}
+.bsu-modern-home .bsu-rector-message{font-size:clamp(15px,1.35vw,19px);line-height:1.7;color:#405c79;max-width:760px}
+.bsu-modern-home .bsu-rector-sign{border-left:3px solid #dfbd7e;padding-left:13px;margin-top:20px;display:grid;gap:3px}
+.bsu-modern-home .bsu-rector-sign strong{font-weight:800}.bsu-modern-home .bsu-rector-sign span{font-size:13px;color:#596b7e}
+@media(max-width:900px){.bsu-modern-home .bsu-quick-grid{grid-template-rows:auto}.bsu-modern-home .bsu-quick-card:first-child{min-height:165px}}
+@media(max-width:640px){.bsu-modern-home .bsu-section{padding-block:30px}.bsu-modern-home .bsu-rector-block{grid-template-columns:1fr;gap:16px}.bsu-modern-home .bsu-rector-photo{width:140px}.bsu-modern-home .bsu-quick-card{min-height:110px;padding:16px}}
+
+/* BSU faculty order v2 */
+.bsu-modern-home .bsu-motion-faculty-rail{display:flex!important;position:relative;min-width:0;max-width:100%;overflow-x:auto!important;scroll-snap-type:x proximity;touch-action:pan-x pan-y;gap:16px}
+.bsu-modern-home .bsu-motion-faculty-rail .bsu-faculty-card{flex:0 0 clamp(235px,24%,310px);opacity:1;visibility:visible;min-width:0}
+@media(max-width:640px){.bsu-modern-home .bsu-motion-faculty-rail .bsu-faculty-card{flex:0 0 min(82%,295px)}}
+
+.bsu-modern-home #education .bsu-section-heading h2 {
+    font-size: clamp(26px, 3vw, 44px);
+    max-width: none;
+    letter-spacing: -.035em;
+}
+
+.bsu-modern-home #education .bsu-section-heading h2 {
+    font-size: clamp(32px, 4.5vw, 64px);
+    font-weight: 850;
+    line-height: 1.08;
+    letter-spacing: -.045em;
+    max-width: none;
+}
+
+.bsu-modern-home #education .bsu-section-heading p:not(.bsu-kicker) {
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.6;
+}

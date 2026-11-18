@@ -916,10 +916,10 @@ export const siteRegistry:SiteEntry[]=[
     "parent": "/international",
     "template": "unit",
     "titles": {
-      "ru": "Международный образовательный центр",
-      "ky": "Эл аралык билим берүү борбору",
-      "en": "International education center",
-      "zh-CN": "国际教育中心"
+      "ru": "Международный образовательный институт",
+      "ky": "Эл аралык билим берүү институту",
+      "en": "International Education Institute",
+      "zh-CN": "国际教育学院"
     },
     "implementation": "scaffold",
     "content": "review",
