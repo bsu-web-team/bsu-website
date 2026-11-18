@@ -23,12 +23,12 @@ export default function DocumentDirectory({ documents }: Props) {
     <div>
       <div className="grid gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:grid-cols-[minmax(0,1fr)_280px]">
         <label className="relative block">
-          <span className="mb-2 block text-sm font-semibold text-[#102b4e]">Поиск документов</span>
+          <span className="mb-2 block text-sm font-semibold text-[#204774]">Поиск документов</span>
           <Search size={19} aria-hidden="true" className="pointer-events-none absolute bottom-3 left-3 text-slate-400" />
           <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Например, академическая мобильность" className="w-full rounded-xl border border-slate-300 py-2.5 pl-10 pr-3 outline-none focus:border-blue-700" />
         </label>
         <label className="block">
-          <span className="mb-2 block text-sm font-semibold text-[#102b4e]">Категория</span>
+          <span className="mb-2 block text-sm font-semibold text-[#204774]">Категория</span>
           <select value={category} onChange={(event) => setCategory(event.target.value)} className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 outline-none focus:border-blue-700">
             {categories.map((option) => <option key={option} value={option}>{option}</option>)}
           </select>
@@ -40,11 +40,11 @@ export default function DocumentDirectory({ documents }: Props) {
           {filtered.map((document) => (
             <article key={document.slug} className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-200 hover:shadow-md">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[#9b773f]"><FileText size={16}/>{document.category}</div>
-              <h2 className="mt-4 text-xl font-bold leading-snug text-[#102b4e]">{document.title}</h2>
+              <h2 className="mt-4 text-xl font-bold leading-snug text-[#204774]">{document.title}</h2>
               <p className="mt-3 flex-1 text-sm leading-6 text-slate-600">{document.description}</p>
               <div className="mt-6 flex items-center justify-between gap-3 border-t border-slate-100 pt-4">
                 <span className="text-xs text-slate-500">{document.format}</span>
-                <Link href={`/documents/${document.slug}`} className="inline-flex items-center gap-1 text-sm font-bold text-[#102b4e] hover:underline">Подробнее <ArrowUpRight size={17}/></Link>
+                <Link href={`/documents/${document.slug}`} className="inline-flex items-center gap-1 text-sm font-bold text-[#204774] hover:underline">Подробнее <ArrowUpRight size={17}/></Link>
               </div>
             </article>
           ))}

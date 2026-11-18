@@ -1,7 +1,7 @@
 /* BSU Motion 4 — independent items; no persistent hidden content or compositor layers. */
 @media (prefers-reduced-motion: no-preference) {
   /* The earlier design system animated the entire hero container at once. */
-  .bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],.bsu-page-hero)>div { animation:none; }
+  .bsu-public main > :is(section,div):first-child:is([class*="bg-[#204774]"],.bsu-page-hero)>div { animation:none; }
   .bsu-public main [data-bsu-motion-kind].bsu-motion-in {
     animation: bsu-v4-cell .68s cubic-bezier(.2,.7,.2,1) var(--bsu-motion-delay,0ms) backwards;
   }
@@ -15,7 +15,7 @@
     animation-name:bsu-v4-text; animation-duration:.5s;
   }
   .bsu-public main [data-bsu-motion-kind].bsu-motion-in:focus-within { animation:none; }
-  .bsu-public main > :is(section,div):first-child:is([class*="bg-[#102b4e]"],.bsu-page-hero)::after {
+  .bsu-public main > :is(section,div):first-child:is([class*="bg-[#204774]"],.bsu-page-hero)::after {
     animation:bsu-v4-orbit .95s cubic-bezier(.2,.7,.2,1) backwards;
   }
   @media (max-width:640px) {

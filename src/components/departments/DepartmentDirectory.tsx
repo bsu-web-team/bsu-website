@@ -51,10 +51,10 @@ export default function DepartmentDirectory({ items }: { items: DepartmentRecord
               <Link href={`/departments/${department.slug}`} className="group flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-200 hover:shadow-lg">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-[#a48652]">{publicV13Text("Кафедра",locale)}</p>
-                  <h2 className="mt-3 text-lg font-bold leading-snug text-[#102b4e]">{publicV13Text(department.name,locale)}</h2>
+                  <h2 className="mt-3 text-lg font-bold leading-snug text-[#204774]">{publicV13Text(department.name,locale)}</h2>
                   <p className="mt-4 text-sm leading-6 text-slate-600">{publicV13Text(department.facultyName,locale)}</p>
                 </div>
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#102b4e]">{publicV13Text("Подробнее",locale)} <ArrowUpRight size={17} className="transition group-hover:translate-x-1" /></span>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#204774]">{publicV13Text("Подробнее",locale)} <ArrowUpRight size={17} className="transition group-hover:translate-x-1" /></span>
               </Link>
             </li>
           ))}

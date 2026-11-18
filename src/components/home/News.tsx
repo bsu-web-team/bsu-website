@@ -20,9 +20,9 @@ export default function News() {
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#a7864c]">{t("pressCenter")}</p>
-            <h2 className="text-3xl font-bold text-[#102b4e]">{t("homeNews")}</h2>
+            <h2 className="text-3xl font-bold text-[#204774]">{t("homeNews")}</h2>
           </div>
-          <Link href="/news" className="inline-flex items-center gap-2 rounded-xl bg-[#102b4e] px-5 py-3 text-sm font-semibold text-white hover:bg-blue-900">
+          <Link href="/news" className="inline-flex items-center gap-2 rounded-xl bg-[#204774] px-5 py-3 text-sm font-semibold text-white hover:bg-blue-900">
             {t("allNews")}<ArrowRight size={17} />
           </Link>
         </div>
@@ -32,7 +32,7 @@ export default function News() {
               <div className="flex items-center gap-3 text-sm font-semibold text-[#a7864c]">
                 <Newspaper size={17} />{ui.categories[item.category]}
               </div>
-              <h3 className="mt-4 text-lg font-bold leading-snug text-[#102b4e] group-hover:underline">{item.title}</h3>
+              <h3 className="mt-4 text-lg font-bold leading-snug text-[#204774] group-hover:underline">{item.title}</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">{item.excerpt}</p>
               <div className="mt-6 flex items-center gap-2 text-xs text-slate-500">
                 <CalendarDays size={15} />{formatLocalizedNewsDate(item.date, locale)}

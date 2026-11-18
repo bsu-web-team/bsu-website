@@ -37,7 +37,7 @@ export default function FacultyCatalog({ faculties }: { faculties: Faculty[] }) 
           {filtered.map((faculty) => (
             <article key={faculty.slug} className="flex flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:shadow-lg">
               <Building2 size={34} className="text-[#12345b]" aria-hidden="true" />
-              <h2 className="mt-5 text-xl font-bold text-[#102b4e]">{faculty.name}</h2>
+              <h2 className="mt-5 text-xl font-bold text-[#204774]">{faculty.name}</h2>
               <p className="mt-3 flex-1 leading-relaxed text-slate-600">{faculty.shortDescription}</p>
               <Link href={`/faculties/${faculty.slug}`} className="mt-6 inline-flex items-center gap-2 font-semibold text-blue-800 hover:underline">
                 Подробнее <ArrowUpRight size={18} aria-hidden="true" />

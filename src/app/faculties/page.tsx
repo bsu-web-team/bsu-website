@@ -20,7 +20,7 @@ export default async function FacultiesPage() {
     <div className="min-h-screen bg-[#f5f7fb] text-slate-900 bsu-interior">
       <Header />
       <main>
-        <section className="bg-[#102b4e] px-5 py-14 text-white bsu-page-hero sm:px-8 sm:py-20">
+        <section className="bg-[#204774] px-5 py-14 text-white bsu-page-hero sm:px-8 sm:py-20">
           <div className="mx-auto max-w-7xl">
             <nav aria-label="Навигационная цепочка" className="mb-6 flex items-center gap-2 text-sm text-blue-100"><Link href="/" className="hover:underline"><PublicTextV13 value="Главная" /></Link><ChevronRight size={15}/><span aria-current="page"><PublicTextV13 value="Факультеты и институты" /></span></nav>
             <p className="text-sm font-semibold uppercase tracking-widest text-[#d5b780]"><PublicTextV13 value="Образование в БГУ" /></p>
