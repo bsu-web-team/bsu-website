@@ -231,6 +231,13 @@ export default function ModernHome() {
       </div>
     </section>
 
+    <section id="rector-greeting" className="bsu-rector-block bsu-container" aria-labelledby="bsu-rector-title">
+      <div className="bsu-rector-photo"><Image src="/images/rector-bsu.jpg" alt={({ru:"Дылдаев Мирлан Муктарович",ky:"Дылдаев Мирлан Муктарович",en:"Mirlan Muktarovich Dyldaev","zh-CN":"米尔兰·迪尔达耶夫"})[locale]} width={853} height={1024} sizes="(max-width: 640px) 210px, 300px" /></div>
+      <div className="bsu-rector-copy"><p className="bsu-kicker">BSU / UNIVERSITY</p><h2 id="bsu-rector-title">{({ru:"Приветствие ректора",ky:"Ректордун кайрылуусу",en:"Rector’s greeting","zh-CN":"校长致辞"})[locale]}</h2>
+      <p className="bsu-rector-message">{({ru:"Приветствую Вас на официальном сайте Бишкекского государственного университета имени академика Кусеина Карасаева. Я искренне рад, что вы проявляете интерес к нашему университету.",ky:"Академик Кусеин Карасаев атындагы Бишкек мамлекеттик университетинин расмий сайтына кош келиңиздер. Биздин университетке кызыгуу көрсөтүп жатканыңызга чын жүрөктөн кубанычтамын!",en:"Welcome to the official website of Bishkek State University named after Academician Kusein Karasaev. I am sincerely glad that you are interested in our university.","zh-CN":"欢迎来到比什凯克国立库塞因·卡拉萨耶夫院士大学官方网站。我真的很高兴您对我们大学感兴趣。"})[locale]}</p>
+      <div className="bsu-rector-sign"><strong>{({ru:"Дылдаев Мирлан Муктарович",ky:"Дылдаев Мирлан Муктарович",en:"Mirlan Muktarovich Dyldaev","zh-CN":"米尔兰·迪尔达耶夫"})[locale]}</strong><span>{({ru:"Ректор БГУ",ky:"БМУнун ректору",en:"Rector of BSU","zh-CN":"比什凯克国立大学校长"})[locale]}</span></div></div>
+    </section>
+
     <section id="avn-portal" className="bsu-container py-8 sm:py-12" aria-label="AVN">
       <div className="relative isolate overflow-hidden rounded-[26px] border border-[#d2e2f1] bg-gradient-to-br from-[#f7fbff] via-[#e8f3ff] to-[#c6e1fb] text-[#204774] shadow-[0_16px_42px_#24517f14]">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-35" style={{backgroundImage:"radial-gradient(#7fa7d1 1px, transparent 1px)",backgroundSize:"22px 22px",maskImage:"linear-gradient(90deg,transparent 35%,black)"}} />
@@ -258,13 +265,6 @@ export default function ModernHome() {
           </div>
         </div>
       </div>
-    </section>
-
-    <section id="rector-greeting" className="bsu-rector-block bsu-container" aria-labelledby="bsu-rector-title">
-      <div className="bsu-rector-photo"><Image src="/images/rector-bsu.jpg" alt={({ru:"Дылдаев Мирлан Муктарович",ky:"Дылдаев Мирлан Муктарович",en:"Mirlan Muktarovich Dyldaev","zh-CN":"米尔兰·迪尔达耶夫"})[locale]} width={853} height={1024} sizes="(max-width: 640px) 140px, 230px" /></div>
-      <div className="bsu-rector-copy"><p className="bsu-kicker">BSU / UNIVERSITY</p><h2 id="bsu-rector-title">{({ru:"Приветствие ректора",ky:"Ректордун кайрылуусу",en:"Rector’s greeting","zh-CN":"校长致辞"})[locale]}</h2>
-      <p className="bsu-rector-message">{({ru:"Приветствую Вас на официальном сайте Бишкекского государственного университета имени академика Кусеина Карасаева. Я искренне рад, что вы проявляете интерес к нашему университету.",ky:"Академик Кусеин Карасаев атындагы Бишкек мамлекеттик университетинин расмий сайтына кош келиңиздер. Биздин университетке кызыгуу көрсөтүп жатканыңызга чын жүрөктөн кубанычтамын!",en:"Welcome to the official website of Bishkek State University named after Academician Kusein Karasaev. I am sincerely glad that you are interested in our university.","zh-CN":"欢迎来到比什凯克国立库塞因·卡拉萨耶夫院士大学官方网站。我真的很高兴您对我们大学感兴趣。"})[locale]}</p>
-      <div className="bsu-rector-sign"><strong>{({ru:"Дылдаев Мирлан Муктарович",ky:"Дылдаев Мирлан Муктарович",en:"Mirlan Muktarovich Dyldaev","zh-CN":"米尔兰·迪尔达耶夫"})[locale]}</strong><span>{({ru:"Ректор БГУ",ky:"БМУнун ректору",en:"Rector of BSU","zh-CN":"比什凯克国立大学校长"})[locale]}</span></div></div>
     </section>
 
     <section id="education" className="bsu-section bsu-section-white">
@@ -297,4 +297,6 @@ export default function ModernHome() {
     <PartnersCarousel showLink/><p className="bsu-container bsu-editorial-note">{c.sourceNotice}</p>
   </main>;
 }
+
+
 

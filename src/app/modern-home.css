@@ -351,3 +351,28 @@
     font-size: clamp(15px, 1.2vw, 18px);
     line-height: 1.6;
 }
+
+/* Rector portrait size */
+.bsu-modern-home .bsu-rector-block {
+    grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+}
+
+.bsu-modern-home .bsu-rector-photo {
+    aspect-ratio: 853 / 1024;
+}
+
+.bsu-modern-home .bsu-rector-photo img {
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 640px) {
+    .bsu-modern-home .bsu-rector-block {
+        grid-template-columns: 1fr;
+    }
+
+    .bsu-modern-home .bsu-rector-photo {
+        width: 210px;
+        margin-inline: auto;
+    }
+}
