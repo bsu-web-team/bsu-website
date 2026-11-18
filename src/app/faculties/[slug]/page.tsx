@@ -1,102 +1,48 @@
-import PanelLabel from "@/components/interior/PanelLabel";
-import InteriorNav from "@/components/interior/InteriorNav";
+import { facultyRoster } from "@/lib/faculty-leadership";
+import FacultyLeadershipDrawer from "@/components/faculties/FacultyLeadershipDrawer";
+import { facultyOverviewContent } from "@/lib/faculty-overview-content";
 import type { Metadata } from "next";
-import PublicTextV13, { PublicPersonV13 } from "@/components/i18n/PublicTextV13";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, BookOpen, Building2, ChevronRight, ExternalLink, Mail, MapPin, Phone, UserRound } from "lucide-react";
+import { ArrowUpRight, ChevronRight, Mail, MapPin, Phone, UserRound } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import PublicTextV13, { PublicPersonV13 } from "@/components/i18n/PublicTextV13";
+import PanelLabel from "@/components/interior/PanelLabel";
+import FacultySectionDialog from "@/components/faculties/FacultySectionDialog";
+import { getFacultyMaterial } from "@/components/faculties/FacultyFullContent";
+import { departmentHref } from "@/lib/department-data";
 import { getFacultyBySlug } from "@/lib/faculty-data";
-import UnitNewsV2 from "@/components/news/UnitNewsV2";
 import { getNews } from "@/lib/news-data";
 import { matchesNewsScope } from "@/lib/news-filter";
-
-// Next.js 16 Cache Components: dynamically resolve route params for this page.
+import UnitNewsV2 from "@/components/news/UnitNewsV2";
 export const instant = false;
+type Props={params:Promise<{slug:string}>};
+export async function generateMetadata({params}:Props):Promise<Metadata>{const {slug}=await params;const f=await getFacultyBySlug(slug);return {title:f?`${f.name} | БГУ`:"Подразделение не найдено | БГУ",description:f?.summary};}
+export default async function FacultyPage({params}:Props){
+ const {slug}=await params;const faculty=await getFacultyBySlug(slug);if(!faculty)notFound();
+ const base=`/faculties/${slug}`;
+ const unitNews=(await getNews()).filter(item=>matchesNewsScope(item,{facultySlug:slug})).slice(0,3);
+ const blocks=getFacultyMaterial(faculty.sourceUrl)?.blocks??[];
+ const brief=facultyOverviewContent(slug,blocks);
 
-type Props = { params: Promise<{ slug: string }> };
+ const {people,deanPhoto}=facultyRoster(blocks,faculty.leader);
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const faculty = await getFacultyBySlug(slug);
-  return { title: faculty ? `${faculty.name} | БГУ` : "Подразделение не найдено | БГУ", description: faculty?.summary };
-}
-
-export default async function FacultyPage({ params }: Props) {
-  const { slug } = await params;
-  const faculty = await getFacultyBySlug(slug);
-  if (!faculty) notFound();
-  const unitNews = (await getNews()).filter(item => matchesNewsScope(item, { facultySlug: faculty.slug })).slice(0, 3);
-
-  return (
-    <div className="min-h-screen bg-[#f5f7fb] text-slate-900 bsu-interior">
-      <Header />
-      <main>
-        <section className="bg-[#204774] px-5 py-14 text-white bsu-page-hero sm:px-8 sm:py-20">
-          <div className="mx-auto max-w-7xl">
-            <nav aria-label="Навигационная цепочка" className="mb-7 flex flex-wrap items-center gap-2 text-sm text-blue-100">
-              <Link href="/" className="hover:underline"><PublicTextV13 value="Главная" /></Link><ChevronRight size={15}/>
-              <Link href="/faculties" className="hover:underline"><PublicTextV13 value="Факультеты и институты" /></Link><ChevronRight size={15}/>
-              <span aria-current="page" className="text-white"><PublicTextV13 value={faculty.name} /></span>
-            </nav>
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#d5b780]"><PublicTextV13 value={faculty.kind === "faculty" ? "Факультет" : "Институт"} /> · <PublicTextV13 value={faculty.category} /></p>
-            <h1 className="mt-4 max-w-4xl text-3xl font-extrabold leading-tight sm:text-5xl"><PublicTextV13 value={faculty.name} /></h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-blue-100"><PublicTextV13 value={faculty.summary} /></p>
-          </div>
-        </section>
-<InteriorNav facultyBase={`/faculties/${slug}`}/>
-
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[minmax(0,1fr)_340px] bsu-page-body">
-          <div className="space-y-8">
-            <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-              <div className="flex items-center gap-3"><span className="rounded-lg bg-blue-50 p-3 text-[#204774]"><Building2 size={23}/></span><h2 className="text-2xl font-bold text-[#204774]"><PublicTextV13 value="О подразделении" /></h2></div>
-              <p className="mt-5 leading-7 text-slate-700"><PublicTextV13 value={faculty.summary} /></p>
-              <p className="mt-4 text-sm text-slate-500"><PublicTextV13 value="Ниже приведены сведения, опубликованные на прежнем сайте университета. Полная историческая справка и дополнительные материалы будут добавляться после согласования с редакторами БГУ." /></p>
-            </section>
-            {faculty.departments && faculty.departments.length > 0 && (
-              <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-                <h2 className="text-2xl font-bold text-[#204774]"><PublicTextV13 value="Кафедры" /></h2>
-                <ul className="mt-5 grid gap-3 sm:grid-cols-2">{faculty.departments.map((name) => (
-                  <li key={name} className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium leading-relaxed text-slate-800"><PublicTextV13 value={name} /></li>
-                ))}</ul>
-                <p className="mt-4 text-xs text-slate-500"><PublicTextV13 value="Опубликованный на старом сайте перечень; структура требует проверки на актуальность." /></p>
-              </section>
-            )}
-            {faculty.programs && faculty.programs.length > 0 && (
-              <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-                <div className="flex items-center gap-3"><BookOpen size={23} className="text-[#204774]"/><h2 className="text-2xl font-bold text-[#204774]"><PublicTextV13 value="Направления подготовки" /></h2></div>
-                <div className="mt-5 space-y-3">{faculty.programs.map((program, index) => (
-                  <div key={`${program.title}-${index}`} className="flex flex-col justify-between gap-2 rounded-xl border border-slate-200 p-4 sm:flex-row sm:items-center">
-                    <div><h3 className="font-semibold"><PublicTextV13 value={program.title} /></h3>{program.degree && <p className="mt-1 text-sm text-slate-500"><PublicTextV13 value={program.degree} /></p>}</div>
-                    {program.code && <span className="self-start rounded-lg bg-blue-50 px-3 py-1.5 text-xs font-semibold text-[#204774]">{program.code}</span>}
-                  </div>
-                ))}</div>
-              </section>
-            )}
-            <UnitNewsV2 items={unitNews} facultySlug={faculty.slug} />
-            <Link href="/faculties" className="inline-flex items-center gap-2 text-sm font-semibold text-[#204774] hover:underline"><ArrowLeft size={17}/><PublicTextV13 value="Вернуться к списку факультетов" /></Link>
-          </div>
-          <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
-            <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500"><UserRound size={18}/><PublicTextV13 value={faculty.leadTitle} /></div>
-              <h2 className="mt-3 text-xl font-bold leading-snug text-[#204774]"><PublicPersonV13 name={faculty.leader} /></h2>
-            </section>
-            <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="mb-5 text-xl font-bold text-[#204774]"><PublicTextV13 value="Контакты" /></h2>
-              <div className="space-y-5 break-words text-sm">
-                {faculty.address && <div className="flex gap-3"><MapPin size={19} className="shrink-0 text-[#a48652]"/><span>{faculty.address}</span></div>}
-                {faculty.phone && <div className="flex gap-3"><Phone size={19} className="shrink-0 text-[#a48652]"/><a className="hover:underline" href={`tel:${faculty.phone.replace(/[^+\d]/g, "")}`}>{faculty.phone}</a></div>}
-                {faculty.email && <div className="flex gap-3"><Mail size={19} className="shrink-0 text-[#a48652]"/><a className="hover:underline" href={`mailto:${faculty.email}`}>{faculty.email}</a></div>}
-              </div>
-              <a href={`/faculties/${slug}/details`} className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#204774] px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-900"><PublicTextV13 value="Официальная страница" /> <ExternalLink size={16}/></a>
-              <p className="mt-3 text-xs leading-relaxed text-slate-500"><PublicTextV13 value="Проверьте актуальные сведения на официальном сайте БГУ." /></p>
-            </section>
-          </aside>
-        </div>
-      <div className="bsu-interior-overview-link"><Link href={`/faculties/${slug}/details`} prefetch={false} className="bsu-interior-action"><PanelLabel name="details"/> ↗</Link></div>
-      </main>
-      <Footer />
-    </div>
-  );
+ const documents=Array.from(new Map(blocks.flatMap(b=>b.links??[]).filter(l=>/^(https?:\/\/|\/)/i.test(l.href)&&(/\.(pdf|docx?|xlsx?|pptx?)(?:[?#]|$)/i.test(l.href))&&!/\.(jpe?g|png|gif|webp|svg)(?:[?#]|$)/i.test(l.href)).map(l=>[l.href,l])).values());
+ const contacts=<div className="bsu-faculty-contact-list">{faculty.address&&<div><MapPin size={19}/><span>{faculty.address}</span></div>}{faculty.phone&&<div><Phone size={19}/><a href={`tel:${faculty.phone.replace(/[^+\d]/g,"")}`}>{faculty.phone}</a></div>}{faculty.email&&<div><Mail size={19}/><a href={`mailto:${faculty.email}`}>{faculty.email}</a></div>}</div>;
+ return <div className="min-h-screen bg-[#f5f7fb] text-slate-900 bsu-interior"><Header/><main>
+ <section className="bsu-page-hero bg-[#204774] px-5 py-10 text-white sm:px-8 sm:py-14"><div className="mx-auto max-w-7xl"><nav aria-label="Navigation" className="mb-5 flex flex-wrap items-center gap-2 text-sm text-blue-100"><Link href="/"><PublicTextV13 value="Главная"/></Link><ChevronRight size={15}/><Link href="/faculties"><PublicTextV13 value="Факультеты и институты"/></Link></nav><p className="text-sm font-semibold uppercase tracking-widest text-[#dfbd7e]">{faculty.shortName??<PublicTextV13 value={faculty.kind==="faculty"?"Факультет":"Институт"}/>}</p><h1 className="mt-3 max-w-4xl text-3xl font-extrabold leading-tight sm:text-5xl"><PublicTextV13 value={faculty.name}/></h1></div></section>
+ <nav id="faculty-quick-nav" aria-label="Faculty sections" className="bsu-faculty-modal-nav" data-bsu-no-motion><div>
+ <FacultySectionDialog label={<PanelLabel name="departments"/>}><div className="bsu-faculty-modal-list">{faculty.departments?.map(name=><Link key={name} href={departmentHref(slug,name)} prefetch={false}><PublicTextV13 value={name}/><ArrowUpRight size={17}/></Link>)}</div>{!faculty.departments?.length&&<p><PanelLabel name="pending"/></p>}<Link className="bsu-faculty-modal-link" href="/departments" prefetch={false}><PanelLabel name="all"/> ↗</Link></FacultySectionDialog>
+ <FacultySectionDialog label={<PanelLabel name="programs"/>}><div className="bsu-faculty-modal-list">{faculty.programs?.map((p,i)=><div key={i}><div><strong><PublicTextV13 value={p.title}/></strong>{p.degree&&<p><PublicTextV13 value={p.degree}/></p>}</div>{p.code&&<small>{p.code}</small>}</div>)}</div>{!faculty.programs?.length&&<p><PanelLabel name="pending"/></p>}<Link className="bsu-faculty-modal-link" href="/programs" prefetch={false}><PanelLabel name="all"/> ↗</Link></FacultySectionDialog>
+ 
+ <FacultySectionDialog label={<PanelLabel name="documents"/>}><div className="bsu-faculty-modal-list">{documents.map(d=><a key={d.href} href={d.href} target="_blank" rel="noopener noreferrer"><PublicTextV13 value={d.label}/><ArrowUpRight size={17}/></a>)}</div>{!documents.length&&<p><PanelLabel name="pending"/></p>}<Link className="bsu-faculty-modal-link" href="/documents" prefetch={false}><PanelLabel name="all"/> ↗</Link></FacultySectionDialog>
+ <FacultySectionDialog label={<PublicTextV13 value="Контакты"/>}>{contacts}</FacultySectionDialog>
+ <FacultySectionDialog label={<PanelLabel name="news"/>}><UnitNewsV2 items={unitNews} facultySlug={slug}/></FacultySectionDialog>
+ </div></nav>
+ <div className="bsu-faculty-new-body mx-auto max-w-7xl px-5 py-8 sm:px-8"><div className="bsu-faculty-main-copy"><section className="bsu-faculty-info-card"><h2><PublicTextV13 value="О подразделении"/></h2><p><PublicTextV13 value={faculty.summary}/></p>{brief.length?brief.map((b,i)=><div className="bsu-faculty-brief" key={i}><h3><PublicTextV13 value={b.heading}/></h3>{b.paragraphs.map((paragraph,j)=><p key={j}><PublicTextV13 value={paragraph}/></p>)}</div>):null}<Link href={`${base}/details`} prefetch={false} className="bsu-faculty-modal-link"><PanelLabel name="details"/> <ArrowUpRight size={16}/></Link></section></div>
+ <aside className="bsu-faculty-info-card bsu-faculty-lead"><div className="flex items-center gap-3"><UserRound size={20}/><span><PublicTextV13 value={faculty.leadTitle}/></span></div>{deanPhoto&&<Image className="bsu-faculty-lead-photo" src={deanPhoto} alt={faculty.leader} width={200} height={240} unoptimized/>}<h2><PublicPersonV13 name={faculty.leader}/></h2>
+ <FacultyLeadershipDrawer leader={{name:faculty.leader,position:faculty.leadTitle,photo:deanPhoto}} people={people}/>{contacts}</aside></div>
+ </main><Footer/></div>;
 }

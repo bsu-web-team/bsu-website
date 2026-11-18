@@ -1,5 +1,5 @@
-import InteriorNav from "@/components/interior/InteriorNav";
-import IntegratedSectionContent from "@/components/integrated/SectionContent";
+
+
 import type { Metadata } from "next";
 import PublicTextV13 from "@/components/i18n/PublicTextV13";
 import Link from "next/link";
@@ -28,13 +28,13 @@ export default async function FacultiesPage() {
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-blue-100"><PublicTextV13 value="Откройте подразделение, чтобы узнать о руководстве, кафедрах, образовательных направлениях и контактах." /></p>
           </div>
         </section>
-<InteriorNav route="/faculties"/>
+
 
         <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-14 bsu-page-body">
           <FacultyDirectory items={items} />
           <p className="mt-8 text-xs text-slate-500"><PublicTextV13 value="Данные перенесены из открытых страниц bsu.kg для предварительного ознакомления. Состав и контакты требуют подтверждения университетом перед публикацией." /></p>
         </div>
-      <IntegratedSectionContent section="faculties" compact/>
+      <div className="bsu-faculty-archive-link mx-auto max-w-7xl px-5 pb-8 sm:px-8"><Link href="/faculties/content" prefetch={false} className="bsu-faculty-resource"><PublicTextV13 value="Материалы факультетов"/> ↗</Link></div>
 </main>
       <Footer />
     </div>
