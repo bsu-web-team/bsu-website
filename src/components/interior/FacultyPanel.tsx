@@ -6,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 import PublicTextV13 from "@/components/i18n/PublicTextV13";
 import FacultyFullContent from "@/components/faculties/FacultyFullContent";
 import { departmentHref } from "@/lib/department-data";
-import { getFacultyBySlug } from "@/lib/faculty-data";
+import { getFacultyBySlug } from "@/lib/backend/data";
 import InteriorNav from "./InteriorNav";
 import PanelLabel from "./PanelLabel";
 export type FacultyTab="details"|"departments"|"programs"|"staff"|"documents"|"news";

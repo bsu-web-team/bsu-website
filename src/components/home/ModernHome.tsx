@@ -9,9 +9,9 @@ import {
 } from "lucide-react";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import type { Locale } from "@/lib/i18n";
-import { faculties } from "@/lib/faculty-data";
+import type { FacultyRecord } from "@/lib/faculty-data";
 import { translateContent } from "@/lib/content-translations";
-import { newsRecords } from "@/lib/news-data";
+import type { NewsRecord } from "@/lib/news-data";
 import { localizeNews, formatLocalizedNewsDate, newsUi } from "@/lib/news-i18n";
 
 type Texts = {
@@ -105,15 +105,16 @@ const motionLabels: Record<Locale,{previous:string;next:string;facultyPrevious:s
 };
 
 // BSU faculty order v2
+export default function ModernHome({faculties, newsRecords}: {faculties: FacultyRecord[]; newsRecords: NewsRecord[]}) {
 const facultyOrder = ["kyrgyz-philology","kyrgyz-chinese","russian-philology","journalism-information-systems","oriental-studies-international-relations","european-civilizations","pedagogical-education","social-psychological","ecology-management","economics-finance-business"];
 const featuredFaculties = [
-  ...facultyOrder.map(slug => faculties.find(f => f.slug === slug)!).map(f => ({slug:f.slug, name:f.name, category:f.category, href:`/faculties/${f.slug}`, labels:undefined as Record<Locale,string>|undefined})),
+  ...facultyOrder.flatMap(slug => faculties.filter(f => f.slug === slug)).map(f => ({slug:f.slug, name:f.name, category:f.category, href:`/faculties/${f.slug}`, labels:undefined as Record<Locale,string>|undefined})),
   {slug:"college",name:"Колледж БГУ",category:"Колледж",href:"/college",labels:{ru:"Колледж БГУ",ky:"БМУнун колледжи",en:"BSU College","zh-CN":"大学附属学院"}},
   {slug:"international-education-center",name:"Международный образовательный институт",category:"Институт",href:"/international/education-center",labels:{ru:"Международный образовательный институт",ky:"Эл аралык билим берүү институту",en:"International Education Institute","zh-CN":"国际教育学院"}}
 ];
 const sortedNews = [...newsRecords].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
 
-export default function ModernHome() {
+
   const { locale, t } = useLocale();
   const c = copy[locale];
   const [activeSlide, setActiveSlide] = useState(0);
