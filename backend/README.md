@@ -4,9 +4,9 @@ A small FastAPI backend for the BSU website. It is built step by step, starting
 with one simple resource (news), so the team can practise before designing the
 full system.
 
-> Status: **step 1**. News are read from a JSON file. There is no database,
-> no authentication and no write endpoints yet. The website does not use this
-> API yet.
+> Status: **step 2**. News are read from a JSON file. There is no database,
+> no authentication and no write endpoints yet. The website can read news from
+> this API and falls back to its local data when the API is not available.
 
 ## Roadmap
 
@@ -14,8 +14,8 @@ full system.
 |------|------|--------|
 | 0 | FastAPI app + `GET /api/v1/health` | done |
 | 1 | Read-only news API from a JSON file | done |
-| 2 | Next.js `getNews()` calls the API, with fallback to local data | next |
-| 3 | PostgreSQL (Docker) + SQLAlchemy + Alembic migrations + seed script | planned |
+| 2 | Next.js `getNews()` calls the API, with fallback to local data | done |
+| 3 | PostgreSQL (Docker) + SQLAlchemy + Alembic migrations + seed script | next |
 | 4 | Admin write endpoints (`POST`/`PATCH`), draft vs published | planned |
 | 5 | Authentication and roles, checked on the server | planned |
 
@@ -115,8 +115,7 @@ Response of `GET /api/v1/news`:
       "date": "2026-10-23",
       "category": "Наука",
       "excerpt": "...",
-      "sourceUrl": "https://bsu.kg/ru/bhu-news/",
-      "imageUrl": null
+      "sourceUrl": "https://bsu.kg/ru/bhu-news/"
     }
   ],
   "total": 6,
@@ -127,12 +126,48 @@ Response of `GET /api/v1/news`:
 
 JSON keys are camelCase (`sourceUrl`) to match the frontend `NewsRecord` type;
 Python code uses snake_case (`source_url`). See `ApiModel` in `schemas.py`.
+Optional fields (`imageUrl`, `content`, `facultySlug`, `departmentSlug`, `tags`)
+are omitted when empty, like optional fields in TypeScript.
 
 ## Tests
 
 ```powershell
 pytest
 ```
+
+## Connect the website to the API (step 2)
+
+The website reads news through `src/lib/news-api.ts` (`getNews()`,
+`getNewsBySlug()`). It is used by the home page, `/news`, `/news/[slug]`, and
+faculty/department pages.
+
+1. Start the API (see above) and keep that terminal open.
+2. In the repository root, create `.env.local` from the example:
+
+   ```powershell
+   Copy-Item .env.example .env.local
+   ```
+
+   It contains `BSU_API_URL=http://127.0.0.1:8000`.
+3. In a second terminal, from the repository root, start the website:
+
+   ```powershell
+   npm run dev
+   ```
+
+4. Open http://localhost:3000. The uvicorn terminal shows requests such as
+   `GET /api/v1/news?limit=50 200 OK`.
+
+How it behaves:
+
+- `BSU_API_URL` not set: local data from `src/lib/news-data.ts` (Vercel today).
+- API running: data comes from the API. Try changing a title in
+  `app/data/news.json`, restart uvicorn, and wait for the cache (a few minutes,
+  `cacheLife("minutes")`) or restart `npm run dev`.
+- API stopped or broken: the website logs `[news-api] ... using local news data`
+  and still works.
+- `BSU_API_URL` is read only on the server. It is not sent to the browser, and
+  the browser never calls the API directly (so no CORS setup is needed yet).
 
 ## Database (preparation for step 3)
 

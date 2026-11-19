@@ -22,7 +22,7 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
-@app.get("/api/v1/news", response_model=NewsPage, tags=["news"])
+@app.get("/api/v1/news", response_model=NewsPage, response_model_exclude_none=True, tags=["news"])
 def list_news(
     category: NewsCategory | None = None,
     page: int = Query(1, ge=1, description="Page number, starting at 1"),
@@ -34,7 +34,7 @@ def list_news(
     return NewsPage(items=records[start : start + limit], total=len(records), page=page, limit=limit)
 
 
-@app.get("/api/v1/news/{slug}", response_model=NewsRecord, tags=["news"])
+@app.get("/api/v1/news/{slug}", response_model=NewsRecord, response_model_exclude_none=True, tags=["news"])
 def get_news(slug: str) -> NewsRecord:
     """One news item by its slug, or 404 if it does not exist."""
     record = news_store.get_news(slug)

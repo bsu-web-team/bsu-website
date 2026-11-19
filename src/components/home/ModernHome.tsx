@@ -11,7 +11,7 @@ import { useLocale } from "@/components/i18n/LocaleProvider";
 import type { Locale } from "@/lib/i18n";
 import { faculties } from "@/lib/faculty-data";
 import { translateContent } from "@/lib/content-translations";
-import { newsRecords } from "@/lib/news-data";
+import { newsRecords, type NewsRecord } from "@/lib/news-data";
 import { localizeNews, formatLocalizedNewsDate, newsUi } from "@/lib/news-i18n";
 
 type Texts = {
@@ -113,7 +113,8 @@ const featuredFaculties = [
 ];
 const sortedNews = [...newsRecords].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
 
-export default function ModernHome() {
+/** latestNews comes from the server (API or local fallback); local data is used if it is not passed. */
+export default function ModernHome({ latestNews = sortedNews }: { latestNews?: NewsRecord[] }) {
   const { locale, t } = useLocale();
   const c = copy[locale];
   const [activeSlide, setActiveSlide] = useState(0);
@@ -164,7 +165,7 @@ export default function ModernHome() {
     return () => observer.disconnect();
   }, []);
   const facultyItems = featuredFaculties;
-  const latest = sortedNews.map(n => localizeNews(n, locale));
+  const latest = latestNews.slice(0, 3).map(n => localizeNews(n, locale));
   const newsCategories = newsUi[locale].categories;
   const shortcutLabels = { admissions:t("forApplicants"), programs:t("programCatalog"),staff:t("staff"),news:t("newsShort"), schedule:t("schedule") };
 

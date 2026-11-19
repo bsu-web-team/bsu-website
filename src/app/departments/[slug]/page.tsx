@@ -7,7 +7,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { getDepartmentBySlug } from "@/lib/department-data";
 import UnitNewsV2 from "@/components/news/UnitNewsV2";
-import { getNews } from "@/lib/news-data";
+import { getNews } from "@/lib/news-api";
 import { matchesNewsScope } from "@/lib/news-filter";
 
 // Keep compatibility with the project's current Next.js 16 Cache Components configuration.

@@ -34,7 +34,13 @@ class NewsRecord(ApiModel):
     category: NewsCategory
     excerpt: str
     source_url: str
+    # Optional fields, same as the frontend NewsRecord type.
+    # Empty ones are left out of the JSON (see response_model_exclude_none in main.py).
     image_url: str | None = None
+    content: list[str] | None = None
+    faculty_slug: str | None = None
+    department_slug: str | None = None
+    tags: list[str] | None = None
 
 
 class NewsPage(ApiModel):

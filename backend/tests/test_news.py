@@ -22,6 +22,8 @@ def test_list_news_is_sorted_and_limited():
     assert dates == sorted(dates, reverse=True)
     # JSON keys use camelCase, like the frontend expects.
     assert "sourceUrl" in body["items"][0]
+    # Empty optional fields are omitted, not sent as null.
+    assert "imageUrl" not in body["items"][0]
 
 
 def test_filter_by_category():

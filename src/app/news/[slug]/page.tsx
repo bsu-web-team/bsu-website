@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import NewsArticleLocalized from "@/components/news/NewsArticleLocalized";
-import { getNewsBySlug, newsRecords } from "@/lib/news-data";
+import { newsRecords } from "@/lib/news-data";
+import { getNewsBySlug } from "@/lib/news-api";
 export const instant = false;
 export function generateStaticParams(){return newsRecords.map(x=>({slug:x.slug}));}
 type Props={params:Promise<{slug:string}>};
