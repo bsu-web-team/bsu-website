@@ -1,0 +1,23 @@
+# Local development services. Start the database with:
+#   docker compose up -d db
+# These credentials are for local use only; never reuse them on a server.
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: bsu-postgres
+    environment:
+      POSTGRES_USER: bsu
+      POSTGRES_PASSWORD: bsu_local_password
+      POSTGRES_DB: bsu
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - bsu_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bsu -d bsu"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  bsu_pgdata:
