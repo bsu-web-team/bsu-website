@@ -1,7 +1,8 @@
+import { getDocumentBySlug } from '@/lib/backend/data';
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import DocumentsLocalized from "@/components/documents/DocumentsLocalized";
-import { documents, getDocumentBySlug } from "@/lib/document-data";
+import { documents } from "@/lib/document-data";
 
 export function generateStaticParams(){return documents.map(d=>({slug:d.slug}));}
 export const instant = false;

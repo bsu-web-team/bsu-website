@@ -1,3 +1,4 @@
+import { getDepartments } from '@/lib/backend/data';
 import InteriorNav from "@/components/interior/InteriorNav";
 import type { Metadata } from "next";
 import PublicTextV13 from "@/components/i18n/PublicTextV13";
@@ -6,7 +7,7 @@ import { ChevronRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import DepartmentDirectory from "@/components/departments/DepartmentDirectory";
-import { getDepartments } from "@/lib/department-data";
+
 
 export const metadata: Metadata = {
   title: "Кафедры | БГУ",

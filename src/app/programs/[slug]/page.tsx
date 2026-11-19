@@ -1,9 +1,10 @@
+import { getProgramBySlug } from '@/lib/backend/data';
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ProgramDetailLocalized from "@/components/programs/ProgramDetailLocalized";
-import { getProgramBySlug, programRecords } from "@/lib/program-data";
+import { programRecords } from "@/lib/program-data";
 
 export const instant = false;
 export function generateStaticParams() { return programRecords.map(p => ({ slug: p.slug })); }
