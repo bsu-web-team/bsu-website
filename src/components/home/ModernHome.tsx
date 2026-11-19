@@ -169,10 +169,22 @@ export default function ModernHome() {
   const shortcutLabels = { admissions:t("forApplicants"), programs:t("programCatalog"),staff:t("staff"),news:t("newsShort"), schedule:t("schedule") };
 
   return <main>
-    {showIntro && <div className="bsu-motion-intro" role="presentation" aria-hidden="true">
-      <div className="bsu-motion-intro-mark"><svg viewBox="0 0 120 120" fill="none" aria-hidden="true"><circle cx="60" cy="60" r="47" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 8"/><circle cx="60" cy="60" r="33" stroke="currentColor" strokeOpacity=".5"/><path d="M60 23C78 45 78 75 60 97C42 75 42 45 60 23ZM23 60C45 42 75 42 97 60C75 78 45 78 23 60Z" stroke="currentColor" strokeWidth="2"/><circle cx="60" cy="60" r="8" fill="currentColor"/></svg></div>
-      <div className="bsu-motion-intro-type"><span>БГУ · BSU · БМУ</span><small>{labels.intro}</small></div>
-    </div>}
+    {showIntro && (
+      <div className="bsu-motion-intro" aria-hidden="true">
+        <div className="bsu-emblem-intro">
+          <span className="bsu-emblem-ring ring-one" />
+          <span className="bsu-emblem-ring ring-two" />
+          <Image
+            src="/brand/bsu-emblem.svg"
+            alt=""
+            width={100}
+            height={100}
+            priority
+            unoptimized
+          />
+        </div>
+      </div>
+    )}
     <section className="bsu-portal" aria-labelledby="bsu-hero-heading">
       <div className="bsu-portal-noise" aria-hidden="true" />
       <div className="bsu-portal-topline" aria-hidden="true"><span>BSU <i>×</i> BISHKEK</span><span>EST. / UNIVERSITY</span></div>

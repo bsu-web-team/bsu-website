@@ -20,6 +20,7 @@ const notoSans = Noto_Sans({
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  icons: { icon: "/brand/bsu-emblem.svg", shortcut: "/brand/bsu-emblem.svg" },
   title: { default: "БГУ имени К. Карасаева", template: "%s — БГУ" },
   description: "Бишкекский государственный университет имени академика Кусеина Карасаева.",
 };
