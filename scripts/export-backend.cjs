@@ -22,7 +22,7 @@ const specs={faculties:['faculty-data','faculties'],departments:['department-dat
 const data={};
 for(const [key,[file,prop]] of Object.entries(specs)) {data[key]=load('src/lib/'+file+'.ts')[prop];if(!data[key])throw Error('Missing '+key);}
 function collection(dir){const p=path.join(root,dir);return Object.fromEntries(fs.readdirSync(p).filter(x=>x.endsWith('.json')).sort().map(x=>[x.slice(0,-5),JSON.parse(fs.readFileSync(path.join(p,x),'utf8'))]));}
-data.archive=collection('src/lib/archive-data');data.facultyContent=collection('src/lib/content-phase1');
+data.archive=collection('src/lib/archive-data');data.integratedContent=collection('src/lib/integrated-data');data.facultyContent=collection('src/lib/content-phase1');
 const issues=[];const facultySlugs=new Set(data.faculties.map(x=>x.slug));
 for(const key of ['faculties','departments','staff','programs','news','documents']){const seen=new Set();for(const x of data[key]){if(!x.slug||seen.has(x.slug))issues.push({kind:'duplicate-or-empty-slug',key,slug:x.slug});seen.add(x.slug);if(x.facultySlug&&!facultySlugs.has(x.facultySlug))issues.push({kind:'unknown-faculty',key,slug:x.slug,facultySlug:x.facultySlug});}}
 for(const entry of data.archiveIndex)for(const v of entry.variants??[])if(!data.archive[v.id])issues.push({kind:'missing-archive-file',id:v.id});

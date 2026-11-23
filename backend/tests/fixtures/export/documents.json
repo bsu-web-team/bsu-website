@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "charter",
+    "title": "Устав",
+    "category": "Нормативные документы",
+    "description": "Устав.",
+    "sourceUrl": "https://example.test/d1",
+    "format": "Страница сайта",
+    "status": "Ссылка на источник"
+  },
+  {
+    "slug": "rules",
+    "title": "Правила приёма",
+    "category": "Абитуриентам",
+    "description": "Правила.",
+    "sourceUrl": "https://example.test/d2",
+    "format": "Страница сайта",
+    "status": "Ссылка на источник"
+  }
+]

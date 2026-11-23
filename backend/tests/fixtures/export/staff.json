@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "alpha-leader",
+    "name": "Иванов Иван",
+    "position": "Декан",
+    "facultySlug": "alpha",
+    "facultyName": "Факультет Альфа",
+    "sourceUrl": "https://example.test/alpha"
+  },
+  {
+    "slug": "beta-teacher",
+    "name": "Сидорова Анна",
+    "position": "Доцент",
+    "facultySlug": "beta",
+    "facultyName": "Институт Бета",
+    "sourceUrl": "https://example.test/beta",
+    "departmentSlug": "beta--one",
+    "publications": [
+      {
+        "title": "Статья"
+      }
+    ],
+    "personalEmail": "private@example.test",
+    "personalPhone": "+996 555 000 000"
+  }
+]
