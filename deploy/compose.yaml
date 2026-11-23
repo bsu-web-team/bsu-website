@@ -1,0 +1,42 @@
+# Local/private deployment test. HTTPS and public DNS must be configured separately.
+name: bsu-site
+x-bsu-web: &bsu-web
+  image: bsu-frontend:local
+  build:
+    context: ..
+    dockerfile: Dockerfile
+  restart: unless-stopped
+  init: true
+  environment:
+    NODE_ENV: production
+    BSU_DATA_SOURCE: ${BSU_DATA_SOURCE:-local}
+    BSU_CONTENT_SOURCE: ${BSU_CONTENT_SOURCE:-local}
+    BSU_API_BASE_URL: ${BSU_API_BASE_URL:-}
+  healthcheck:
+    test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+    interval: 20s
+    timeout: 8s
+    retries: 3
+    start_period: 90s
+
+services:
+  web1:
+    <<: *bsu-web
+  web2:
+    <<: *bsu-web
+  web3:
+    <<: *bsu-web
+  web4:
+    <<: *bsu-web
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    depends_on:
+      web1: {condition: service_healthy}
+      web2: {condition: service_healthy}
+      web3: {condition: service_healthy}
+      web4: {condition: service_healthy}

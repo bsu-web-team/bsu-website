@@ -1,3 +1,4 @@
+import { getDepartmentBySlug, getNews } from '@/lib/backend/data';
 import type { Metadata } from "next";
 import PublicTextV13 from "@/components/i18n/PublicTextV13";
 import Link from "next/link";
@@ -5,9 +6,9 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ChevronRight, ExternalLink, Building2 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { getDepartmentBySlug } from "@/lib/department-data";
+
 import UnitNewsV2 from "@/components/news/UnitNewsV2";
-import { getNews } from "@/lib/news-api";
+
 import { matchesNewsScope } from "@/lib/news-filter";
 
 // Keep compatibility with the project's current Next.js 16 Cache Components configuration.

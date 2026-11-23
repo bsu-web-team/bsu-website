@@ -1,3 +1,4 @@
+import { getFacultyBySlug, getNews } from '@/lib/backend/data';
 import { facultyRoster } from "@/lib/faculty-leadership";
 import FacultyLeadershipDrawer from "@/components/faculties/FacultyLeadershipDrawer";
 import { facultyOverviewContent } from "@/lib/faculty-overview-content";
@@ -13,8 +14,8 @@ import PanelLabel from "@/components/interior/PanelLabel";
 import FacultySectionDialog from "@/components/faculties/FacultySectionDialog";
 import { getFacultyMaterial } from "@/components/faculties/FacultyFullContent";
 import { departmentHref } from "@/lib/department-data";
-import { getFacultyBySlug } from "@/lib/faculty-data";
-import { getNews } from "@/lib/news-api";
+
+
 import { matchesNewsScope } from "@/lib/news-filter";
 import UnitNewsV2 from "@/components/news/UnitNewsV2";
 export const instant = false;

@@ -4,8 +4,8 @@ import { useSearchParams } from "next/navigation";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import type { NewsRecord, NewsCategory } from "@/lib/news-data";
 import type { Locale } from "@/lib/i18n";
-import { faculties } from "@/lib/faculty-data";
-import { departments } from "@/lib/department-data";
+import type { FacultyRecord } from "@/lib/faculty-data";
+import type { DepartmentRecord } from "@/lib/department-data";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { localizeNews, newsUi } from "@/lib/news-i18n";
 import { newsV2 } from "@/lib/news-ui-v2";
@@ -16,21 +16,22 @@ const categories: NewsCategory[] = ["Новости","Наука","Междун�
 const languages: Locale[] = ["ru","ky","en","zh-CN"];
 const PAGE_SIZE=12;
 const field="w-full min-w-0 rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm text-slate-800 outline-none focus:border-[#204774] focus:ring-2 focus:ring-blue-100";
-function Catalog({items, initialFaculty, initialDepartment}: {items:NewsRecord[];initialFaculty:string;initialDepartment:string}) {
+type DirectoryProps = { items: NewsRecord[]; faculties: FacultyRecord[]; departments: DepartmentRecord[] };
+function Catalog({items, faculties, departments, initialFaculty, initialDepartment}: DirectoryProps & {initialFaculty:string;initialDepartment:string}) {
  const {locale}=useLocale();const ui=newsUi[locale];const t=newsV2[locale];
  const [query,setQuery]=useState("");const [category,setCategory]=useState<NewsCategory|"">("");
  const [faculty,setFaculty]=useState(initialFaculty);const [department,setDepartment]=useState(initialDepartment);
  const [year,setYear]=useState("");const [month,setMonth]=useState("");const [limit,setLimit]=useState(PAGE_SIZE);
  const resetLimit=()=>setLimit(PAGE_SIZE);
- const facultyOptions=useMemo(()=>[...faculties].sort((a,b)=>translateContent(a.name,locale).localeCompare(translateContent(b.name,locale),locale)),[locale]);
- const departmentOptions=useMemo(()=>departments.filter(d=>!faculty||d.facultySlug===faculty).sort((a,b)=>translateContent(a.name,locale).localeCompare(translateContent(b.name,locale),locale)),[faculty,locale]);
+ const facultyOptions=useMemo(()=>[...faculties].sort((a,b)=>translateContent(a.name,locale).localeCompare(translateContent(b.name,locale),locale)),[faculties,locale]);
+ const departmentOptions=useMemo(()=>departments.filter(d=>!faculty||d.facultySlug===faculty).sort((a,b)=>translateContent(a.name,locale).localeCompare(translateContent(b.name,locale),locale)),[departments,faculty,locale]);
  const years=useMemo(()=>[...new Set(items.map(x=>x.date.slice(0,4)))].sort().reverse(),[items]);
  const months=useMemo(()=>[...new Set(items.filter(x=>!year||x.date.startsWith(year)).map(x=>x.date.slice(5,7)))].sort(),[items,year]);
  const index=useMemo(()=>items.map(item=>{
   const f=faculties.find(f=>f.slug===item.facultySlug); const d=departments.find(d=>d.slug===item.departmentSlug);
   const translated=languages.flatMap(l=>{const x=localizeNews(item,l);return [x.title,x.excerpt,newsUi[l].categories[item.category],translateContent(f?.name,l),translateContent(d?.name,l)];});
   return {item,search:[...translated,f?.shortName,...(item.content??[]),...(item.tags??[])]};
- }),[items]);
+ }),[items,faculties,departments]);
  const filtered=useMemo(()=>index.filter(({item,search})=>(!category||item.category===category)&&matchesNewsScope(item,{facultySlug:faculty||undefined,departmentSlug:department||undefined})&&(!year||item.date.startsWith(year))&&(!month||item.date.slice(5,7)===month)&&matchesNewsQuery(query,search)).map(x=>x.item).sort((a,b)=>b.date.localeCompare(a.date)||a.slug.localeCompare(b.slug)),[index,category,faculty,department,year,month,query]);
  const unitName=(x:NewsRecord)=>{const name=departments.find(d=>d.slug===x.departmentSlug)?.name??faculties.find(f=>f.slug===x.facultySlug)?.name;return name?translateContent(name,locale):t.general;};
  const active=Boolean(query.trim()||category||faculty||department||year||month);
@@ -56,10 +57,10 @@ function Catalog({items, initialFaculty, initialDepartment}: {items:NewsRecord[]
   {visible.length<filtered.length&&<div className="mt-8 flex flex-col items-center gap-3"><p className="text-sm text-slate-500">{t.results}: {visible.length} / {filtered.length}</p><button type="button" onClick={()=>setLimit(v=>v+PAGE_SIZE)} className="rounded-xl border border-slate-300 bg-white px-6 py-3 font-semibold text-[#204774] hover:bg-slate-50">{t.showMore}</button></div>}
  </>;
 }
-function CatalogWithParams({items}:{items:NewsRecord[]}) {
+function CatalogWithParams({items, faculties, departments}: DirectoryProps) {
  const params=useSearchParams();const d=departments.find(d=>d.slug===params.get("department"));const f=d?.facultySlug??faculties.find(f=>f.slug===params.get("faculty"))?.slug??"";
- return <Catalog key={`${f}:${d?.slug??""}`} items={items} initialFaculty={f} initialDepartment={d?.slug??""}/>;
+ return <Catalog key={`${f}:${d?.slug??""}`} items={items} faculties={faculties} departments={departments} initialFaculty={f} initialDepartment={d?.slug??""}/>;
 }
-export default function NewsDirectory({items}:{items:NewsRecord[]}) {
- return <Suspense fallback={<div aria-busy="true" className="h-44 rounded-2xl bg-white"/>}><CatalogWithParams items={items}/></Suspense>;
+export default function NewsDirectory(props: DirectoryProps) {
+ return <Suspense fallback={<div aria-busy="true" className="h-44 rounded-2xl bg-white"/>}><CatalogWithParams {...props}/></Suspense>;
 }

@@ -1,3 +1,4 @@
+import { getPrograms } from '@/lib/backend/data';
 import InteriorNav from "@/components/interior/InteriorNav";
 import IntegratedSectionContent from "@/components/integrated/SectionContent";
 import CatalogNoteV14 from "@/components/i18n/CatalogNoteV14";
@@ -7,7 +8,7 @@ import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ProgramsDirectory from "@/components/programs/ProgramsDirectory";
-import { getPrograms } from "@/lib/program-data";
+
 
 export const metadata: Metadata = { title: "Образовательные программы | БГУ", description: "Каталог программ бакалавриата, магистратуры и PhD БГУ." };
 export default async function ProgramsPage() {

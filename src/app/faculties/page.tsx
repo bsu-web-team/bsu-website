@@ -1,3 +1,4 @@
+import { getFaculties } from '@/lib/backend/data';
 
 
 import type { Metadata } from "next";
@@ -7,7 +8,7 @@ import { ChevronRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FacultyDirectory from "@/components/faculties/FacultyDirectory";
-import { getFaculties } from "@/lib/faculty-data";
+
 
 export const metadata: Metadata = {
   title: "Факультеты и институты | БГУ",

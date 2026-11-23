@@ -1,4 +1,4 @@
-/** Temporary editorial snapshot from bsu.kg. Also the fallback when the backend API is unavailable. */
+/** Temporary editorial snapshot from bsu.kg; replace with CMS API. */
 export type NewsCategory = "Новости" | "Наука" | "Международное сотрудничество" | "Мероприятия";
 export type NewsRecord = { slug: string; title: string; date: string; category: NewsCategory; excerpt: string; sourceUrl: string; imageUrl?: string; content?: string[]; facultySlug?: string; departmentSlug?: string; tags?: string[]; };
 const sourceUrl = "https://bsu.kg/ru/bhu-news/";
@@ -10,5 +10,6 @@ export const newsRecords: NewsRecord[] = [
   { slug: "digital-education-china-2026", title: "БГУ изучает опыт цифровизации образования в Китае", date: "2026-09-24", category: "Международное сотрудничество", excerpt: "Представители университета приняли участие в образовательной программе в Китае с 12 по 21 сентября 2026 года.", sourceUrl },
   { slug: "demographic-resilience-training-2026", title: "Преподаватели БГУ участвовали в тренинге по демографической устойчивости", date: "2026-09-24", category: "Наука", excerpt: "Преподаватели университета приняли участие в тренинге, проходившем с 7 по 9 сентября 2026 года.", sourceUrl },
 ];
-// getNews() / getNewsBySlug() live in news-api.ts (API with fallback to this snapshot).
+export async function getNews(): Promise<NewsRecord[]> { return [...newsRecords].sort((a,b) => b.date.localeCompare(a.date)); }
+export async function getNewsBySlug(slug:string):Promise<NewsRecord|null> { return newsRecords.find(x=>x.slug===slug)??null; }
 export function formatNewsDate(date:string) { return new Intl.DateTimeFormat("ru-RU",{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"}).format(new Date(`${date}T12:00:00Z`)); }
