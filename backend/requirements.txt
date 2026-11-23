@@ -1,4 +1,8 @@
 # Runtime dependencies for the BSU API.
-fastapi==0.115.6
-# Plain uvicorn: pure Python, installs without a C++ compiler on Windows.
-uvicorn==0.34.0
+# All of them ship prebuilt wheels for Windows/Linux (Python 3.12-3.15): no C++ compiler needed.
+fastapi==0.165.0
+uvicorn==0.54.0
+pydantic-settings==2.16.3
+sqlalchemy==2.1.9
+psycopg[binary]==3.3.9
+alembic==1.20.1

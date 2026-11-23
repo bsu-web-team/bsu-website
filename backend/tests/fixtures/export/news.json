@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "older",
+    "title": "Старая новость",
+    "date": "2026-01-10",
+    "category": "Новости",
+    "excerpt": "Кратко.",
+    "sourceUrl": "https://example.test/n1"
+  },
+  {
+    "slug": "newest",
+    "title": "Новая новость",
+    "date": "2026-03-01",
+    "category": "Наука",
+    "excerpt": "Кратко.",
+    "sourceUrl": "https://example.test/n2",
+    "facultySlug": "alpha",
+    "departmentSlug": "alpha--one",
+    "tags": [
+      "наука"
+    ],
+    "content": [
+      "Абзац 1",
+      "Абзац 2"
+    ]
+  },
+  {
+    "slug": "middle",
+    "title": "Средняя новость",
+    "date": "2026-02-01",
+    "category": "Мероприятия",
+    "excerpt": "Кратко.",
+    "sourceUrl": "https://example.test/n3"
+  }
+]

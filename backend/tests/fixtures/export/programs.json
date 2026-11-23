@@ -1,0 +1,19 @@
+[
+  {
+    "slug": "ped-bak",
+    "title": "Педагогика",
+    "level": "Бакалавриат",
+    "facultySlug": "alpha",
+    "facultyName": "Факультет Альфа",
+    "code": "550700",
+    "sourceUrl": "https://example.test/p1"
+  },
+  {
+    "slug": "psy-phd",
+    "title": "Психология",
+    "level": "PhD",
+    "facultySlug": "beta",
+    "facultyName": "Институт Бета",
+    "sourceUrl": "https://example.test/p2"
+  }
+]
