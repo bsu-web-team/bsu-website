@@ -1,0 +1,16 @@
+# Private HTTP origin on 127.0.0.1:8080 only; not a production public TLS config.
+:80 {
+    encode zstd gzip
+    reverse_proxy web1:3000 web2:3000 web3:3000 web4:3000 {
+        lb_policy least_conn
+        health_uri /
+        health_interval 15s
+        health_timeout 5s
+        fail_duration 10s
+        lb_try_duration 3s
+    }
+    log {
+        output stdout
+        format json
+    }
+}

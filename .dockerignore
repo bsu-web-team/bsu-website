@@ -1,0 +1,16 @@
+.git
+.github
+.next
+node_modules
+.env*
+!.env.example
+.bsu-backups
+bsu-site-audit.json
+backend-export
+backend-export-backups
+bsu-api-*.json
+*.log
+coverage
+out
+*.zip
+*.bak
