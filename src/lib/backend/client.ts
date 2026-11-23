@@ -29,7 +29,12 @@ export async function backendGet<T>(endpoint: string): Promise<T> {
   if (!endpoint || endpoint.startsWith('/') || endpoint.startsWith('//') || /^[a-z][a-z\d+.-]*:/i.test(endpoint)) {
     throw new Error('Backend endpoint must be a relative path');
   }
-  const url = new URL(endpoint, apiBase());
+  const base = apiBase();
+  const url = new URL(endpoint, base);
+  // Prevent traversal outside the configured /api/v1/ prefix.
+  if (url.origin !== base.origin || !url.pathname.startsWith(base.pathname) || url.hash) {
+    throw new Error('Backend endpoint escapes configured API base');
+  }
   const seconds = cacheSeconds();
   const options: RequestInit & { next?: { revalidate: number } } = {
     headers: { Accept: 'application/json' },

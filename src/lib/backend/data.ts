@@ -38,11 +38,19 @@ function maxPages(): number {
 async function list<T extends {slug: string}>(endpoint: string, local: () => Promise<T[]>): Promise<T[]> {
   if (!backendEnabled()) return local();
   const first = parsePage<T>(await backendGet<unknown>(endpoint), endpoint);
-  if (first.total === undefined || first.total === first.items.length) return first.items;
+  if (first.total === undefined || first.total === first.items.length) {
+    const unique = new Set(first.items.map(item => item.slug));
+    if (unique.size !== first.items.length) throw new Error(`Duplicate BSU API slug: ${endpoint}`);
+    return first.items;
+  }
   if (first.items.length === 0) throw new Error(`Empty first page with nonzero total: ${endpoint}`);
 
-  // Pagination contract (PROPOSED): GET /collection?page=2&page_size=100.
-  // Confirm Swagger before enabling backend mode. No silent partial results.
+  // V7.6 contract lock: V7.4 does NOT require page-number pagination.
+  // Only opt in once the actual Swagger proves this protocol is supported.
+  // Until then, fail explicitly instead of sending undocumented parameters.
+  if (process.env.BSU_API_PAGINATION !== 'page') {
+    throw new Error(`BSU API returned a partial collection (${endpoint}); pagination is not configured. Keep the backend contract unchanged and adapt the frontend to the actual API.`);
+  }
   const results = [...first.items];
   const slugs = new Set(results.map(item => item.slug));
   const size = pageSize();
