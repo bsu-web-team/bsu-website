@@ -21,9 +21,14 @@ const localSorted = () => [...newsRecords].sort((a, b) => b.date.localeCompare(a
 
 /** GET a JSON path from the API. Returns undefined when the API cannot be used. */
 async function apiGet<T>(path: string): Promise<{ status: number; data?: T } | undefined> {
-  if (!API_URL) return undefined;
+  const isDev = process.env.NODE_ENV === "development";
+  if (!API_URL) {
+    if (isDev) console.info(`[news-api] BSU_API_URL is not set, using local news data for ${path}`);
+    return undefined;
+  }
   try {
     const res = await fetch(`${API_URL}${path}`, { signal: AbortSignal.timeout(TIMEOUT_MS) });
+    if (isDev) console.info(`[news-api] ${API_URL}${path} -> ${res.status}`);
     if (res.status === 404) return { status: 404 };
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return { status: res.status, data: (await res.json()) as T };
