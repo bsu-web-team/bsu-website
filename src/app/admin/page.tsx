@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { requireAdminRole } from "@/lib/admin-session";
 import AdminWorkspace from "@/components/admin/AdminWorkspace";
 import { getFaculties } from "@/lib/faculty-data";
 import { getDepartments } from "@/lib/department-data";
@@ -18,6 +19,8 @@ export default async function AdminPage() {
   if (process.env.NODE_ENV !== "development") {
     return <main className="mx-auto max-w-3xl px-5 py-20"><h1 className="text-2xl font-bold">БГУ · BSU · БМУ · 比什凯克国立大学</h1><p className="mt-4">Панель управления недоступна. / Башкаруу панели жеткиликсиз. / Administration is unavailable. / 管理面板暂不可用。</p></main>;
   }
+
+  await requireAdminRole("ccr");
 
   // Preview only. Data comes from local snapshots, not PostgreSQL or Backend API.
   const [faculties, departments, staff, programs, news, documents] = await Promise.all([

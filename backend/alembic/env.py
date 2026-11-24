@@ -1,4 +1,4 @@
-﻿"""Alembic environment: connects to the database from app settings and
+"""Alembic environment: connects to the database from app settings and
 compares it with the models in app/models.py."""
 from logging.config import fileConfig
 
@@ -8,6 +8,7 @@ from sqlalchemy import create_engine
 from app.config import settings
 from app.models import Base
 from app import admin_models  # noqa: F401
+from app import editorial_models  # noqa: F401
 
 if context.config.config_file_name is not None:
     fileConfig(context.config.config_file_name)

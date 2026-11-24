@@ -11,8 +11,8 @@ from .models import Faculty, Department
 
 def main():
     username=input('Username: ').strip().lower()
-    role=input('Role (ccr/faculty/department): ').strip().lower()
-    if not username or len(username)>100 or role not in ('ccr','faculty','department'):
+    role=input('Role (ccr/faculty/department/news_editor): ').strip().lower()
+    if not username or len(username)>100 or role not in ('ccr','faculty','department','news_editor'):
         print('Invalid username/role',file=sys.stderr);return 1
     password=getpass.getpass('Password (12+ chars): ')
     repeat=getpass.getpass('Repeat password: ')

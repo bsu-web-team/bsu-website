@@ -64,11 +64,11 @@ function StatusMark({ status }: { status: Status }) {
   };
   return <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${classes[status]}`}>{labels[status]}</span>;
 }
-export default function EditorialDemo({ role }: { role: Mode }) {
+export default function EditorialDemo({ role, lockedSlug }: { role: Mode; lockedSlug?: string }) {
   const reviewMode = role === "review";
   const isFaculty = role === "faculty";
   const units = isFaculty ? facultyUnits : role === "department" ? departmentUnits : [];
-  const [selectedSlug, setSelectedSlug] = useState("");
+  const [selectedSlug, setSelectedSlug] = useState(lockedSlug ?? "");
   const [section, setSection] = useState<Section>("overview");
   const [entries, setEntries] = useState<Article[]>([]);
   const [profiles, setProfiles] = useState<Record<string, { description: string; contact: string }>>({});
@@ -100,6 +100,7 @@ export default function EditorialDemo({ role }: { role: Mode }) {
   const profileKey = `${role}:${selectedSlug}`;
 
   function selectUnit(slug: string) {
+    if (lockedSlug) return;
     setSelectedSlug(slug); setSection("overview"); setNotice(""); resetEditor();
     const p = profiles[`${role}:${slug}`]; setDescription(p?.description ?? ""); setContact(p?.contact ?? "");
   }
@@ -167,10 +168,10 @@ export default function EditorialDemo({ role }: { role: Mode }) {
         </div>
       </header>
       <main className="mx-auto max-w-6xl space-y-6 px-5 py-7 sm:px-8">
-        <div className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950"><CircleAlert className="mt-0.5 shrink-0" size={19}/><p>Прототип без авторизации. Выбор подразделения не предоставляет реальных прав. Данные находятся в localStorage этого браузера и не передаются в PostgreSQL. Не вводите конфиденциальную информацию.</p></div>
+        <div className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950"><CircleAlert className="mt-0.5 shrink-0" size={19}/><p>Вход подтверждён через тестовый Backend. Формы и новости пока демонстрационные: данные находятся в localStorage и не передаются в PostgreSQL. Настоящая защита редактирования потребует серверных API.</p></div>
         {notice && <div role="status" className="flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900"><MessageSquareText size={18}/>{notice}</div>}
         {!ready ? <p className="text-sm text-slate-500">Загрузка демо-данных…</p> : <>
-          {!reviewMode && <section className={card}>
+          {!reviewMode && !lockedSlug && <section className={card}>
             <label htmlFor="unit-choice" className="text-sm font-semibold text-slate-700">{isFaculty ? "Выбери факультет (для демонстрации)" : "Выбери кафедру (для демонстрации)"}</label>
             <select id="unit-choice" className={`${input} mt-3`} value={selectedSlug} onChange={(e) => selectUnit(e.target.value)}><option value="">— Выбрать подразделение —</option>{units.map((u) => <option key={u.slug} value={u.slug}>{u.name}</option>)}</select>
           </section>}
