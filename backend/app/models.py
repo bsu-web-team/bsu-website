@@ -146,3 +146,6 @@ class Material(Base):
     lang: Mapped[str] = mapped_column(String(5))  # ru | ky | en | cn
     blocks: Mapped[list[dict[str, Any]]] = mapped_column(JSONType)
     variants: Mapped[list[dict[str, Any]]] = mapped_column(JSONType)
+
+# Include administrative mappings in Alembic Base.metadata.
+from .admin_models import AdminUser, AdminSession  # noqa: E402,F401
