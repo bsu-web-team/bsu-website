@@ -9,7 +9,7 @@ from fastapi.responses import JSONResponse
 from sqlalchemy import text
 
 from .config import settings
-from . import admin_router, editorial_router, media_router, unit_profile_router
+from . import admin_router, editorial_router, media_router, unit_profile_router, staff_draft_router, staff_photo_router
 from .routers import content, departments, documents, faculties, news, programs, staff
 from .routers.common import DbSession
 
@@ -31,6 +31,8 @@ app.include_router(admin_router.router, prefix=API_PREFIX)
 app.include_router(editorial_router.router, prefix=API_PREFIX)
 app.include_router(media_router.router, prefix=API_PREFIX)
 app.include_router(unit_profile_router.router, prefix=API_PREFIX)
+app.include_router(staff_draft_router.router, prefix=API_PREFIX)
+app.include_router(staff_photo_router.router, prefix=API_PREFIX)
 
 
 @app.get(f"{API_PREFIX}/health", tags=["system"])

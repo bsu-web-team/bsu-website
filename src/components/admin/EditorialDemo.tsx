@@ -210,6 +210,7 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
         </div>
       </header>
       <main className="mx-auto max-w-6xl space-y-6 px-5 py-7 sm:px-8">
+        {!reviewMode && <Link href="/admin/staff" className="inline-flex rounded-lg border border-blue-200 bg-white px-4 py-2 text-sm font-semibold text-[#204774]">Сотрудники · заявки и согласование</Link>}
         <div className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950"><CircleAlert className="mt-0.5 shrink-0" size={19}/><p>Профиль подразделения сохраняется как закрытый черновик в тестовой PostgreSQL. Раздел новостей ниже пока демонстрационный (localStorage). Публичные страницы не изменяются.</p></div>
         {notice && <div role="status" className="flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900"><MessageSquareText size={18}/>{notice}</div>}
         {!ready ? <p className="text-sm text-slate-500">Загрузка демо-данных…</p> : <>
