@@ -1,4 +1,5 @@
 import { getFacultyBySlug, getNews } from '@/lib/backend/data';
+import { getApprovedUnitProfile } from '@/lib/backend/unit-publication';
 import { facultyRoster } from "@/lib/faculty-leadership";
 import FacultyLeadershipDrawer from "@/components/faculties/FacultyLeadershipDrawer";
 import { facultyOverviewContent } from "@/lib/faculty-overview-content";
@@ -23,6 +24,7 @@ type Props={params:Promise<{slug:string}>};
 export async function generateMetadata({params}:Props):Promise<Metadata>{const {slug}=await params;const f=await getFacultyBySlug(slug);return {title:f?`${f.name} | БГУ`:"Подразделение не найдено | БГУ",description:f?.summary};}
 export default async function FacultyPage({params}:Props){
  const {slug}=await params;const faculty=await getFacultyBySlug(slug);if(!faculty)notFound();
+ const approvedProfile = await getApprovedUnitProfile("faculty", slug);
  const base=`/faculties/${slug}`;
  const unitNews=(await getNews()).filter(item=>matchesNewsScope(item,{facultySlug:slug})).slice(0,3);
  const blocks=getFacultyMaterial(faculty.sourceUrl)?.blocks??[];
@@ -42,7 +44,8 @@ export default async function FacultyPage({params}:Props){
  <FacultySectionDialog label={<PublicTextV13 value="Контакты"/>}>{contacts}</FacultySectionDialog>
  <FacultySectionDialog label={<PanelLabel name="news"/>}><UnitNewsV2 items={unitNews} facultySlug={slug}/></FacultySectionDialog>
  </div></nav>
- <div className="bsu-faculty-new-body mx-auto max-w-7xl px-5 py-8 sm:px-8"><div className="bsu-faculty-main-copy"><section className="bsu-faculty-info-card"><h2><PublicTextV13 value="О подразделении"/></h2><p><PublicTextV13 value={faculty.summary}/></p>{brief.length?brief.map((b,i)=><div className="bsu-faculty-brief" key={i}><h3><PublicTextV13 value={b.heading}/></h3>{b.paragraphs.map((paragraph,j)=><p key={j}><PublicTextV13 value={paragraph}/></p>)}</div>):null}<Link href={`${base}/details`} prefetch={false} className="bsu-faculty-modal-link"><PanelLabel name="details"/> <ArrowUpRight size={16}/></Link></section></div>
+ <div className="bsu-faculty-new-body mx-auto max-w-7xl px-5 py-8 sm:px-8"><div className="bsu-faculty-main-copy"><section className="bsu-faculty-info-card"><h2><PublicTextV13 value="О подразделении"/></h2><p><PublicTextV13 value={approvedProfile?.description || faculty.summary}/></p>{!approvedProfile && brief.length?brief.map((b,i)=><div className="bsu-faculty-brief" key={i}><h3><PublicTextV13 value={b.heading}/></h3>{b.paragraphs.map((paragraph,j)=><p key={j}><PublicTextV13 value={paragraph}/></p>)}</div>):null}{approvedProfile?.contact && <div className="mt-5 rounded-xl border border-blue-200 bg-blue-50 p-4"><h3 className="font-bold">Контакты (утверждено ЦЦР)</h3><p className="mt-2 whitespace-pre-wrap">{approvedProfile.contact}</p></div>}
+ <Link href={`${base}/details`} prefetch={false} className="bsu-faculty-modal-link"><PanelLabel name="details"/> <ArrowUpRight size={16}/></Link></section></div>
  <aside className="bsu-faculty-info-card bsu-faculty-lead"><div className="flex items-center gap-3"><UserRound size={20}/><span><PublicTextV13 value={faculty.leadTitle}/></span></div>{deanPhoto&&<Image className="bsu-faculty-lead-photo" src={deanPhoto} alt={faculty.leader} width={200} height={240} unoptimized/>}<h2><PublicPersonV13 name={faculty.leader}/></h2>
  <FacultyLeadershipDrawer leader={{name:faculty.leader,position:faculty.leadTitle,photo:deanPhoto}} people={people}/>{contacts}</aside></div>
  </main><Footer/></div>;

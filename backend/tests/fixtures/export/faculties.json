@@ -1,0 +1,41 @@
+[
+  {
+    "slug": "alpha",
+    "name": "Факультет Альфа",
+    "shortName": "ФА",
+    "kind": "faculty",
+    "category": "Тест",
+    "summary": "Тестовый факультет.",
+    "leadTitle": "Декан",
+    "leader": "Иванов Иван",
+    "phone": "+996 000 000 000",
+    "departments": [
+      "Кафедра один",
+      "Кафедра два"
+    ],
+    "programs": [
+      {
+        "title": "Педагогика",
+        "degree": "Бакалавриат",
+        "code": "550700"
+      },
+      {
+        "title": "Без кода"
+      }
+    ],
+    "sourceUrl": "https://example.test/alpha"
+  },
+  {
+    "slug": "beta",
+    "name": "Институт Бета",
+    "kind": "institute",
+    "category": "Тест",
+    "summary": "Тестовый институт.",
+    "leadTitle": "Директор",
+    "leader": "Петров Пётр",
+    "departments": [
+      "Кафедра бета"
+    ],
+    "sourceUrl": "https://example.test/beta"
+  }
+]

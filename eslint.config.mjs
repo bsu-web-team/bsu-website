@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Python backend (has its own tooling; its .venv may contain vendored JS).
+    "backend/**",
   ]),
 ]);
 

@@ -1,0 +1,45 @@
+# Local development: PostgreSQL + BSU API.
+#   docker compose up -d --build                  # start db and api
+#   node scripts/export-backend.cjs               # export website data to backend-export/
+#   docker compose run --rm api python -m app.seed --source /export   # import it
+#   open http://127.0.0.1:8000/docs
+# Credentials here are for local use only; never reuse them on a server.
+name: bsu-backend
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: bsu
+      POSTGRES_PASSWORD: bsu_local_password
+      POSTGRES_DB: bsu
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - bsu_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bsu -d bsu"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build: ./backend
+    image: bsu-api:local
+    environment:
+      DATABASE_URL: postgresql://bsu:bsu_local_password@db:5432/bsu
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./backend-export:/export:ro
+    depends_on:
+      db: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+volumes:
+  bsu_pgdata:

@@ -1,0 +1,55 @@
+{
+  "aaa111": {
+    "title": "Главная",
+    "lang": "ru",
+    "blocks": [
+      {
+        "kind": "heading",
+        "text": "Заголовок"
+      },
+      {
+        "kind": "text",
+        "text": "Текст",
+        "links": []
+      },
+      {
+        "kind": "table",
+        "rows": [
+          [
+            "a",
+            "b"
+          ]
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "aaa111",
+        "lang": "ru",
+        "title": "Главная"
+      },
+      {
+        "id": "aaa111-ky-1",
+        "lang": "ky",
+        "title": "Башкы бет"
+      }
+    ]
+  },
+  "aaa111-ky-1": {
+    "title": "Башкы бет",
+    "lang": "ky",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Текст ң ө ү"
+      }
+    ],
+    "variants": [
+      {
+        "id": "aaa111",
+        "lang": "ru",
+        "title": "Главная"
+      }
+    ]
+  }
+}

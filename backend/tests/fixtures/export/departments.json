@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "alpha--one",
+    "name": "Кафедра один",
+    "facultySlug": "alpha",
+    "facultyName": "Факультет Альфа",
+    "facultySourceUrl": "https://example.test/alpha"
+  },
+  {
+    "slug": "alpha--two",
+    "name": "Кафедра два",
+    "facultySlug": "alpha",
+    "facultyName": "Факультет Альфа",
+    "facultySourceUrl": "https://example.test/alpha"
+  },
+  {
+    "slug": "beta--one",
+    "name": "Кафедра бета",
+    "facultySlug": "beta",
+    "facultyName": "Институт Бета",
+    "facultySourceUrl": "https://example.test/beta"
+  }
+]

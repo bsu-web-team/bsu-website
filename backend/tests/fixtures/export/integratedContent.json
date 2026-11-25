@@ -1,0 +1,13 @@
+{
+  "bbb222-draft-zh-cn": {
+    "title": "草稿",
+    "lang": "zh-CN",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "中文"
+      }
+    ],
+    "variants": []
+  }
+}
