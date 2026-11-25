@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import PartnersCarousel from "@/components/partners/PartnersCarousel";
 
 import { useEffect, useState, useRef } from "react";
@@ -55,6 +55,17 @@ const copy: Record<Locale, Texts> = {
     studyKicker:"学习机会",studyTitle:"从本科到科学研究",studyIntro:"浏览专业项目，寻找适合自己的学习阶段。",bachelors:"本科项目",masters:"硕士项目",research:"科研与科学",
     newsKicker:"校园生活",newsTitle:"新闻与活动",newsIntro:"大学新闻目录中的精选内容。",allNews:"查看全部新闻",servicesKicker:"学生服务",servicesTitle:"所需信息，一站获取",servicesIntro:"快速访问大学的重要信息与服务。",documents:"文件资料",programs:"专业目录",library:"图书馆",science:"科研活动",closingTag:"下一步",closingTitle:"你的故事从这里开始",closingIntro:"了解专业项目与招生信息。",closingCta:"选择专业",sourceNotice:"内容与译文均为初稿，正式发布前须经大学审核。"
   }
+};
+
+const facultyLogoBySlug: Record<string, string> = {
+  "pedagogical-education": "/images/faculty-logos/pedagogical-education.webp",
+  "oriental-studies-international-relations": "/images/faculty-logos/oriental-studies-international-relations.webp",
+  "economics-finance-business": "/images/faculty-logos/economics-finance-business.webp",
+  "ecology-management": "/images/faculty-logos/ecology-management.webp",
+  "journalism-information-systems": "/images/faculty-logos/journalism-information-systems.webp",
+  "kyrgyz-philology": "/images/faculty-logos/kyrgyz-philology.webp",
+  "european-civilizations": "/images/faculty-logos/european-civilizations.webp",
+  "kyrgyz-chinese": "/images/faculty-logos/kyrgyz-chinese.webp",
 };
 
 const paths = [
@@ -288,7 +299,9 @@ const sortedNews = [...newsRecords].sort((a, b) => b.date.localeCompare(a.date))
           const name=faculty.labels?.[locale] ?? translateContent(faculty.name,locale);
           const category=faculty.slug === "college" ? ({ru:"Колледж",ky:"Колледж",en:"College","zh-CN":"学院"}[locale]) : faculty.slug === "international-education-center" ? ({ru:"Институт",ky:"Институт",en:"Institute","zh-CN":"学院"}[locale]) : translateContent(faculty.category,locale);
           return <Link key={faculty.slug} href={faculty.href} className="bsu-faculty-card">
-            <div className={`bsu-faculty-art bsu-faculty-art-${i+1}`}><span className="bsu-faculty-number">0{i+1}</span><span className="bsu-faculty-symbol"><GraduationCap size={36}/></span></div>
+            <div className={`bsu-faculty-art bsu-faculty-art-${i+1}`}><span className="bsu-faculty-number">0{i+1}</span>{facultyLogoBySlug[faculty.slug]
+              ? <span className="bsu-faculty-emblem"><Image src={facultyLogoBySlug[faculty.slug]} alt={`Эмблема: ${faculty.name}`} width={140} height={140} unoptimized /></span>
+              : <span className="bsu-faculty-symbol"><GraduationCap size={36}/></span>}</div>
             <div className="bsu-faculty-info"><span className="bsu-faculty-type">{category}</span><h3>{name}</h3><span className="bsu-faculty-more">{c.seeDetails}<ArrowUpRight size={17}/></span></div>
           </Link>;
         })}</div>

@@ -376,3 +376,14 @@
         margin-inline: auto;
     }
 }
+
+
+/* BSU FACULTY EMBLEMS FROM USER PDF V1 */
+.bsu-modern-home .bsu-faculty-art:has(.bsu-faculty-emblem){background:linear-gradient(135deg,#14385f 0%,#2b5879 68%,#45677f 100%)}
+.bsu-modern-home .bsu-faculty-art:has(.bsu-faculty-emblem):after{opacity:.28;pointer-events:none}
+.bsu-modern-home .bsu-faculty-emblem{position:relative;z-index:1;display:grid;place-items:center;width:128px;height:128px;border-radius:50%;filter:drop-shadow(0 9px 12px #071d383d);transition:transform .25s ease}
+.bsu-modern-home .bsu-faculty-emblem img{display:block;width:100%;height:100%;object-fit:contain}
+.bsu-modern-home .bsu-faculty-card:hover .bsu-faculty-emblem{transform:translateY(-3px) scale(1.04)}
+.bsu-modern-home .bsu-faculty-art:has(.bsu-faculty-emblem) .bsu-faculty-number{color:#f1cc83;z-index:2}
+@media(prefers-reduced-motion:reduce){.bsu-modern-home .bsu-faculty-emblem{transition:none}}
+

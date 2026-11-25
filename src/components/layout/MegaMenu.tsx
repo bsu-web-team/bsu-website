@@ -237,6 +237,17 @@ const specs = [
           "/news",
           "/documents"
         ]
+      ],
+      [
+        [
+          "Молодёжная жизнь",
+          "Жаштар жана маданият",
+          "Culture and youth",
+          "青年文化"
+        ],
+        [
+          "/about/administration/culture"
+        ]
       ]
     ]
   ]
