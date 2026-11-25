@@ -1,4 +1,7 @@
 import AdminLogout from "@/components/admin/AdminLogout";
-export default function AdminLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <>{children}<AdminLogout /></>;
+import AdminQuickNav from "@/components/admin/AdminQuickNav";
+import { adminPrincipal } from "@/lib/admin-session";
+export default async function AdminLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const principal = await adminPrincipal();
+  return <>{principal && <AdminQuickNav role={principal.role} />}{children}<AdminLogout /></>;
 }
