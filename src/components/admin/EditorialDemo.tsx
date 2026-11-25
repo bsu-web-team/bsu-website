@@ -199,6 +199,8 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
           return "href" in m ? <Link key={m.label} href={m.href} className={cls}><Icon size={18}/>{m.label}</Link> : <button key={m.label} type="button" onClick={() => { setSection(m.key!); setNotice(""); }} className={`${cls} w-full text-left`}><Icon size={18}/>{m.label}</button>;
         })}
       </nav>
+      <div className="px-5 pb-3"><Link href="/admin/programs-workflow" className="block rounded-lg border border-white/20 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10">Образовательные программы</Link></div>
+      <div className="px-5 pb-3"><Link href="/admin/documents-workflow" className="block rounded-lg border border-white/20 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10">Документы подразделения</Link></div>
       <div className="px-6 pb-5"><Link href="/" className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white"><ArrowLeft size={16}/> На сайт БГУ</Link></div>
     </aside>
 
