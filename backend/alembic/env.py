@@ -10,6 +10,7 @@ from app.models import Base
 from app import admin_models  # noqa: F401
 from app import editorial_models  # noqa: F401
 from app import editorial_media  # noqa: F401
+from app import unit_profile_models  # noqa: F401
 
 if context.config.config_file_name is not None:
     fileConfig(context.config.config_file_name)

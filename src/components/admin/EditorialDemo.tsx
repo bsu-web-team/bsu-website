@@ -81,6 +81,8 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
   const [contact, setContact] = useState("");
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [notice, setNotice] = useState("");
+  const [profileBusy, setProfileBusy] = useState(false);
+  const [profileStatus, setProfileStatus] = useState("");
   const [reviewFilter, setReviewFilter] = useState<"pending" | "all">("pending");
 
   useEffect(() => {
@@ -91,13 +93,27 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
     return () => { window.clearTimeout(timer); window.removeEventListener("storage", sync); };
   }, []);
 
+  useEffect(() => {
+    if (role === "review" || !lockedSlug) return;
+    const timer = window.setTimeout(async () => {
+      try {
+        const response = await fetch("/api/admin-unit-profile", { cache: "no-store" });
+        const value: { description?: string; contact?: string; status?: string; detail?: string } = await response.json();
+        if (!response.ok) throw new Error(value.detail || `HTTP ${response.status}`);
+        setDescription(value.description ?? "");
+        setContact(value.contact ?? "");
+        setProfileStatus(value.status ?? "empty");
+      } catch (e) { setNotice(e instanceof Error ? e.message : "Ошибка загрузки профиля"); }
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [lockedSlug, role]);
+
   const unit = units.find((u) => u.slug === selectedSlug);
   const mine = useMemo(() => entries.filter((a) => a.owner === role && a.ownerSlug === selectedSlug).sort((a,b) => b.updatedAt.localeCompare(a.updatedAt)), [entries, role, selectedSlug]);
   const reviewItems = useMemo(() => entries.filter((a) => reviewFilter === "all" ? a.status !== "draft" : a.status === "submitted").sort((a,b) => b.updatedAt.localeCompare(a.updatedAt)), [entries, reviewFilter]);
   const pending = entries.filter((a) => a.status === "submitted").length;
   const unitTitle = isFaculty ? "Факультет" : "Кафедра";
   const headerTitle = reviewMode ? "Проверка новостей" : isFaculty ? "Кабинет факультета" : "Кабинет кафедры";
-  const profileKey = `${role}:${selectedSlug}`;
 
   function selectUnit(slug: string) {
     if (lockedSlug) return;
@@ -109,11 +125,21 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
     catch { setNotice("Не удалось сохранить данные в браузере."); }
   }
   function resetEditor() { setTitle(""); setSummary(""); setBody(""); setEditing(null); }
-  function saveProfile() {
-    if (!unit) return;
-    const next = { ...profiles, [profileKey]: { description: description.trim(), contact: contact.trim() } };
-    try { localStorage.setItem(PROFILE_KEY, JSON.stringify(next)); setProfiles(next); setNotice("Описание подразделения сохранено только в этом браузере."); }
-    catch { setNotice("Не удалось сохранить демо-профиль."); }
+  async function saveProfile() {
+    if (!unit || !lockedSlug || profileBusy) return;
+    setProfileBusy(true);
+    setNotice("");
+    try {
+      const response = await fetch("/api/admin-unit-profile", {
+        method: "PUT", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ description: description.trim(), contact: contact.trim() }),
+      });
+      const value: { status?: string; detail?: string; error?: string } = await response.json();
+      if (!response.ok) throw new Error(value.detail || value.error || `HTTP ${response.status}`);
+      setProfileStatus(value.status ?? "draft");
+      setNotice("Черновик профиля сохранён в тестовой PostgreSQL. Публичная страница не изменена.");
+    } catch (e) { setNotice(e instanceof Error ? e.message : "Не удалось сохранить профиль"); }
+    finally { setProfileBusy(false); }
   }
   function saveArticle(submit: boolean) {
     if (reviewMode || !unit || !title.trim() || !body.trim()) return;
@@ -168,7 +194,7 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
         </div>
       </header>
       <main className="mx-auto max-w-6xl space-y-6 px-5 py-7 sm:px-8">
-        <div className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950"><CircleAlert className="mt-0.5 shrink-0" size={19}/><p>Вход подтверждён через тестовый Backend. Формы и новости пока демонстрационные: данные находятся в localStorage и не передаются в PostgreSQL. Настоящая защита редактирования потребует серверных API.</p></div>
+        <div className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950"><CircleAlert className="mt-0.5 shrink-0" size={19}/><p>Профиль подразделения сохраняется как закрытый черновик в тестовой PostgreSQL. Раздел новостей ниже пока демонстрационный (localStorage). Публичные страницы не изменяются.</p></div>
         {notice && <div role="status" className="flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900"><MessageSquareText size={18}/>{notice}</div>}
         {!ready ? <p className="text-sm text-slate-500">Загрузка демо-данных…</p> : <>
           {!reviewMode && !lockedSlug && <section className={card}>
@@ -184,7 +210,7 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
               </div>
               <section className={card}><h3 className="text-lg font-bold">{unit.name}</h3><p className="mt-2 text-sm text-slate-500">{isFaculty ? "Информация факультета и его новости управляются отдельно от кафедр." : "Материалы этой кафедры не смешиваются с материалами других кафедр."}</p><div className="mt-5 flex flex-wrap gap-2"><button className={primary} onClick={()=>setSection("news")} type="button"><Newspaper size={17}/> Управлять новостями</button><button className={secondary} onClick={()=>setSection("profile")} type="button"><FilePenLine size={17}/> Редактировать сведения</button></div></section>
             </>}
-            {section === "profile" && <section className={`${card} space-y-4`}><div><h3 className="text-xl font-bold">Информация о {isFaculty ? "факультете" : "кафедре"}</h3><p className="mt-1 text-sm text-slate-500">Демонстрационная форма; не меняет публичную страницу.</p></div><label className="block text-sm font-medium">Описание<textarea className={`${input} mt-2`} rows={6} value={description} onChange={(e)=>setDescription(e.target.value)} placeholder="Расскажите о подразделении"/></label><label className="block text-sm font-medium">Рабочие контакты<textarea className={`${input} mt-2`} rows={3} value={contact} onChange={(e)=>setContact(e.target.value)} placeholder="Телефон, e-mail, кабинет"/></label><button type="button" className={primary} onClick={saveProfile}><Save size={17}/> Сохранить демо-профиль</button></section>}
+            {section === "profile" && <section className={`${card} space-y-4`}><div><h3 className="text-xl font-bold">Информация о {isFaculty ? "факультете" : "кафедре"}</h3><p className="mt-1 text-sm text-slate-500">Сохраняется в тестовой PostgreSQL без публичной публикации. Статус: {profileStatus === "draft" ? "черновик" : "не заполнено"}.</p></div><label className="block text-sm font-medium">Описание<textarea className={`${input} mt-2`} rows={6} value={description} onChange={(e)=>setDescription(e.target.value)} placeholder="Расскажите о подразделении"/></label><label className="block text-sm font-medium">Рабочие контакты<textarea className={`${input} mt-2`} rows={3} value={contact} onChange={(e)=>setContact(e.target.value)} placeholder="Телефон, e-mail, кабинет"/></label><button type="button" className={primary} disabled={profileBusy} onClick={()=>void saveProfile()}><Save size={17}/> {profileBusy ? "Сохранение…" : "Сохранить черновик в PostgreSQL"}</button></section>}
             {section === "news" && <section className={`${card} space-y-4`}><div><h3 className="text-xl font-bold">{editing ? "Редактирование новости" : "Новая новость"}</h3><p className="mt-1 text-sm text-slate-500">Факультеты и кафедры создают новости отдельно. Публикация возможна только после проверки ЦЦР в будущем Backend.</p></div><label className="block text-sm font-medium">Заголовок<input className={`${input} mt-2`} value={title} maxLength={180} onChange={(e)=>setTitle(e.target.value)} placeholder="Название новости"/></label><label className="block text-sm font-medium">Краткий анонс<textarea className={`${input} mt-2`} rows={2} value={summary} onChange={(e)=>setSummary(e.target.value)}/></label><label className="block text-sm font-medium">Основной текст<textarea className={`${input} mt-2`} rows={7} value={body} onChange={(e)=>setBody(e.target.value)}/></label><div className="flex flex-wrap gap-2"><button type="button" className={secondary} disabled={!title.trim()||!body.trim()} onClick={()=>saveArticle(false)}><Save size={17}/> Сохранить черновик</button><button type="button" className={primary} disabled={!title.trim()||!body.trim()} onClick={()=>saveArticle(true)}><Send size={17}/> Отправить в ЦЦР</button>{editing&&<button className={secondary} type="button" onClick={resetEditor}>Отмена</button>}</div></section>}
             <section className={card}><div className="flex flex-wrap items-center justify-between gap-2"><h3 className="text-lg font-bold">Материалы подразделения</h3><span className="text-sm text-slate-500">{mine.length} записей</span></div><div className="mt-4 space-y-3">{mine.length===0?<p className="rounded-xl bg-slate-50 px-4 py-8 text-center text-sm text-slate-500">Пока нет новостей. Создайте первую заявку.</p>:mine.map((a)=><article key={a.id} className="rounded-xl border border-slate-200 p-4"><div className="flex flex-wrap items-start justify-between gap-2"><h4 className="font-semibold">{a.title}</h4><StatusMark status={a.status}/></div><p className="mt-2 text-sm text-slate-600">{a.summary||a.body.slice(0,180)}</p>{a.feedback&&<p className="mt-3 rounded-lg bg-amber-50 p-3 text-sm text-amber-900"><strong>Замечание ЦЦР:</strong> {a.feedback}</p>}{(a.status==="draft"||a.status==="changes_requested")&&<button type="button" className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#235aa2]" onClick={()=>editArticle(a)}><FilePenLine size={16}/> Редактировать</button>}</article>)}</div></section>
           </>}
