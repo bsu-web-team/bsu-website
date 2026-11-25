@@ -10,6 +10,7 @@ class EditorialItem(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     author_id: Mapped[int] = mapped_column(ForeignKey("admin_users.id", ondelete="RESTRICT"), nullable=False)
     author: Mapped[AdminUser] = relationship(foreign_keys=[author_id])
+    media = relationship("EditorialMedia", back_populates="item", order_by="EditorialMedia.id", cascade="all, delete-orphan")
     title: Mapped[str] = mapped_column(String(180), nullable=False)
     excerpt: Mapped[str] = mapped_column(Text, nullable=False, default="")
     body: Mapped[str] = mapped_column(Text, nullable=False)

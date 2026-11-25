@@ -7,6 +7,8 @@ from sqlalchemy.orm import joinedload
 from .admin_security import DB, CurrentAdmin
 from .admin_models import AdminUser
 from .editorial_models import EditorialItem
+from .editorial_media import EditorialMedia
+from .media_router import media_json
 from .models import Faculty, Department, News
 
 router = APIRouter(prefix="/admin-editorial", tags=["admin-editorial"])
@@ -49,7 +51,7 @@ def as_json(x: EditorialItem):
             "departmentSlug":x.department.slug if x.department else None,
             "status":x.status,"feedback":x.feedback,"authorId":x.author_id,
             "publishedSlug":f"editorial-{x.id}" if x.published_news_id else None,
-            "updatedAt":x.updated_at.isoformat()}
+            "updatedAt":x.updated_at.isoformat(), "media": [media_json(m) for m in x.media]}
 
 def allowed_read(user: AdminUser, x: EditorialItem):
     if user.role == "ccr": return True
@@ -118,6 +120,8 @@ def decide(item_id: int, body: DecisionIn, db: DB, user: CurrentAdmin):
                       excerpt=item.excerpt or item.body[:350], source_url=f"/news/editorial-{item.id}",
                       content=[item.body], tags=[], faculty_id=item.faculty_id,department_id=item.department_id,
                       is_published=True, position=0)
+        cover=next((m for m in item.media if m.is_cover), None)
+        if cover: public.image_url=media_json(cover)["url"]
         db.add(public); db.flush()
         item.published_news_id=public.id
         item.status="published";item.feedback=""
