@@ -1,4 +1,5 @@
 import { getDepartmentBySlug, getNews } from '@/lib/backend/data';
+import { getApprovedUnitProfile } from '@/lib/backend/unit-publication';
 import type { Metadata } from "next";
 import PublicTextV13 from "@/components/i18n/PublicTextV13";
 import Link from "next/link";
@@ -25,6 +26,7 @@ export default async function DepartmentPage({ params }: Props) {
   const { slug } = await params;
   const department = await getDepartmentBySlug(slug);
   if (!department) notFound();
+  const approvedProfile = await getApprovedUnitProfile("department", slug);
   const unitNews = (await getNews()).filter(item => matchesNewsScope(item, { facultySlug: department.facultySlug, departmentSlug: department.slug })).slice(0, 3);
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-900 bsu-interior">
@@ -40,7 +42,7 @@ export default async function DepartmentPage({ params }: Props) {
         </section>
         <div className="mx-auto grid max-w-7xl gap-7 px-5 py-12 sm:px-8 lg:grid-cols-[minmax(0,1fr)_320px] bsu-page-body">
           <div className="space-y-6">
-            <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"><h2 className="text-2xl font-bold text-[#204774]"><PublicTextV13 value="О кафедре" /></h2><p className="mt-4 leading-7 text-slate-700"><PublicTextV13 value="Кафедра входит в структуру факультета. Описание деятельности, история кафедры и направления исследований будут размещены после подтверждения университетом." /></p></section>
+            <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"><h2 className="text-2xl font-bold text-[#204774]"><PublicTextV13 value="О кафедре" /></h2><p className="mt-4 leading-7 text-slate-700"><PublicTextV13 value={approvedProfile?.description || "Кафедра входит в структуру факультета. Описание деятельности, история кафедры и направления исследований будут размещены после подтверждения университетом."} /></p>{approvedProfile?.contact && <div className="mt-5 rounded-xl border border-blue-200 bg-blue-50 p-4"><h3 className="font-bold">Контакты (утверждено ЦЦР)</h3><p className="mt-2 whitespace-pre-wrap">{approvedProfile.contact}</p></div>}</section>
             <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"><h2 className="text-2xl font-bold text-[#204774]"><PublicTextV13 value="Сотрудники и программы" /></h2><p className="mt-4 leading-7 text-slate-700"><PublicTextV13 value="Список преподавателей, заведующий кафедрой, учебные программы и документы пока уточняются. Backend-команда сможет предоставлять эти сведения через API." /></p></section>
             <UnitNewsV2 items={unitNews} facultySlug={department.facultySlug} departmentSlug={department.slug} />
             <Link href="/departments" className="inline-flex items-center gap-2 text-sm font-semibold text-[#204774] hover:underline"><ArrowLeft size={17}/> <PublicTextV13 value="Ко всем кафедрам" /></Link>

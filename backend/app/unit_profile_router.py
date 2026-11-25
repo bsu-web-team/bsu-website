@@ -51,6 +51,24 @@ def validate_owner(db, key: str):
         raise HTTPException(404, 'Unit missing')
     return {'unitKind': kind, 'unitSlug': unit.slug, 'unitName': unit.name}
 
+@router.get('/published/{kind}/{slug}')
+def published_profile(kind: str, slug: str, db: DB):
+    # Public route: never return a draft, status, reviewer, or personal data.
+    if kind == 'faculty':
+        unit = db.scalar(select(Faculty).where(Faculty.slug == slug))
+    elif kind == 'department':
+        unit = db.scalar(select(Department).where(Department.slug == slug))
+    else:
+        raise HTTPException(404, 'Unit not found')
+    if not unit:
+        raise HTTPException(404, 'Unit not found')
+    key = f'{kind}:{unit.id}'
+    item = db.scalar(select(UnitProfileDraft).where(UnitProfileDraft.owner_key == key))
+    if not item or item.approved_description is None or item.approved_contact is None:
+        return {'published': False}
+    return {'published': True, 'description': item.approved_description,
+            'contact': item.approved_contact}
+
 @router.get('/mine')
 def my_profile(db: DB, user: CurrentAdmin):
     key = own_key(user)
