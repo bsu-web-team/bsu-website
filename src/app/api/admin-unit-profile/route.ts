@@ -34,3 +34,17 @@ export async function PUT(request: Request) {
   }
   return upstream("PUT", { description: item.description, contact: item.contact });
 }
+
+export async function POST(request: Request) {
+  if (!allowedOrigin(request)) return NextResponse.json({error:"Неверный источник"},{status:403});
+  const token = (await cookies()).get(SESSION_COOKIE)?.value;
+  if (!token) return NextResponse.json({error:"Необходим вход"},{status:401});
+  if (process.env.NODE_ENV !== "development") return NextResponse.json({error:"Недоступно"},{status:404});
+  try {
+    const r=await fetch(`${adminApiBase()}/admin-unit-profiles/mine/submit`,{
+      method:"POST",headers:{Authorization:`Bearer ${token}`},cache:"no-store",signal:AbortSignal.timeout(10000),
+    });
+    const data:unknown=await r.json().catch(()=>({error:`Backend HTTP ${r.status}`}));
+    const result=NextResponse.json(data,{status:r.status});result.headers.set("Cache-Control","no-store");return result;
+  } catch { return NextResponse.json({error:"Тестовый Backend недоступен"},{status:502}); }
+}

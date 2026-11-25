@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { faculties } from "@/lib/faculty-data";
 import { departments } from "@/lib/department-data";
+import PublicUnitSnapshot from "@/components/admin/PublicUnitSnapshot";
 
 type Mode = "faculty" | "department" | "review";
 type Owner = "faculty" | "department";
@@ -83,6 +84,7 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
   const [notice, setNotice] = useState("");
   const [profileBusy, setProfileBusy] = useState(false);
   const [profileStatus, setProfileStatus] = useState("");
+  const [profileFeedback, setProfileFeedback] = useState("");
   const [reviewFilter, setReviewFilter] = useState<"pending" | "all">("pending");
 
   useEffect(() => {
@@ -103,6 +105,7 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
         setDescription(value.description ?? "");
         setContact(value.contact ?? "");
         setProfileStatus(value.status ?? "empty");
+        setProfileFeedback(typeof (value as {feedback?:unknown}).feedback === "string" ? (value as {feedback:string}).feedback : "");
       } catch (e) { setNotice(e instanceof Error ? e.message : "Ошибка загрузки профиля"); }
     }, 0);
     return () => window.clearTimeout(timer);
@@ -137,9 +140,22 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
       const value: { status?: string; detail?: string; error?: string } = await response.json();
       if (!response.ok) throw new Error(value.detail || value.error || `HTTP ${response.status}`);
       setProfileStatus(value.status ?? "draft");
+      setProfileFeedback("");
       setNotice("Черновик профиля сохранён в тестовой PostgreSQL. Публичная страница не изменена.");
     } catch (e) { setNotice(e instanceof Error ? e.message : "Не удалось сохранить профиль"); }
     finally { setProfileBusy(false); }
+  }
+  async function submitProfile() {
+    if (profileBusy || profileStatus !== "draft") return;
+    setProfileBusy(true);setNotice("");
+    try {
+      const response = await fetch("/api/admin-unit-profile", {method:"POST"});
+      const result: {status?:string;detail?:string;error?:string}=await response.json();
+      if (!response.ok) throw new Error(result.detail??result.error??`HTTP ${response.status}`);
+      setProfileStatus(result.status??"submitted");
+      setNotice("Заявка передана ЦЦР. До решения сведения нельзя редактировать.");
+    } catch(e) {setNotice(e instanceof Error?e.message:"Не удалось отправить заявку");}
+    finally {setProfileBusy(false);}
   }
   function saveArticle(submit: boolean) {
     if (reviewMode || !unit || !title.trim() || !body.trim()) return;
@@ -190,7 +206,7 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
       <header className="border-b border-slate-200 bg-white px-5 py-6 sm:px-8">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
           <div><p className="text-xs font-semibold uppercase tracking-wider text-slate-400">{reviewMode ? "Центр цифрового развития" : "Управление подразделением"}</p><h2 className="mt-1 text-2xl font-bold tracking-tight text-[#153d70]">{headerTitle}</h2></div>
-          <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-800">ДЕМО · без публикации</span>
+          <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-800">Профили · PostgreSQL (тест)</span>
         </div>
       </header>
       <main className="mx-auto max-w-6xl space-y-6 px-5 py-7 sm:px-8">
@@ -210,7 +226,7 @@ export default function EditorialDemo({ role, lockedSlug }: { role: Mode; locked
               </div>
               <section className={card}><h3 className="text-lg font-bold">{unit.name}</h3><p className="mt-2 text-sm text-slate-500">{isFaculty ? "Информация факультета и его новости управляются отдельно от кафедр." : "Материалы этой кафедры не смешиваются с материалами других кафедр."}</p><div className="mt-5 flex flex-wrap gap-2"><button className={primary} onClick={()=>setSection("news")} type="button"><Newspaper size={17}/> Управлять новостями</button><button className={secondary} onClick={()=>setSection("profile")} type="button"><FilePenLine size={17}/> Редактировать сведения</button></div></section>
             </>}
-            {section === "profile" && <section className={`${card} space-y-4`}><div><h3 className="text-xl font-bold">Информация о {isFaculty ? "факультете" : "кафедре"}</h3><p className="mt-1 text-sm text-slate-500">Сохраняется в тестовой PostgreSQL без публичной публикации. Статус: {profileStatus === "draft" ? "черновик" : "не заполнено"}.</p></div><label className="block text-sm font-medium">Описание<textarea className={`${input} mt-2`} rows={6} value={description} onChange={(e)=>setDescription(e.target.value)} placeholder="Расскажите о подразделении"/></label><label className="block text-sm font-medium">Рабочие контакты<textarea className={`${input} mt-2`} rows={3} value={contact} onChange={(e)=>setContact(e.target.value)} placeholder="Телефон, e-mail, кабинет"/></label><button type="button" className={primary} disabled={profileBusy} onClick={()=>void saveProfile()}><Save size={17}/> {profileBusy ? "Сохранение…" : "Сохранить черновик в PostgreSQL"}</button></section>}
+            {section === "profile" && <><PublicUnitSnapshot role={isFaculty ? "faculty" : "department"} /><section className={`${card} space-y-4`}><div><h3 className="text-xl font-bold">Информация о {isFaculty ? "факультете" : "кафедре"}</h3><p className="mt-1 text-sm text-slate-500">Заявки проверяет ЦЦР. Публичные страницы пока не меняются. Статус: {profileStatus === "draft" ? "черновик" : profileStatus === "submitted" ? "на проверке ЦЦР" : profileStatus === "changes_requested" ? "нужны исправления" : profileStatus === "approved" ? "одобрено ЦЦР" : "не заполнено"}.</p>{profileFeedback&&<p className="mt-2 rounded-lg bg-amber-50 p-3 text-sm">Замечание ЦЦР: {profileFeedback}</p>}</div><label className="block text-sm font-medium">Описание<textarea className={`${input} mt-2`} rows={6} value={description} disabled={profileStatus === "submitted"} onChange={(e)=>setDescription(e.target.value)} placeholder="Расскажите о подразделении"/></label><label className="block text-sm font-medium">Рабочие контакты<textarea className={`${input} mt-2`} rows={3} value={contact} disabled={profileStatus === "submitted"} onChange={(e)=>setContact(e.target.value)} placeholder="Телефон, e-mail, кабинет"/></label><div className="flex flex-wrap gap-3"><button type="button" className={secondary} disabled={profileBusy||profileStatus === "submitted"} onClick={()=>void saveProfile()}><Save size={17}/> {profileBusy ? "Сохранение…" : "Сохранить черновик в PostgreSQL"}</button><button type="button" className={primary} disabled={profileBusy||profileStatus !== "draft"} onClick={()=>void submitProfile()}><Send size={17}/> Отправить на согласование ЦЦР</button></div></section></>}
             {section === "news" && <section className={`${card} space-y-4`}><div><h3 className="text-xl font-bold">{editing ? "Редактирование новости" : "Новая новость"}</h3><p className="mt-1 text-sm text-slate-500">Факультеты и кафедры создают новости отдельно. Публикация возможна только после проверки ЦЦР в будущем Backend.</p></div><label className="block text-sm font-medium">Заголовок<input className={`${input} mt-2`} value={title} maxLength={180} onChange={(e)=>setTitle(e.target.value)} placeholder="Название новости"/></label><label className="block text-sm font-medium">Краткий анонс<textarea className={`${input} mt-2`} rows={2} value={summary} onChange={(e)=>setSummary(e.target.value)}/></label><label className="block text-sm font-medium">Основной текст<textarea className={`${input} mt-2`} rows={7} value={body} onChange={(e)=>setBody(e.target.value)}/></label><div className="flex flex-wrap gap-2"><button type="button" className={secondary} disabled={!title.trim()||!body.trim()} onClick={()=>saveArticle(false)}><Save size={17}/> Сохранить черновик</button><button type="button" className={primary} disabled={!title.trim()||!body.trim()} onClick={()=>saveArticle(true)}><Send size={17}/> Отправить в ЦЦР</button>{editing&&<button className={secondary} type="button" onClick={resetEditor}>Отмена</button>}</div></section>}
             <section className={card}><div className="flex flex-wrap items-center justify-between gap-2"><h3 className="text-lg font-bold">Материалы подразделения</h3><span className="text-sm text-slate-500">{mine.length} записей</span></div><div className="mt-4 space-y-3">{mine.length===0?<p className="rounded-xl bg-slate-50 px-4 py-8 text-center text-sm text-slate-500">Пока нет новостей. Создайте первую заявку.</p>:mine.map((a)=><article key={a.id} className="rounded-xl border border-slate-200 p-4"><div className="flex flex-wrap items-start justify-between gap-2"><h4 className="font-semibold">{a.title}</h4><StatusMark status={a.status}/></div><p className="mt-2 text-sm text-slate-600">{a.summary||a.body.slice(0,180)}</p>{a.feedback&&<p className="mt-3 rounded-lg bg-amber-50 p-3 text-sm text-amber-900"><strong>Замечание ЦЦР:</strong> {a.feedback}</p>}{(a.status==="draft"||a.status==="changes_requested")&&<button type="button" className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#235aa2]" onClick={()=>editArticle(a)}><FilePenLine size={16}/> Редактировать</button>}</article>)}</div></section>
           </>}
