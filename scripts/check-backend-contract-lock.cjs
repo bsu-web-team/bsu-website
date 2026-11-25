@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
+﻿/* eslint-disable @typescript-eslint/no-require-imports */
 // Read-only guard; run with node scripts/check-backend-contract-lock.cjs
 // Does not contact Backend and does not change any project files.
 const fs = require('node:fs');
@@ -20,3 +20,4 @@ for(const name of ['faculties','departments','staff','programs','news','document
   assert.match(contract, new RegExp(name));
 }
 console.log('PASS V7.6: Local mode remains default, V7.4 collection names unchanged; pagination requires explicit opt-in.');
+

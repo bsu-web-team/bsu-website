@@ -1,4 +1,4 @@
-"""Database tables (SQLAlchemy ORM models).
+﻿"""Database tables (SQLAlchemy ORM models).
 
 Each table has `position`: the order of records in the source data, so the API
 returns them in the same order as the website's local data.
@@ -146,3 +146,7 @@ class Material(Base):
     lang: Mapped[str] = mapped_column(String(5))  # ru | ky | en | cn
     blocks: Mapped[list[dict[str, Any]]] = mapped_column(JSONType)
     variants: Mapped[list[dict[str, Any]]] = mapped_column(JSONType)
+
+# Include administrative mappings in Alembic Base.metadata.
+
+

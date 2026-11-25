@@ -38,3 +38,7 @@ jobs:
       - run: pip install -r backend/requirements-dev.txt
       - run: python -m pytest -q
         working-directory: backend
+      # Admin access-policy scenarios (standalone scripts in app/test_*.py, SQLite in memory).
+      - run: for f in app/test_*.py; do python -m "app.$(basename "$f" .py)" || exit 1; done
+        shell: bash
+        working-directory: backend

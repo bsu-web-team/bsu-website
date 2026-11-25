@@ -1,4 +1,4 @@
-import TrustWindow from "@/components/trust/TrustWindow";
+﻿
 import type { Metadata } from "next";
 import { Noto_Sans, Geist_Mono } from "next/font/google";
 import { LocaleProvider } from "@/components/i18n/LocaleProvider";
@@ -27,6 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="ru" suppressHydrationWarning className={`${notoSans.variable} ${geistMono.variable} h-full antialiased`}>
-    <body className="min-h-full flex flex-col"><LocaleProvider>{children}<TrustWindow /></LocaleProvider></body>
+    <body className="min-h-full flex flex-col"><LocaleProvider>{children}</LocaleProvider></body>
   </html>;
 }
+
