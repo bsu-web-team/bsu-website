@@ -7,6 +7,14 @@ RUN npm ci
 FROM node:22-bookworm-slim AS builder
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
+# Optional build-time data source (defaults keep local data, no API needed).
+# Backend mode needs a reachable, seeded API during `npm run build` because pages
+# are prerendered; see deploy/staging/. ARG values are visible to RUN as env vars.
+ARG BSU_DATA_SOURCE=local
+ARG BSU_CONTENT_SOURCE=local
+ARG BSU_API_BASE_URL=
+ARG BSU_API_REVALIDATE_SECONDS=0
+ARG BSU_UNIT_PUBLICATION_BASE_URL=
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
