@@ -244,6 +244,21 @@ const sortedNews = [...newsRecords].sort((a, b) => b.date.localeCompare(a.date))
     <section id="sections" className="bsu-section bsu-section-light">
       <div className="bsu-container">
         <div data-bsu-reveal className="bsu-section-heading"><p className="bsu-kicker">01 / {c.kicker}</p><h2>{c.exploreTitle}</h2><p>{c.exploreIntro}</p></div>
+                {/* bsu-accreditation-shortcut-v1: prominent shortcut in the first navigation section */}
+        <Link href="/documents/accreditation" data-bsu-reveal
+          className="group mb-6 flex flex-col gap-4 overflow-hidden rounded-2xl border border-[#2a649b]/20 bg-gradient-to-r from-[#102b4e] to-[#245d91] px-6 py-5 text-white shadow-lg transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-xl sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <span className="flex items-center gap-4">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/10"><GraduationCap size={25}/></span>
+            <span className="flex flex-col gap-1">
+              <span className="text-xs font-medium uppercase tracking-[0.17em] text-blue-200">BSU / DOCUMENTS</span>
+              <span className="text-lg font-semibold">{({ru:"Аккредитация БГУ",ky:"БМУнун аккредитациясы",en:"BSU Accreditation","zh-CN":"大学认证文件"})[locale]}</span>
+              <span className="text-sm text-blue-100">{({ru:"Сертификаты и официальные документы",ky:"Сертификаттар жана расмий документтер",en:"Certificates and official documents","zh-CN":"证书与官方文件"})[locale]}</span>
+            </span>
+          </span>
+          <span className="inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-white/25 bg-white/10 px-4 py-2.5 text-sm font-semibold transition-colors group-hover:bg-white group-hover:text-[#102b4e] sm:self-auto">
+            {({ru:"Смотреть документы",ky:"Документтерди көрүү",en:"View documents","zh-CN":"查看文件"})[locale]} <ArrowUpRight size={17}/>
+          </span>
+        </Link>
         <div className="bsu-quick-grid">{paths.map((item,i)=>{
           const Icon=item.icon;
           return <Link key={item.href} href={item.href} className="bsu-quick-card" data-bsu-reveal style={{transitionDelay:`${i*65}ms`}}>
