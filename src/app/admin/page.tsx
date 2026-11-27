@@ -1,37 +1,42 @@
+import Link from "next/link";
 import type { Metadata } from "next";
-import { requireAdminRole } from "@/lib/admin-session";
-import AdminWorkspace from "@/components/admin/AdminWorkspace";
-import { getFaculties } from "@/lib/faculty-data";
-import { getDepartments } from "@/lib/department-data";
-import { getStaff } from "@/lib/staff-data";
-import { getPrograms } from "@/lib/program-data";
-import { getNews } from "@/lib/news-data";
-import { getDocuments } from "@/lib/document-data";
+import { notFound } from "next/navigation";
+import { requireAdminRole, adminAccessEnabled } from "@/lib/admin-session";
+import { ArrowUpRight, Building2, ClipboardCheck, FileText, LayoutGrid, Newspaper, Users } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Прототип панели управления | БГУ",
-  description: "Демонстрационный интерфейс будущей административной панели БГУ.",
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = { title: "Панель ЦЦР · БГУ", robots: { index: false, follow: false } };
+
+const areas = [
+  { href: "/admin/review-center", title: "Все согласования", desc: "Новости, профили, сотрудники, документы, программы и структура — на одной странице.", icon: ClipboardCheck, main: true },
+  { href: "/admin/structure", title: "Структура и права", desc: "Факультеты, кафедры и назначение ответственных редакторов.", icon: Building2 },
+  { href: "/admin/navigation", title: "Разделы сайта", desc: "Карта страниц и быстрый доступ к публичным разделам.", icon: LayoutGrid },
+];
+const detail = [
+  { href: "/admin/editorial-review", title: "Новости", icon: Newspaper },
+  { href: "/admin/staff-review", title: "Сотрудники", icon: Users },
+  { href: "/admin/document-review", title: "Документы", icon: FileText },
+];
 
 export default async function AdminPage() {
-  // The prototype stays inaccessible in production until authenticated Backend is ready.
-  if (process.env.NODE_ENV !== "development") {
-    return <main className="mx-auto max-w-3xl px-5 py-20"><h1 className="text-2xl font-bold">БГУ · BSU · БМУ · 比什凯克国立大学</h1><p className="mt-4">Панель управления недоступна. / Башкаруу панели жеткиликсиз. / Administration is unavailable. / 管理面板暂不可用。</p></main>;
-  }
-
+  if (!adminAccessEnabled()) notFound();
   await requireAdminRole("ccr");
-
-  // Preview only. Data comes from local snapshots, not PostgreSQL or Backend API.
-  const [faculties, departments, staff, programs, news, documents] = await Promise.all([
-    getFaculties(), getDepartments(), getStaff(), getPrograms(), getNews(), getDocuments(),
-  ]);
-  return <AdminWorkspace
-    seedFaculties={faculties.map(f => ({id:f.slug,title:f.name,subtitle:f.category,source:f.sourceUrl}))}
-    seedDepartments={departments.map(d => ({id:d.slug,title:d.name,subtitle:d.facultyName,source:d.facultySourceUrl}))}
-    seedStaff={staff.map(s => ({id:s.slug,title:s.name,subtitle:s.position + " · " + s.facultyName,source:s.sourceUrl}))}
-    seedPrograms={programs.map(p => ({id:p.slug,title:p.title,subtitle:p.level + " · " + p.facultyName,source:p.sourceUrl}))}
-    seedNews={news.map(n => ({id:n.slug,title:n.title,subtitle:n.date + " · " + n.category,source:n.sourceUrl}))}
-    seedDocuments={documents.map(d => ({id:d.slug,title:d.title,subtitle:d.category,source:d.sourceUrl}))}
-  />;
+  return <main className="min-h-[calc(100vh-65px)] bg-[#f5f7fb] px-4 py-10 text-slate-900 sm:px-6">
+    <div className="mx-auto max-w-6xl space-y-8">
+      <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div><p className="text-xs font-bold uppercase tracking-[.18em] text-blue-700">БГУ · Центр цифрового развития</p><h1 className="mt-2 text-3xl font-extrabold tracking-tight text-[#173d70] sm:text-4xl">Панель управления</h1><p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">Все ключевые действия — через верхнее меню. Согласование заявок собрано в одной рабочей области.</p></div>
+        <span className="w-fit rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-800">Тестовая среда</span>
+      </header>
+      <div className="grid gap-4 md:grid-cols-3">
+        {areas.map(area => <Link key={area.href} href={area.href} className={`group flex min-h-52 flex-col justify-between rounded-2xl border p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${area.main ? "border-[#173d70] bg-[#173d70] text-white" : "border-slate-200 bg-white"}`}>
+          <div className="flex items-start justify-between"><span className={`flex size-12 items-center justify-center rounded-xl ${area.main ? "bg-white/15" : "bg-blue-50 text-[#173d70]"}`}><area.icon size={24}/></span><ArrowUpRight size={21} className={area.main ? "text-blue-100" : "text-slate-400"}/></div>
+          <div><h2 className="mt-6 text-lg font-bold">{area.title}</h2><p className={`mt-2 text-sm leading-6 ${area.main ? "text-blue-100" : "text-slate-500"}`}>{area.desc}</p></div>
+        </Link>)}
+      </div>
+      <section className="rounded-2xl border border-slate-200 bg-white p-6">
+        <div className="flex flex-wrap items-baseline justify-between gap-2"><h2 className="text-lg font-bold text-[#173d70]">Быстрые переходы</h2><Link href="/admin/review-center" className="text-sm font-semibold text-blue-700 hover:underline">Открыть все заявки</Link></div>
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">{detail.map(item => <Link key={item.href} href={item.href} className="flex items-center gap-3 rounded-xl border border-slate-200 p-4 text-sm font-semibold hover:border-blue-200 hover:bg-blue-50"><item.icon size={19} className="text-[#173d70]"/>{item.title}<ArrowUpRight size={16} className="ml-auto text-slate-400"/></Link>)}</div>
+      </section>
+      <p className="text-xs leading-5 text-slate-500">Работа с материалами и правами доступа осуществляется через защищённые тестовые API. Старый демонстрационный редактор больше не отображается на главной ЦЦР. Для публичного развёртывания административную систему необходимо отдельно подготовить и проверить.</p>
+    </div>
+  </main>;
 }

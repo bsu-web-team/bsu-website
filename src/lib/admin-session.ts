@@ -9,6 +9,14 @@ export type AdminPrincipal = {
   facultySlug?: string | null;
   departmentSlug?: string | null;
 };
+/** Production admin is opt-in and requires an HTTPS auth backend. */
+export function adminAccessEnabled(): boolean {
+  if (process.env.NODE_ENV === "development") return true;
+  const apiBase = process.env.BSU_ADMIN_API_BASE_URL;
+  return process.env.BSU_ADMIN_PRODUCTION_ENABLED === "true" &&
+    typeof apiBase === "string" && /^https:\/\/[^\s/]+/.test(apiBase);
+}
+
 export const SESSION_COOKIE = "bsu_admin_session_dev";
 export const adminApiBase = () => process.env.BSU_ADMIN_API_BASE_URL || "http://127.0.0.1:8001/api/v1";
 
@@ -22,7 +30,7 @@ function isPrincipal(value: unknown): value is AdminPrincipal {
 }
 
 export async function adminPrincipal(): Promise<AdminPrincipal | null> {
-  if (process.env.NODE_ENV !== "development") return null;
+  if (!adminAccessEnabled()) return null;
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   if (!token) return null;
   try {
@@ -40,7 +48,7 @@ export async function adminPrincipal(): Promise<AdminPrincipal | null> {
 }
 
 export async function requireAdminRole(role: AdminRole): Promise<AdminPrincipal> {
-  if (process.env.NODE_ENV !== "development") redirect("/");
+  if (!adminAccessEnabled()) redirect("/");
   const principal = await adminPrincipal();
   if (!principal) redirect("/admin/login");
   if (principal.role !== role) {

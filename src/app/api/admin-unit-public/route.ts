@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { adminApiBase, SESSION_COOKIE } from "@/lib/admin-session";
+import { adminApiBase, SESSION_COOKIE, adminAccessEnabled } from "@/lib/admin-session";
 
 type Principal = {
   role?: string;
@@ -10,7 +10,7 @@ type Principal = {
 
 // Display-only; public content always comes from the same API used by the live site.
 export async function GET() {
-  if (process.env.NODE_ENV !== "development") return NextResponse.json({ error: "Недоступно" }, { status: 404 });
+  if (!adminAccessEnabled()) return NextResponse.json({ error: "Недоступно" }, { status: 404 });
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   if (!token) return NextResponse.json({ error: "Требуется вход" }, { status: 401 });
   try {

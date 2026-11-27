@@ -1,10 +1,10 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { adminApiBase, allowedOrigin, SESSION_COOKIE } from "@/lib/admin-session";
+import { adminApiBase, allowedOrigin, SESSION_COOKIE, adminAccessEnabled } from "@/lib/admin-session";
 
 // Local development BFF: the bearer token stays in an HttpOnly cookie.
 async function upstream(method: "GET" | "PUT", payload?: unknown) {
-  if (process.env.NODE_ENV !== "development") return NextResponse.json({ error: "Недоступно" }, { status: 404 });
+  if (!adminAccessEnabled()) return NextResponse.json({ error: "Недоступно" }, { status: 404 });
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   if (!token) return NextResponse.json({ error: "Необходим вход" }, { status: 401 });
   try {
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
   if (!allowedOrigin(request)) return NextResponse.json({error:"Неверный источник"},{status:403});
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   if (!token) return NextResponse.json({error:"Необходим вход"},{status:401});
-  if (process.env.NODE_ENV !== "development") return NextResponse.json({error:"Недоступно"},{status:404});
+  if (!adminAccessEnabled()) return NextResponse.json({error:"Недоступно"},{status:404});
   try {
     const r=await fetch(`${adminApiBase()}/admin-unit-profiles/mine/submit`,{
       method:"POST",headers:{Authorization:`Bearer ${token}`},cache:"no-store",signal:AbortSignal.timeout(10000),

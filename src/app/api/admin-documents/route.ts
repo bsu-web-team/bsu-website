@@ -1,9 +1,9 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { adminApiBase, allowedOrigin, SESSION_COOKIE } from "@/lib/admin-session";
+import { adminApiBase, allowedOrigin, SESSION_COOKIE, adminAccessEnabled } from "@/lib/admin-session";
 
 async function proxy(request: Request, method: "GET" | "POST" | "PUT") {
-  if (process.env.NODE_ENV !== "development") return NextResponse.json({error:"Недоступно"},{status:404});
+  if (!adminAccessEnabled()) return NextResponse.json({error:"Недоступно"},{status:404});
   const token=(await cookies()).get(SESSION_COOKIE)?.value;
   if (!token) return NextResponse.json({error:"Требуется вход"},{status:401});
   if(method!=="GET" && !allowedOrigin(request)) return NextResponse.json({error:"Неверный источник"},{status:403});
