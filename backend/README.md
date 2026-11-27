@@ -92,15 +92,20 @@ In the repository root, create `.env.local` (see `.env.example`):
 BSU_DATA_SOURCE=backend
 BSU_CONTENT_SOURCE=backend
 BSU_API_BASE_URL=http://127.0.0.1:8000/api/v1
+BSU_API_REVALIDATE_SECONDS=300
 ```
 
-Then `npm run dev` or `npm run build`. With `BSU_DATA_SOURCE=backend` the
-website does **not** fall back to local data: if the API is down, pages fail
-(contract rule). API responses are cached by the website for a few minutes
-(`src/lib/backend/client.ts`, `"use cache"` + `cacheLife('minutes')`).
+Then `npm run dev`, or `npm run build` and `npm run start`.
 
-Inside Docker, use the service name instead of localhost, e.g.
-`http://api:8000/api/v1` on the same Compose network.
+- `BSU_API_REVALIDATE_SECONDS` must be greater than 0 for `npm run build` in
+  backend mode. With the default `0` (no-store), Next.js 16 with
+  `cacheComponents` stops the build with "uncached data during prerendering".
+- With `BSU_DATA_SOURCE=backend` the website does **not** fall back to local
+  data: if the API is down, pages fail (contract rule).
+- Inside Docker, use the service name instead of localhost, e.g.
+  `http://api:8000/api/v1` on the same Compose network.
+- The website adapter (`src/lib/backend/`, see `docs/BACKEND_ADAPTER_V7_5.md`)
+  is owned by the frontend; the backend follows `docs/BACKEND_API_CONTRACT_V7_4.md`.
 
 ## Data import (`app.seed`)
 

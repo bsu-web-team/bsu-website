@@ -1,5 +1,5 @@
 """Alembic environment: connects to the database from app settings and
-compares it with the models in app/models.py."""
+compares it with all SQLAlchemy models (app/models.py and app/*_models.py)."""
 from logging.config import fileConfig
 
 from alembic import context
@@ -7,10 +7,18 @@ from sqlalchemy import create_engine
 
 from app.config import settings
 from app.models import Base
+
+# Every module that defines tables must be imported here. Otherwise
+# `alembic revision --autogenerate` treats its tables as removed (DROP TABLE).
 from app import admin_models  # noqa: F401
 from app import editorial_models  # noqa: F401
 from app import editorial_media  # noqa: F401
 from app import unit_profile_models  # noqa: F401
+from app import staff_draft_models  # noqa: F401
+from app import staff_photo_models  # noqa: F401
+from app import document_workflow_models  # noqa: F401
+from app import program_workflow_models  # noqa: F401
+from app import structure_models  # noqa: F401
 
 if context.config.config_file_name is not None:
     fileConfig(context.config.config_file_name)

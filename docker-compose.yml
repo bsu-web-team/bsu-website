@@ -3,6 +3,8 @@
 #   node scripts/export-backend.cjs               # export website data to backend-export/
 #   docker compose run --rm api python -m app.seed --source /export   # import it
 #   open http://127.0.0.1:8000/docs
+# If port 8000 or 5432 is busy, choose others, e.g. in PowerShell:
+#   $env:API_PORT=8080; docker compose up -d      (or put API_PORT=8080 in a root .env file)
 # Credentials here are for local use only; never reuse them on a server.
 name: bsu-backend
 
@@ -14,7 +16,7 @@ services:
       POSTGRES_PASSWORD: bsu_local_password
       POSTGRES_DB: bsu
     ports:
-      - "127.0.0.1:5432:5432"
+      - "127.0.0.1:${DB_PORT:-5432}:5432"
     volumes:
       - bsu_pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -29,7 +31,7 @@ services:
     environment:
       DATABASE_URL: postgresql://bsu:bsu_local_password@db:5432/bsu
     ports:
-      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:${API_PORT:-8000}:8000"
     volumes:
       - ./backend-export:/export:ro
     depends_on:

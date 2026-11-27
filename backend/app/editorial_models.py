@@ -1,12 +1,17 @@
 """Editorial drafts are isolated from the public news table until CCR approves."""
 from datetime import datetime, timezone
-from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import DateTime, ForeignKey, Index, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from .models import Base
 from .admin_models import AdminUser
 
 class EditorialItem(Base):
     __tablename__ = "editorial_items"
+    # Indexes created by migration 0003; declared here so autogenerate keeps them.
+    __table_args__ = (
+        Index("ix_editorial_author", "author_id"),
+        Index("ix_editorial_status", "status"),
+    )
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     author_id: Mapped[int] = mapped_column(ForeignKey("admin_users.id", ondelete="RESTRICT"), nullable=False)
     author: Mapped[AdminUser] = relationship(foreign_keys=[author_id])

@@ -1,11 +1,13 @@
 """Private pending structure edits. Existing public records remain unchanged until CCR approval."""
 from datetime import datetime, timezone
-from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import DateTime, ForeignKey, Index, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column
 from .models import Base
 
 class StructureDraft(Base):
     __tablename__ = 'structure_change_drafts'
+    # Index created by migration 0011; declared here so autogenerate keeps it.
+    __table_args__ = (Index('ix_structure_drafts_status', 'status'),)
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     kind: Mapped[str] = mapped_column(String(20), nullable=False)  # faculty / department
     target_id: Mapped[int | None] = mapped_column(Integer)
