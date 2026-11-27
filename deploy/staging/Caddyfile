@@ -1,0 +1,18 @@
+# BSU staging: plain HTTP inside the university network (http://nn.bsu.kg).
+# ":80" answers for any host name and for the IP address.
+:80 {
+	encode zstd gzip
+
+	# Staging must not appear in search engines.
+	header X-Robots-Tag "noindex, nofollow"
+
+	# Optional shared password for the whole site. To enable:
+	#   1. docker compose exec caddy caddy hash-password    (enter the password)
+	#   2. uncomment the 3 lines below, put the user name and the printed hash
+	#   3. docker compose restart caddy
+	# basic_auth {
+	# 	bsu PASTE_HASH_HERE
+	# }
+
+	reverse_proxy web:3000
+}
