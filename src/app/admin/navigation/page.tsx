@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { requireAdminRole } from "@/lib/admin-session";
+import { requireAdminRole, adminAccessEnabled } from "@/lib/admin-session";
 
 export const metadata: Metadata = {
   title: "Карта административных разделов · БГУ",
@@ -34,7 +34,7 @@ const groups = [
 ] as const;
 
 export default async function AdminNavigationPage() {
-  if (process.env.NODE_ENV !== "development") notFound();
+  if (!adminAccessEnabled()) notFound();
   await requireAdminRole("ccr");
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-8 text-slate-900 sm:px-8">

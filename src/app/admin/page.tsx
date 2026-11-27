@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { requireAdminRole } from "@/lib/admin-session";
+import { requireAdminRole, adminAccessEnabled } from "@/lib/admin-session";
 import { ArrowUpRight, Building2, ClipboardCheck, FileText, LayoutGrid, Newspaper, Users } from "lucide-react";
 
 export const metadata: Metadata = { title: "Панель ЦЦР · БГУ", robots: { index: false, follow: false } };
@@ -18,7 +18,7 @@ const detail = [
 ];
 
 export default async function AdminPage() {
-  if (process.env.NODE_ENV !== "development") notFound();
+  if (!adminAccessEnabled()) notFound();
   await requireAdminRole("ccr");
   return <main className="min-h-[calc(100vh-65px)] bg-[#f5f7fb] px-4 py-10 text-slate-900 sm:px-6">
     <div className="mx-auto max-w-6xl space-y-8">

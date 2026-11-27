@@ -1,5 +1,5 @@
-﻿import { NextResponse } from "next/server";
-import { adminApiBase, allowedOrigin, correctAdminHome, SESSION_COOKIE } from "@/lib/admin-session";
+import { NextResponse } from "next/server";
+import { adminApiBase, allowedOrigin, correctAdminHome, SESSION_COOKIE, adminAccessEnabled } from "@/lib/admin-session";
 
 type LoginResult = {
   accessToken?: unknown;
@@ -8,7 +8,7 @@ type LoginResult = {
 };
 
 export async function POST(request: Request) {
-  if (process.env.NODE_ENV !== "development") return NextResponse.json({ error: "Not available" }, { status: 404 });
+  if (!adminAccessEnabled()) return NextResponse.json({ error: "Not available" }, { status: 404 });
   if (!allowedOrigin(request)) return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
   let input: unknown;
   try { input = await request.json(); } catch { return NextResponse.json({ error: "Invalid JSON" }, { status: 400 }); }
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
     const response = NextResponse.json({ ok: true, redirectTo: correctAdminHome(role) });
     response.headers.set("Cache-Control", "no-store");
     response.cookies.set(SESSION_COOKIE, result.accessToken, {
-      httpOnly: true, secure: false, sameSite: "strict", path: "/",
+      httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "strict", path: "/",
       maxAge: Math.min(typeof result.expiresIn === "number" ? result.expiresIn : 28800, 28800),
     });
     return response;
